@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Users
 {
-    class Admin
+    class Admin : UserAccount
     {
+        public Admin()
+            : base()
+        {
+
+        }
     }
 }
