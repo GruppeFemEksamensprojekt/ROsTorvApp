@@ -8,5 +8,6 @@ namespace ROsTorvApp.Model.Users
 {
     class User
     {
+        public string _name;
     }
 }
