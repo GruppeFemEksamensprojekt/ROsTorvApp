@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Users
 {
-    class UserAccount
+    abstract class UserAccount
     {
         public string UserName { get; set; }
         public string Email { get; set; }
@@ -15,7 +15,7 @@ namespace ROsTorvApp.Model.Users
         public bool IsAdmin { get; set; }
 
 
-        public UserAccount(string userName, string email, string password, string phoneNo, bool isAdmin)
+        protected UserAccount(string userName, string email, string password, string phoneNo, bool isAdmin)
         {
             UserName = userName;
             Email = email;
@@ -24,13 +24,13 @@ namespace ROsTorvApp.Model.Users
             IsAdmin = isAdmin;
         }
 
-        public UserAccount()
+        protected UserAccount()
         {
 
         }
 
 
-        public void CreateUser()
+        public virtual void CreateUser()
         {
 
         }
