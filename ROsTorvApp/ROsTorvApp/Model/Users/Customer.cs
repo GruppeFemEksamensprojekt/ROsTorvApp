@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Users
 {
-    class Customer
+    class Customer : UserAccount
     {
+        public Customer()
+            : base()
+        {
+            
+        }
+        
     }
 }
