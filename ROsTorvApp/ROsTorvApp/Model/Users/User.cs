@@ -9,5 +9,7 @@ namespace ROsTorvApp.Model.Users
     class User
     {
         public string _name;
+        public string Halloej { get; set; }
+        
     }
 }
