@@ -129,6 +129,7 @@
     <Compile Include="Model\Users\Admin.cs" />
     <Compile Include="Model\Users\Customer.cs" />
     <Compile Include="Model\Users\UserAccount.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\Collections\CustomerCollectionVM.cs" />
     <Compile Include="ViewModel\Collections\EventCollectionVM.cs" />
