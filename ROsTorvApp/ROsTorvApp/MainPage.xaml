@@ -34,7 +34,11 @@
             Grid.Row="0"
             Grid.ColumnSpan="2"
             Background="Turquoise">
-            <TextBlock FontSize="30" Text="Ro's Torv" />
+            <TextBlock FontSize="60" Text="RO's Torv"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="Black"
+                       FontWeight="Bold"/>
         </StackPanel>
         <!--  Navigation Bar  -->
         <Grid
