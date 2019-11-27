@@ -15,7 +15,7 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         public ObservableCollection<Admin> AdminCollection { get; set; }
 
-        public void AddaAdmin(Admin Admin)
+        public void AddAdmin(Admin Admin)
         {
             AdminCollection.Add(Admin);
         }
