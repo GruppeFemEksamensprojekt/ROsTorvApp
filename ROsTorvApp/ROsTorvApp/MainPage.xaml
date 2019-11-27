@@ -27,7 +27,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2" Grid.Row="12" Background="Brown" Orientation="Horizontal">
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="12" Background="Green" Orientation="Horizontal">
             <Image></Image>
             
         </StackPanel>
