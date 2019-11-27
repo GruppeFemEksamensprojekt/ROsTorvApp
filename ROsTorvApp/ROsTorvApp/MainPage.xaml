@@ -12,7 +12,7 @@
     <Page.DataContext>
         <ViewModelCollections:StoreCollectionVM />
     </Page.DataContext>
-    <Grid>
+    <Grid Background="#00acc1">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -44,59 +44,69 @@
             <Button
                 Grid.Column="0"
                 Padding="30,5"
-                HorizontalAlignment="Center"
-                Background="#eee">
+                HorizontalAlignment="Center">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0" />
+                </Button.Background>
                 <StackPanel>
-                    <Image Height="40" Source="/Assets/Images/HomeImage.png" />
+                    <Image Height="35" Source="/Assets/Images/HomeImage.png" />
                     <TextBlock
                         HorizontalAlignment="Center"
-                        FontSize="8"
+                        FontSize="10"
                         Foreground="#444"
-                        Text="Home" />
+                        Text="Hjem" />
                 </StackPanel>
             </Button>
             <Button
                 Grid.Column="1"
                 Padding="30,5"
-                HorizontalAlignment="Center"
-                Background="#eee">
+                HorizontalAlignment="Center">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0" />
+                </Button.Background>
                 <StackPanel>
-                    <Image Height="40" Source="/Assets/Images/HomeImage.png" />
+                    <Image Height="35" Source="/Assets/Images/ShopsImage.png" />
                     <TextBlock
                         HorizontalAlignment="Center"
-                        FontSize="8"
+                        FontSize="10"
                         Foreground="#444"
-                        Text="Home" />
+                        Text="Butikker" />
                 </StackPanel>
             </Button>
             <Button
                 Grid.Column="2"
                 Padding="30,5"
-                HorizontalAlignment="Center"
-                Background="#eee">
+                HorizontalAlignment="Center">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0" />
+                </Button.Background>
                 <StackPanel>
-                    <Image Height="40" Source="/Assets/Images/HomeImage.png" />
+                    <Image Height="35" Source="/Assets/Images/EventsImage.png" />
                     <TextBlock
                         HorizontalAlignment="Center"
-                        FontSize="8"
+                        FontSize="10"
                         Foreground="#444"
-                        Text="Home" />
+                        Text="Events" />
                 </StackPanel>
             </Button>
             <Button
                 Grid.Column="3"
                 Padding="30,5"
-                HorizontalAlignment="Center"
-                Background="#eee">
+                HorizontalAlignment="Center">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0" />
+                </Button.Background>
                 <StackPanel>
-                    <Image Height="40" Source="/Assets/Images/HomeImage.png" />
+                    <Image Height="35" Source="/Assets/Images/MoreImage.png" />
                     <TextBlock
                         HorizontalAlignment="Center"
-                        FontSize="8"
+                        FontSize="10"
                         Foreground="#444"
-                        Text="Home" />
+                        Text="Mere" />
                 </StackPanel>
             </Button>
+
+
         </Grid>
 
     </Grid>
