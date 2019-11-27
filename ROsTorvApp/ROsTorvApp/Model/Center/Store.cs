@@ -15,8 +15,9 @@ namespace ROsTorvApp.Model.Center
         public int LocationFloor { get; set; }
         public int LocationNo { get; set; }
         public string ImageStore { get; set; }
+        public string StoreCategory { get; set; }
 
-        public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore)
+        public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory)
         {
             StoreId = storeId;
             StoreName = storeName;
@@ -25,6 +26,7 @@ namespace ROsTorvApp.Model.Center
             LocationFloor = locationFloor;
             LocationNo = locationNo;
             ImageStore = imageStore;
+            StoreCategory = storeCategory;
         }
 
 
