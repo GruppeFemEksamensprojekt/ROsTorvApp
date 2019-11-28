@@ -42,11 +42,38 @@
             </StackPanel>
         </StackPanel>
         <StackPanel
+            Grid.Row="5"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <StackPanel Width="220">
+                <TextBlock FontSize="20" Text="Password:" />
+                <TextBox Text="" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="6"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center">
+            <Button
+                Width="150"
+                Margin="0,5,0,0"
+                Background="DodgerBlue"
+                Content="Login med Facebook" />
+            <Button
+                Width="150"
+                Margin="0,5,0,0"
+                Background="White"
+                Content="Login med Google" />
+        </StackPanel>
+        <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
-            Background="#B18FCF">
+            Background="#B18FCF"
+            VerticalAlignment="Center">
             <TextBlock
-                HorizontalAlignment="center"
+                HorizontalAlignment="Center"
                 FontSize="30"
                 Foreground="Black"
                 Text="RO's Torv" />
