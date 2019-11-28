@@ -47,7 +47,6 @@
             Background="#B18FCF">
             <TextBlock
                 HorizontalAlignment="center"
-                VerticalAlignment="Center"
                 FontSize="30"
                 Foreground="Black"
                 Text="RO's Torv" />
