@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Include\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
