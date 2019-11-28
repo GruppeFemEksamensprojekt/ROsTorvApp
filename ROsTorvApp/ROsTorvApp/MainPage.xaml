@@ -66,9 +66,7 @@
                 Background="White"
                 Content="Login med Google" />
         </StackPanel>
-        <StackPanel
-            Grid.ColumnSpan="4"
-            Background="#B18FCF">
+        <StackPanel Grid.ColumnSpan="4" Background="#B18FCF">
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"

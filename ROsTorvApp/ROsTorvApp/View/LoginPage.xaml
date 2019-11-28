@@ -49,29 +49,43 @@
                     <TextBox Text="" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel
-                Grid.Row="6"
-                Grid.RowSpan="2"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center">
-                <Button
-                    Width="150"
-                    Margin="0,5,0,0"
-                    Background="DodgerBlue"
-                    Content="Login med Facebook" />
-                <Button
-                    Width="150"
-                    Margin="0,5,0,0"
-                    Background="White"
-                    Content="Login med Google" />
+            <StackPanel Grid.Row="6" HorizontalAlignment="Right">
+                <Button Content="Opret bruger"
+                        Margin="0 0 5 0"
+                        Width="100"
+                        FontSize="10"/>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Grid.Column="1">
+                <Button Content="Glemt kodeord"
+                        Margin="0 0 5 0"
+                        Width="100"
+                        FontSize="10"/>
             </StackPanel>
             <StackPanel
-                Grid.Row="0"
-                Grid.ColumnSpan="4"
-                VerticalAlignment="Center"
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+                <Button
+                    Width="150"
+                    Background="DodgerBlue"
+                    Content="Login med Facebook"
+                    FontSize="10"
+                    Margin="0 0 0 5"/>
+                </StackPanel>
+            <StackPanel Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button
+                    Width="150"
+                    Background="White"
+                    Content="Login med Google" 
+                    FontSize="10"/>
+            </StackPanel>
+            <StackPanel
+                Grid.ColumnSpan="2"
                 Background="#B18FCF">
                 <TextBlock
                     HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     FontSize="30"
                     Foreground="Black"
                     Text="RO's Torv" />
@@ -122,7 +136,7 @@
                 <Button
                     Grid.Column="2"
                     Padding="30,5"
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Center" Margin="0,1,0,0" VerticalAlignment="Top">
                     <Button.Background>
                         <SolidColorBrush Opacity="0" />
                     </Button.Background>
