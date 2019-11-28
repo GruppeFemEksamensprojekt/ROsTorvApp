@@ -29,7 +29,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
-
         </Grid.ColumnDefinitions>
         <StackPanel
             Grid.Row="4"
@@ -68,12 +67,11 @@
                 Content="Login med Google" />
         </StackPanel>
         <StackPanel
-            Grid.Row="0"
             Grid.ColumnSpan="4"
-            Background="#B18FCF"
-            VerticalAlignment="Center">
+            Background="#B18FCF">
             <TextBlock
                 HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 FontSize="30"
                 Foreground="Black"
                 Text="RO's Torv" />
