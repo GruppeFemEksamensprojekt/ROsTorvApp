@@ -25,11 +25,6 @@ namespace ROsTorvApp.Model.Users
             IsAdmin = isAdmin;
         }
 
-        public void Merge()
-        {
-            AdminCollectionVM
-        }
-
         protected UserAccount()
         {
 

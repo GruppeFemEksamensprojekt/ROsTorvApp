@@ -16,8 +16,6 @@ namespace ROsTorvApp.ViewModel
 {
     public class Login
     {
-        private string _usernameBox;
-        private string _passwordBox;
         
         public ObservableCollection<UserAccount> UserList { get; set; }
 
