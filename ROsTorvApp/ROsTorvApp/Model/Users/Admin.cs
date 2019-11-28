@@ -9,14 +9,8 @@ namespace ROsTorvApp.Model.Users
     class Admin : UserAccount
     {
         public Admin(string userName, string email, string password, string phoneNo)
-            : base()
+            : base(userName,email,password,phoneNo,true)
         {
-            IsAdmin = true;
         }
-
-
-
-
-
     }
 }
