@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ROsTorvApp.ViewModel.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,9 @@ namespace ROsTorvApp.Model.Center
 
         public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory)
         {
+            //StoreCollectionVM StoreCollection = new StoreCollectionVM();
+            //StoreCollection.StoreCollection.Add(new Store(storeId, storeName, openingHours, description, locationFloor, locationNo, imageStore, storeCategory));
+            
             StoreId = storeId;
             StoreName = storeName;
             OpeningHours = openingHours;
@@ -26,9 +30,9 @@ namespace ROsTorvApp.Model.Center
             LocationFloor = locationFloor;
             LocationNo = locationNo;
             ImageStore = imageStore;
-            StoreCategory = storeCategory;
+            StoreCategory = storeCategory;    
         }
-
+        
 
     }
 }
