@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using ROsTorvApp.Model.Users;
 
+
 namespace ROsTorvApp.ViewModel.Collections
 {
     class CustomerCollectionVM
     {
+        private RelayCommand _NavigateCommand;
         public Customer Customer1;
         public ObservableCollection<Customer> CustomerCollection { get; set; }
 
@@ -23,4 +25,5 @@ namespace ROsTorvApp.ViewModel.Collections
             CustomerCollection.Add(customer);
         }
     }
+
 }
