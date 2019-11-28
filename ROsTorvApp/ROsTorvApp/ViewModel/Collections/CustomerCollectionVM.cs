@@ -22,8 +22,5 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             CustomerCollection.Add(customer);
         }
-
-
-
     }
 }
