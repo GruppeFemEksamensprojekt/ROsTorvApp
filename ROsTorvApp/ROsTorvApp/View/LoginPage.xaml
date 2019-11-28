@@ -51,7 +51,7 @@
                 Grid.ColumnSpan="2">
                 <StackPanel Width="220">
                     <TextBlock FontSize="20" Text="Password:" />
-                    <TextBox Text="" />
+                    <TextBox Text=""/>
                 </StackPanel>
             </StackPanel>
             <StackPanel
