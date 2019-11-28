@@ -11,7 +11,7 @@ namespace ROsTorvApp.Model.Users
         public Customer()
             : base()
         {
-            
+            IsAdmin = false;
         }
         
     }

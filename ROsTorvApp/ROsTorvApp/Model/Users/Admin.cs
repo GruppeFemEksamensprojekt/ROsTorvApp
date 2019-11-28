@@ -11,7 +11,12 @@ namespace ROsTorvApp.Model.Users
         public Admin()
             : base()
         {
-
+            IsAdmin = true;
         }
+
+
+
+
+
     }
 }

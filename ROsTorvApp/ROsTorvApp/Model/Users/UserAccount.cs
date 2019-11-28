@@ -28,12 +28,5 @@ namespace ROsTorvApp.Model.Users
         {
 
         }
-
-
-        public virtual void CreateUser()
-        {
-
-        }
-
     }
 }
