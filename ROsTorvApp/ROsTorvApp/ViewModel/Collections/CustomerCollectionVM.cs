@@ -10,7 +10,20 @@ namespace ROsTorvApp.ViewModel.Collections
 {
     class CustomerCollectionVM
     {
+        public Customer Customer1;
         public ObservableCollection<Customer> CustomerCollection { get; set; }
+
+        public CustomerCollectionVM()
+        {
+           AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100",false));
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            CustomerCollection.Add(customer);
+        }
+
+
 
     }
 }

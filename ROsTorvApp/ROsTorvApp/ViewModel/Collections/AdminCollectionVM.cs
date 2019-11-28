@@ -13,21 +13,17 @@ namespace ROsTorvApp.ViewModel.Collections
 {
     class AdminCollectionVM
     {
+        public Admin Admin1;
         public ObservableCollection<Admin> AdminCollection { get; set; }
 
         public AdminCollectionVM()
         {
-            AddAdmin(Admin1);
+            AddAdmin(Admin1 = new Admin("Admin","E-Mail@Email.com","password","40404040",true););
         }
         
         public void AddAdmin(Admin Admin)
         {
             AdminCollection.Add(Admin);
         }
-
-        Admin Admin1 = new Admin("Admin","E-Mail@Email.com","password","40404040",true);
-
-        
     }
-
 }
