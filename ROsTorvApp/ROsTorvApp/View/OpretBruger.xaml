@@ -29,11 +29,22 @@
             <ColumnDefinition />
 
         </Grid.ColumnDefinitions>
-        <Grid Grid.ColumnSpan="2">
-            <Include:Header />
-        </Grid>
+        <Grid Grid.ColumnSpan="2" />
+        <Button
+            Grid.Column="0"
+            Margin="20,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="Button_Click">
+            <Button.Background>
+                <SolidColorBrush Opacity="0" />
+            </Button.Background>
+            <StackPanel>
+                <Image Height="20" Source="/Assets/Images/BackImage.png" />
+            </StackPanel>
+        </Button>
         <StackPanel
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.RowSpan="12"
             Grid.ColumnSpan="2">
             <TextBlock

@@ -20,16 +20,11 @@ namespace ROsTorvApp.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class OpretBruger : Page
+    public sealed partial class Events : Page
     {
-        public OpretBruger()
+        public Events()
         {
             this.InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).GoBack();
         }
     }
 }

@@ -13,20 +13,16 @@ using ROsTorvApp.View;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
-    public class CustomerCollectionVM
+    class CustomerCollectionVM
     {
-        
+        private RelayCommand _navigateToOpretBrugerCommand;
         public Customer Customer1;
-        private ObservableCollection<Customer> _customerCollection;
-        public static ObservableCollection<Customer> CustomerCollection { get; set; }
+        private NavigationView _navigationService;
+        public ObservableCollection<Customer> CustomerCollection { get; set; }
 
         public CustomerCollectionVM()
         {
             AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
-        }
-
-       private void Navigation()
-        {
         }
 
         public void AddCustomer(Customer customer)

@@ -1,17 +1,13 @@
 ﻿<Page
-    x:Class="ROsTorvApp.MainPage"
+    x:Class="ROsTorvApp.View.More"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Include="using:ROsTorvApp.Include"
-    xmlns:ViewModelCollections="using:ROsTorvApp.ViewModel.Collections"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:ROsTorvApp"
+    xmlns:local="using:ROsTorvApp.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <Page.DataContext>
-        <ViewModelCollections:StoreCollectionVM />
-    </Page.DataContext>
 
     <Grid Background="white">
         <Grid.RowDefinitions>
@@ -37,7 +33,11 @@
             <Include:Header />
         </Grid>
         <!--  Page  -->
-
+        <TextBlock
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            Text="More page" />
 
 
         <!--  Navigation Bar  -->
