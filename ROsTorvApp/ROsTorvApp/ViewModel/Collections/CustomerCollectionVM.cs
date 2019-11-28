@@ -15,7 +15,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public CustomerCollectionVM()
         {
-           AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100",false));
+           AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
         }
 
         public void AddCustomer(Customer customer)

@@ -18,12 +18,16 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public AdminCollectionVM()
         {
-            AddAdmin(Admin1 = new Admin("Admin", "E-Mail@Email.com", "password", "40404040", true));
+            AddAdmin(Admin);
         }
         
         public void AddAdmin(Admin Admin)
         {
             AdminCollection.Add(Admin);
         }
+
+        Admin Admin = new Admin("Admin","E-Mail@Email.com","password","40404040",true);
+
+        
     }
 }
