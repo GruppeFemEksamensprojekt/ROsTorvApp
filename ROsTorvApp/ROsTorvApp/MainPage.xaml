@@ -11,7 +11,7 @@
     <Page.DataContext>
         <ViewModelCollections:StoreCollectionVM />
     </Page.DataContext>
-    <Grid Background="#00acc1">
+    <Grid Background="#D8D8F6">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -29,8 +29,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
         <StackPanel
             Grid.Row="4"
@@ -45,11 +44,11 @@
         <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
-            Background="Turquoise">
+            Background="#B18FCF">
             <TextBlock
                 HorizontalAlignment="center"
-                FontSize="50"
-                FontWeight="Bold"
+                VerticalAlignment="Center"
+                FontSize="30"
                 Foreground="Black"
                 Text="RO's Torv" />
         </StackPanel>
