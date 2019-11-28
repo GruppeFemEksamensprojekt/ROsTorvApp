@@ -32,14 +32,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.ColumnSpan="4" Background="#B18FCF">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="30"
-                Foreground="Black"
-                Text="RO's Torv" />
-        </StackPanel>
+        <Grid Grid.ColumnSpan="2">
+            <Include:Header />
+        </Grid>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
