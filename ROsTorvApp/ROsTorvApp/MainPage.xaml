@@ -12,7 +12,8 @@
     <Page.DataContext>
         <ViewModelCollections:StoreCollectionVM />
     </Page.DataContext>
-    <Grid Background="#D8D8F6">
+
+    <Grid Background="white">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -31,16 +32,18 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
+        <!--  Header  -->
         <Grid Grid.ColumnSpan="2">
             <Include:Header />
         </Grid>
+        <!--  Page  -->
+
+
+
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>
         <!--  /Navigation Bar  -->
-
     </Grid>
-
 </Page>
