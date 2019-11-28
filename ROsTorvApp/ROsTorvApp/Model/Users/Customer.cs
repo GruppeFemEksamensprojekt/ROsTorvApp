@@ -8,7 +8,7 @@ namespace ROsTorvApp.Model.Users
 {
     class Customer : UserAccount
     {
-        public Customer()
+        public Customer(string userName, string email, string password, string phoneNo, bool isAdmin)
             : base()
         {
             IsAdmin = false;
