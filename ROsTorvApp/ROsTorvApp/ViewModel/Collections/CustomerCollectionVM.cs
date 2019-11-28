@@ -17,21 +17,12 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         private RelayCommand _navigateToOpretBrugerCommand;
         public Customer Customer1;
+        private NavigationView _navigationService;
         public ObservableCollection<Customer> CustomerCollection { get; set; }
 
         public CustomerCollectionVM()
         {
-            _navigateToOpretBrugerCommand = new RelayCommand(Navigation, null);
-           AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
-        }
-
-        public ICommand NavigateCommand
-        {
-            get { return _navigateToOpretBrugerCommand; }
-        }
-
-        private void Navigation()
-        {
+            AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
         }
 
         public void AddCustomer(Customer customer)
