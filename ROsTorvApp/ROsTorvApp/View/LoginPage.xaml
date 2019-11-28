@@ -49,33 +49,35 @@
                     <TextBox Text="" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Row="6" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="6" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <Button Content="Log Ind"
+                        Background="DarkBlue"
+                        Foreground="White"
+                        Width="230"/>
+            </StackPanel>
+            <StackPanel Grid.Row="7" HorizontalAlignment="Center" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Bottom">
                 <Button Content="Opret bruger"
                         Margin="0 0 5 0"
                         Width="100"
                         FontSize="10"/>
-            </StackPanel>
-            <StackPanel Grid.Row="6" Grid.Column="1">
-                <Button Content="Glemt kodeord"
-                        Margin="0 0 5 0"
+                <Button Content="Glemt kodeord?"
                         Width="100"
                         FontSize="10"/>
             </StackPanel>
             <StackPanel
-                Grid.Row="6"
+                Grid.Row="7"
                 Grid.ColumnSpan="2"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom">
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
                 <Button
-                    Width="150"
+                    Width="115"
                     Background="DodgerBlue"
                     Content="Login med Facebook"
                     FontSize="10"
-                    Margin="0 0 0 5"/>
-                </StackPanel>
-            <StackPanel Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Margin="0 0 5 0"/>
                 <Button
-                    Width="150"
+                    Width="115"
                     Background="White"
                     Content="Login med Google" 
                     FontSize="10"/>

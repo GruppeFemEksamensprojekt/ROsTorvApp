@@ -36,7 +36,7 @@
             <TextBlock Text="Opret din bruger ved at udfylde felterne nedenfor."
                      FontSize="15"
                      FontStyle="Italic"
-                     Margin="5"/>
+                     Margin="5 0 0 10"/>
             <TextBlock Text="Fornavn"
                        Margin="5 0 0 0"/>
             <TextBox Text=""
@@ -63,7 +63,9 @@
                      Margin="5"/>
             <Button Content="Opret bruger"
                     HorizontalAlignment="Center"
-                    Width="250"/>
+                    Width="250"
+                    Background="DodgerBlue"
+                    Foreground="White"/>
         </StackPanel>
     </Grid>
 </Page>
