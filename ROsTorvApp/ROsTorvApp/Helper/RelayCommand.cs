@@ -34,5 +34,6 @@ namespace ROsTorvApp.Interfaces
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
+        //Halløj
     }
 }
