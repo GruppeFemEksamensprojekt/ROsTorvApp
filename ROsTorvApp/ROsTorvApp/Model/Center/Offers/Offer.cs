@@ -13,16 +13,18 @@ namespace ROsTorvApp.Model.Center.Offers
         public decimal Discount { get; set; } // i %???
         public decimal PriceBefore { get; set; }
         public string Location { get; set; }
-        public DateTime RunTime { get; set; } // Lav om, vi skal bruge start og end date på offer's løbetid
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
 
-        public Offer(int offerId, string description, decimal discount, decimal priceBefore, string location, DateTime runTime)
+        public Offer(int offerId, string description, decimal discount, decimal priceBefore, string location, DateTime startTime,DateTime endTime)
         {
             OfferId = offerId;
             Description = description;
             Discount = discount;
             PriceBefore = priceBefore;
             Location = location;
-            RunTime = runTime;
+            StartTime = startTime;
+            EndTime = endTime;
         }
     
     }

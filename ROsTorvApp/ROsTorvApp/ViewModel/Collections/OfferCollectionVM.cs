@@ -10,6 +10,20 @@ namespace ROsTorvApp.ViewModel.Collections
 {
     class OfferCollectionVM
     {
+        public Offer Offer1;
         public ObservableCollection<Offer> OfferCollection { get; set; }
+
+        public OfferCollectionVM()
+        {
+            AddOffer(Offer1 = new Offer(1, "Tilbud In Føtex",
+                30,5000,"Føtex",
+                new DateTime(2019,12,16),
+                new DateTime(2019,12,24)));
+        }
+
+        public void AddOffer(Offer offer)
+        {
+            OfferCollection.Add(offer);
+        }
     }
 }
