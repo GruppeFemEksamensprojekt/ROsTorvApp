@@ -11,10 +11,12 @@ using ROsTorvApp.Model.Users;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
-    class AdminCollectionVM
+    public class AdminCollectionVM
     {
         public Admin Admin1;
-        public ObservableCollection<Admin> AdminCollection { get; set; }
+        private ObservableCollection<Admin> _adminCollection;
+
+        public static ObservableCollection<Admin> AdminCollection { get; set; }
 
         public AdminCollectionVM()
         {
@@ -24,10 +26,8 @@ namespace ROsTorvApp.ViewModel.Collections
         public void AddAdmin(Admin admin)
         {
             AdminCollection.Add(admin);
+            
         }
 
-        
-
-        
     }
 }

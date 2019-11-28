@@ -143,6 +143,7 @@
     <Compile Include="ViewModel\Collections\OfferCollectionVM.cs" />
     <Compile Include="ViewModel\Collections\StoreCollectionVM.cs" />
     <Compile Include="ViewModel\Collections\AdminCollectionVM.cs" />
+    <Compile Include="ViewModel\Login.cs" />
     <Compile Include="View\AppMenu.xaml.cs">
       <DependentUpon>AppMenu.xaml</DependentUpon>
     </Compile>

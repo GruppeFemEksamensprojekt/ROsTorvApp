@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ROsTorvApp.ViewModel.Collections;
 
 namespace ROsTorvApp.Model.Users
 {
-    abstract class UserAccount
+    public abstract class UserAccount
     {
         public string UserName { get; set; }
         public string Email { get; set; }
@@ -22,6 +23,11 @@ namespace ROsTorvApp.Model.Users
             Password = password;
             PhoneNo = phoneNo;
             IsAdmin = isAdmin;
+        }
+
+        public void Merge()
+        {
+            AdminCollectionVM
         }
 
         protected UserAccount()
