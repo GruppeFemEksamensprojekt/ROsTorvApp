@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
-namespace ROsTorvApp.Interfaces
+namespace ROsTorvApp.Helper
 {
-    class RelayCommand : ICommand
+    class RelayCommand
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
@@ -34,6 +33,5 @@ namespace ROsTorvApp.Interfaces
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
-        //Halløj
     }
 }
