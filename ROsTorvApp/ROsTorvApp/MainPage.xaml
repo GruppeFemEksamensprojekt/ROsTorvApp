@@ -44,10 +44,10 @@
         </StackPanel>
         <StackPanel
             Grid.Row="0"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="4"
             Background="Turquoise">
             <TextBlock
-                HorizontalAlignment="left"
+                HorizontalAlignment="center"
                 FontSize="50"
                 FontWeight="Bold"
                 Foreground="Black"
@@ -56,7 +56,7 @@
         <!--  Navigation Bar  -->
         <Grid
             Grid.Row="12"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="4"
             Background="#eee">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
