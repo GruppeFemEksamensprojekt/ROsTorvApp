@@ -27,16 +27,19 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <StackPanel
+            Grid.Row="4"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
             <StackPanel Width="220">
-                <TextBlock Text="Brugernavn:"
-                           FontSize="20"/>
-                <TextBox Text=""/>
+                <TextBlock FontSize="20" Text="Brugernavn:" />
+                <TextBox Text="" />
             </StackPanel>
         </StackPanel>
         <StackPanel
@@ -44,7 +47,7 @@
             Grid.ColumnSpan="2"
             Background="Turquoise">
             <TextBlock
-                HorizontalAlignment="Right"
+                HorizontalAlignment="left"
                 FontSize="50"
                 FontWeight="Bold"
                 Foreground="Black"
