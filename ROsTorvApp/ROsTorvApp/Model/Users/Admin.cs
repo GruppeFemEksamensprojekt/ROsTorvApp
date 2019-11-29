@@ -22,9 +22,9 @@ namespace ROsTorvApp.Model.Users
             DeleteCommand = new RelayCommand(DeleteStore,StoreCollectionVM.StoreIsSelected);
         }
 
-        public void AddStore() // this needs to be fixed!
+        public void AddStore()
         {
-            StoreCollectionVM.AddStore(new Store());
+            StoreCollectionVM.AddStore(new Store(Store.StoreId, Store.StoreName,Store.OpeningHours,Store.Description,Store.LocationFloor,Store.LocationNo,Store.ImageStore,Store.StoreCategory,Store.PhoneNo));
         }
 
         public void DeleteStore()
