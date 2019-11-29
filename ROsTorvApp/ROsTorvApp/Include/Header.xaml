@@ -9,11 +9,13 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="#4d5280">
         <TextBlock
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            FontFamily="Comic Sans Ms"
             FontSize="25"
-            Text="Ro's Torv" />
+            Foreground="#d7dbff"
+            Text="Velkommen til Ro's Torv" />
     </Grid>
 </UserControl>
