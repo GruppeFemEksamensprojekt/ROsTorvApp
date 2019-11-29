@@ -42,9 +42,14 @@
             <ListView ItemsSource="{Binding StoreCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="center:Store">
-                        <StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
                                 <Image Source="{Binding ImageStore}"/>
+                                <TextBlock Text="{Binding StoreName}"/>
+                                <TextBlock Text="{Binding StoreId}"
+                                           Margin="5 0 0 0"/>
                             </StackPanel>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

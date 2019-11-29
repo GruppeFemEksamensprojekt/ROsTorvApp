@@ -20,6 +20,7 @@ namespace ROsTorvApp.Model.Center
         public string ImageStore
         {
             get { return _imageStore; }
+            set { _imageStore = value; }
         }
         public string StoreCategory { get; set; }
 
