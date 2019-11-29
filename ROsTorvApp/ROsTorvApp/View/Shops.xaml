@@ -34,8 +34,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2">
-            <Include:Header />
+        <Grid Grid.ColumnSpan="2" Background="Gold">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Comic Sans MS"
+                FontSize="30"
+                Text="Butikker" />
         </Grid>
         <!--  Page  -->
         <Grid
@@ -58,7 +63,7 @@
                                     Width="250"
                                     Margin="10"
                                     FontSize="20"
-                                    Text="{Binding StoreName}" />
+                                    Text="{Binding StoreName}" FontFamily="Comic Sans MS" />
                                 <StackPanel VerticalAlignment="Center">
                                     <Button
                                         HorizontalAlignment="Right"
