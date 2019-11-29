@@ -39,14 +39,12 @@
         </Grid>
         <!--  Page  -->
         <Grid Grid.Row="1" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="2">
-            <ListView SelectedValue="{Binding SelectedStore, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ItemsSource="{Binding StoreCollection}">'
+            <ListView ItemsSource="{Binding StoreCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="center:Store">
-                        <ScrollViewer>
-                            <StackPanel>
+                        <StackPanel>
                                 <Image Source="{Binding ImageStore}"/>
                             </StackPanel>
-                        </ScrollViewer>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -9,13 +9,18 @@ namespace ROsTorvApp.Model.Center
 {
     class Store
     {
+        private string _imageStore;
+
         public int StoreId { get; set; }
         public string StoreName { get; set; }
         public string OpeningHours { get; set; }
         public string Description { get; set; }
         public int LocationFloor { get; set; }
         public int LocationNo { get; set; }
-        public string ImageStore { get; set; }
+        public string ImageStore
+        {
+            get { return _imageStore; }
+        }
         public string StoreCategory { get; set; }
 
         public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory)
@@ -29,7 +34,7 @@ namespace ROsTorvApp.Model.Center
             Description = description;
             LocationFloor = locationFloor;
             LocationNo = locationNo;
-            ImageStore = imageStore;
+            _imageStore= imageStore;
             StoreCategory = storeCategory;    
         }
         
