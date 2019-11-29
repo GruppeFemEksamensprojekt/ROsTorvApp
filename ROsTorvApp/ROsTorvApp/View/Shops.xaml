@@ -54,7 +54,17 @@
                                         Height="40"
                                         Source="{Binding ImageStore}" />
                                 </StackPanel>
-                                <TextBlock Margin="10" Text="{Binding StoreName}" />
+                                <TextBlock
+                                    Width="250"
+                                    Margin="10"
+                                    FontSize="20"
+                                    Text="{Binding StoreName}" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <Button
+                                        HorizontalAlignment="Right"
+                                        Background="Gold"
+                                        Content="STJERNE" />
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
