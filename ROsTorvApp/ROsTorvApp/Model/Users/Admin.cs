@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ROsTorvApp.Model.Center;
 
 namespace ROsTorvApp.Model.Users
 {
@@ -11,6 +12,11 @@ namespace ROsTorvApp.Model.Users
         public Admin(string userName, string email, string password, string phoneNo)
             : base(userName,email,password,phoneNo,true)
         {
+        }
+
+        public void CreateStore()
+        {
+
         }
     }
 }

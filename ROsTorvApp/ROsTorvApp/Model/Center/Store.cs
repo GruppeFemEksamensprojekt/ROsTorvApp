@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Center
 {
-    class Store
+    public class Store
     {
         public int StoreId { get; set; }
         public string StoreName { get; set; }
