@@ -19,5 +19,10 @@ namespace ROsTorvApp.Model.Users
         {
             StoreCollectionVM.AddStore(new Store());
         }
+
+        public void DeleteStore()
+        {
+            StoreCollectionVM.StoreCollection.Remove(StoreCollectionVM.SelectedStore);
+        }
     }
 }

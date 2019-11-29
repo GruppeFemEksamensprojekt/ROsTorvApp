@@ -34,7 +34,11 @@ namespace ROsTorvApp.Model.Center
             ImageStore= imageStore;
             StoreCategory = storeCategory;    
         }
-        
+
+        public Store()
+        {
+
+        }
 
     }
 }
