@@ -34,7 +34,8 @@ namespace ROsTorvApp.ViewModel
             return false;
         }
         //This pseudo login-system, checks if username and password fit together,
-        //if it is then it lets the user log in.
+        //if it is then it lets the user log in, nothing is encrypted or hashed,
+        //so this system is really weak and is only here for proof of concept/testing.
         public bool CheckLoginCredentials(UserAccount user)
         {
             MergeList();
