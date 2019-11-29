@@ -10,6 +10,7 @@ namespace ROsTorvApp.ViewModel.Collections
 {
    class StoreCollectionVM
     {
+
         private ObservableCollection<Store> _storeCollection;
         public StoreCollectionVM()
         {
