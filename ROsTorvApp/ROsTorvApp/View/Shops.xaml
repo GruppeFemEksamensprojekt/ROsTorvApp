@@ -12,7 +12,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <collections:StoreCollectionVM />
+        <collections:StoreCollectionVM/>
     </Page.DataContext>
     <Grid Background="white">
         <Grid.RowDefinitions>
@@ -48,7 +48,8 @@
             Grid.RowSpan="11"
             Grid.Column="0"
             Grid.ColumnSpan="2">
-            <ListView ItemsSource="{Binding StoreCollection}">
+            <ListView ItemsSource="{Binding StoreCollection}" 
+                      SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="center:Store">
                         <StackPanel Orientation="Vertical">
@@ -62,8 +63,9 @@
                                 <TextBlock
                                     Width="250"
                                     Margin="10"
+                                    FontFamily="Comic Sans MS"
                                     FontSize="20"
-                                    Text="{Binding StoreName}" FontFamily="Comic Sans MS" />
+                                    Text="{Binding StoreName}" />
                                 <StackPanel VerticalAlignment="Center">
                                     <Button
                                         HorizontalAlignment="Right"

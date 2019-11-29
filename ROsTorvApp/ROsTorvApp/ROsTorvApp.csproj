@@ -162,6 +162,9 @@
     <Compile Include="View\Shops.xaml.cs">
       <DependentUpon>Shops.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\StoreDetails.xaml.cs">
+      <DependentUpon>StoreDetails.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -225,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Shops.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StoreDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
