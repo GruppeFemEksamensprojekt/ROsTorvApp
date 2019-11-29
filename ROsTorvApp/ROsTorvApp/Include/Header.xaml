@@ -9,7 +9,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Background="teal">
+    <Grid>
         <TextBlock
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
