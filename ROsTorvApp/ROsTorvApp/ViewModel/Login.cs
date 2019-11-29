@@ -16,7 +16,6 @@ namespace ROsTorvApp.ViewModel
 {
     public class Login
     {
-        
         public ObservableCollection<UserAccount> UserList { get; set; }
 
         public Login()
@@ -24,9 +23,18 @@ namespace ROsTorvApp.ViewModel
             UserList = new ObservableCollection<UserAccount>();
         }
 
-
-
-
+        //This method checks if the user logging in is an admin or not,
+        //if he is an admin, he will be sent to an admin specific page.'
+        public bool IsAdmin(UserAccount user)
+        {
+            if (user.IsAdmin == true)
+            {
+                ((Frame) Window.Current.Content).Navigate(typeof(MainPage));
+            }
+            return false;
+        }
+        //This pseudo login-system, checks if username and password fit together,
+        //if it is then it lets the user log in.
         public bool CheckLoginCredentials(UserAccount user)
         {
             MergeList();
@@ -34,16 +42,13 @@ namespace ROsTorvApp.ViewModel
             {
                 if (user.UserName == user1.UserName && user.Password == user1.Password)
                 {
-                    return true;
-                    ((Frame) Window.Current.Content).Navigate(typeof(MainPage));
+                    return ((Frame) Window.Current.Content).Navigate(typeof(MainPage));
                 }
             }
             return false;
         }
-            
-    
-
-
+        //This method merge the two lists in AdminCollection and CustomerCollection together,
+        //so we only need to check on list when a user log in.
         public void MergeList()
         {
             foreach (var admin in AdminCollectionVM.AdminCollection)
@@ -55,9 +60,5 @@ namespace ROsTorvApp.ViewModel
                 UserList.Add(customer);
             }
         }
-
-
-
-
     }
 }
