@@ -20,7 +20,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 new DateTime(2019,12,16),
                 new DateTime(2019,12,24)));
         }
-
+        //A method which adds a new Offer to the list of offers.
         public void AddOffer(Offer offer)
         {
             OfferCollection.Add(offer);

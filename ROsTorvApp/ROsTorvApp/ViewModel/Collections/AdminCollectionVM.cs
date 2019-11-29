@@ -22,11 +22,10 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             AddAdmin(Admin1 = new Admin("Admin", "E-Mail@Email.com", "password", "40404040"));
         }
-        
+        //A method which adds a new Admin to the list of admins.
         public void AddAdmin(Admin admin)
         {
             AdminCollection.Add(admin);
-            
         }
 
     }

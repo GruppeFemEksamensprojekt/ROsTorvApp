@@ -24,7 +24,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
         }
-
+        //A method which adds a new Customer to the list of customers.
         public void AddCustomer(Customer customer)
         {
             CustomerCollection.Add(customer);

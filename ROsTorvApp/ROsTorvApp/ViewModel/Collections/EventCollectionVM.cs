@@ -20,7 +20,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 new DateTime(2019,12,07),
                 "Føtex har billig mælk 17.- for økologisk chiafrø mælk!"));
         }
-
+        //A method which adds a new Event to the list of events.
         public void AddEvent(Event eventevent)
         {
             EventCollection.Add(eventevent);
