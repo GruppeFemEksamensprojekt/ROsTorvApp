@@ -13,7 +13,7 @@
         <ViewModelCollections:StoreCollectionVM />
     </Page.DataContext>
 
-    <Grid>
+    <Grid Background="#D8D8F6">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
