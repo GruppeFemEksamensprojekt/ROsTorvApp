@@ -19,6 +19,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         private Store _selectedStore;
         private ObservableCollection<Store> _storeCollection;
+        private bool _showStoreDetails;
         #endregion
 
         #region Constructor
@@ -32,6 +33,7 @@ namespace ROsTorvApp.ViewModel.Collections
             StoreCollection.Add(new Store(4, "Føtex", "08:00 - 15:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer","95756214"));
 
             _selectedStore = _storeCollection[0];
+            _showStoreDetails = false;
         }
 
         #endregion
@@ -46,12 +48,24 @@ namespace ROsTorvApp.ViewModel.Collections
             set
             {
                 _selectedStore = value;
-                if (_selectedStore != null)
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(StoreDetails));
-                }
-                OnPropertyChanged(nameof(SelectedStore.StoreName));
+                OnPropertyChanged();
             }
+        }
+
+        public bool ShowStoreDetails
+        {
+            get { return _showStoreDetails; }
+            set
+            {
+                _showStoreDetails = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(StoreDetailsVisibility));
+            }
+        }
+
+        public Visibility StoreDetailsVisibility
+        {
+            get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
         }
         #endregion
         //A method which adds a new Store to the list of stores.
