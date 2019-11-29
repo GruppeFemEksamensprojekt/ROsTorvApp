@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ROsTorvApp.Model.Center;
+using ROsTorvApp.ViewModel.Collections;
 
 namespace ROsTorvApp.Model.Users
 {
@@ -16,7 +17,7 @@ namespace ROsTorvApp.Model.Users
 
         public void CreateStore()
         {
-
+            StoreCollectionVM.AddStore(new Store());
         }
     }
 }

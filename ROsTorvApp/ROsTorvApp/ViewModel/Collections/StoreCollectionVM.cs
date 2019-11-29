@@ -13,7 +13,7 @@ using ROsTorvApp.View;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
-   class StoreCollectionVM : INotifyPropertyChanged
+   public class StoreCollectionVM : INotifyPropertyChanged
    {
         #region Instance Fields
 
@@ -38,11 +38,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         #region Properties
 
-        public ObservableCollection<Store> StoreCollection
-        {
-            get { return _storeCollection; }
-            set { _storeCollection = value; }
-        }
+        public static ObservableCollection<Store> StoreCollection { get; set; }
         // A property for binding the store you select in the view.
         public Store SelectedStore
         {
@@ -59,7 +55,7 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         #endregion
         //A method which adds a new Store to the list of stores.
-        public void AddStore(Store store)
+        public static void AddStore(Store store)
         {
             StoreCollection.Add(store);
         }
