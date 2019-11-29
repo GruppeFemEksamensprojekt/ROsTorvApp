@@ -172,6 +172,7 @@
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\EventsImage.png" />
     <Content Include="Assets\Images\HomeImage.png" />
+    <Content Include="Assets\Images\Matas.png" />
     <Content Include="Assets\Images\MoreImage.png" />
     <Content Include="Assets\Images\ShopsImage.png" />
     <Content Include="Properties\Default.rd.xml" />
