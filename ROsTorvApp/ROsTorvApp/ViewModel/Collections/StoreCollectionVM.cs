@@ -38,7 +38,7 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return _storeCollection; }
             set { _storeCollection = value; }
         }
-
+        // A property for binding the store you select in the view.
         public Store SelctedStore
         {
             get { return _selectedStore; }
@@ -49,6 +49,13 @@ namespace ROsTorvApp.ViewModel.Collections
             }
         }
         #endregion
+        //A method which adds a new Store to the list of stores.
+        public void AddStore(Store store)
+        {
+            StoreCollection.Add(store);
+        }
+
+
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
