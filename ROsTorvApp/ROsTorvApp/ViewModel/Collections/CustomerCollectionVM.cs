@@ -17,7 +17,7 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         
         public Customer Customer1;
-        private ObservableCollection<Customer> _customerCollection { get; set; }
+        private ObservableCollection<Customer> _customerCollection;
         public static ObservableCollection<Customer> CustomerCollection { get; set; }
 
         public CustomerCollectionVM()
