@@ -9,15 +9,15 @@ namespace ROsTorvApp.Model.Center
 {
     public class Store
     {
-        public static int StoreId { get; set; }
-        public static string StoreName { get; set; }
-        public static string OpeningHours { get; set; }
-        public static string Description { get; set; }
-        public static int LocationFloor { get; set; }
-        public static int LocationNo { get; set; }
-        public static string PhoneNo { get; set; }
-        public static string ImageStore { get; set; }
-        public static string StoreCategory { get; set; }
+        public int StoreId { get; set; }
+        public string StoreName { get; set; }
+        public string OpeningHours { get; set; }
+        public string Description { get; set; }
+        public int LocationFloor { get; set; }
+        public int LocationNo { get; set; }
+        public string PhoneNo { get; set; }
+        public string ImageStore { get; set; }
+        public string StoreCategory { get; set; }
 
         public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory, string phoneNo)
         {

@@ -19,7 +19,6 @@ namespace ROsTorvApp.ViewModel.Collections
         #region Instance Fields
 
         private static Store _selectedStore;
-        public static ObservableCollection<Store> StoreCollection { get; set; }
         private bool _showStoreDetails;
         #endregion
 
@@ -40,7 +39,7 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         #region Properties
-
+        public static ObservableCollection<Store> StoreCollection { get; set; }
         // A property for binding the store you select in the view.
         public static Store SelectedStore
         {

@@ -77,12 +77,11 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-
-
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>
         <!--  /Navigation Bar  -->
+
     </Grid>
 </Page>
