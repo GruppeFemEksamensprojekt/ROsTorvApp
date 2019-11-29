@@ -33,7 +33,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2" Background="#4d5280">
+        <Grid Grid.ColumnSpan="2">
             <Include:Header />
         </Grid>
         <!--  Page  -->
