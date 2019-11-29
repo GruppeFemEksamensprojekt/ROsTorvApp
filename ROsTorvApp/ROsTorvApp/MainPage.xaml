@@ -41,10 +41,7 @@
 
 
         <!--  Navigation Bar  -->
-        <StackPanel
-            Grid.Row="12"
-            Grid.ColumnSpan="2"
-            Background="#4d5280">
+        <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>
         <!--  /Navigation Bar  -->

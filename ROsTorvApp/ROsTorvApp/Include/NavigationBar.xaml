@@ -9,7 +9,10 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Grid.Row="12" Grid.ColumnSpan="4">
+    <Grid
+        Grid.Row="12"
+        Grid.ColumnSpan="4"
+        Background="#4d5280">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
