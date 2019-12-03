@@ -4,11 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Include="using:ROsTorvApp.Include"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:ROsTorvApp.View"
+    xmlns:local="using:ROsTorvApp.ViewModel.Collections"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <local:CustomerCollectionVM />
+    </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -60,21 +62,24 @@
                 FontStyle="Italic"
                 Text="Opret din bruger ved at udfylde felterne nedenfor." />
             <TextBlock Margin="5,0,0,0" Text="Fornavn" />
-            <TextBox Margin="5" Text="" />
+            <TextBox Margin="5" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Margin="5,0,0,0" Text="Efternavn" />
-            <TextBox Margin="5" Text="" />
+            <TextBox Margin="5" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Margin="5,0,0,0" Text="Alder" />
-            <TextBox Margin="5" Text="" />
+            <TextBox Margin="5" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="5,0,0,0" Text="Brugernavn" />
+            <TextBox Margin="5" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Margin="5,0,0,0" Text="E-mail" />
-            <TextBox Margin="5" Text="" />
+            <TextBox Margin="5" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="5,0,0,0" Text="Telefon nr" />
+            <TextBox Margin="5" Text="{Binding PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Margin="5,0,0,0" Text="Kodeord" />
-            <TextBox Margin="5" Text="" />
-            <TextBlock Margin="5,0,0,0" Text="Bekræft kodeord" />
-            <TextBox Margin="5" Text="" />
+            <TextBox Margin="5" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button
                 Width="250"
                 HorizontalAlignment="Center"
                 Background="DodgerBlue"
+                Command="{Binding AddCustomerCommand}"
                 Content="Opret bruger"
                 Foreground="White" />
         </StackPanel>

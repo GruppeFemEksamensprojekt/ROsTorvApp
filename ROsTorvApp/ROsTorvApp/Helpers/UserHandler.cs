@@ -41,12 +41,12 @@ namespace ROsTorvApp.Helpers
             }
         }
 
-        public async void SavePersonsAsync()
+        public async void SaveUsersAsync()
         {
             PersistenceFacade.SaveUserToJson(UserList);
         }
 
-        public async void LoadPersonsAsync()
+        public async void LoadUsersAsync()
         {
             ObservableCollection<UserAccount> users = await PersistenceFacade.LoadUserFromJson();
             UserList.Clear();
