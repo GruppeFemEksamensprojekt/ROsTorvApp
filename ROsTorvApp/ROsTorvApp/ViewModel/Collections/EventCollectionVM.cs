@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Center.Offers;
 
 namespace ROsTorvApp.ViewModel.Collections
@@ -13,18 +14,17 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         public Event Event1;
         public ObservableCollection<Event> EventCollection { get; set; }
-        //public string AdminCheck
-        //{
-        //    get
-        //    {
-        //        if (Userhandler.IsAdmin)
-        //        {
-        //            return "Admin Activated!";
-        //        }
-
-        //        return "Plep account";
-        //    }
-        //}
+        public string AdminCheck
+        {
+            get
+            {
+                if (UserHandler.CurrentUserAdmin)
+                {
+                    return "Admin Activated!";
+                }
+                return "Plep account";
+            }
+        }
 
         public EventCollectionVM()
         {

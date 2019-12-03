@@ -56,15 +56,9 @@
 
 
         <!--  Navigation Bar  -->
-        <Border
-            Grid.Row="12"
-            Grid.ColumnSpan="2"
-            BorderBrush="#81a6c7"
-            BorderThickness="0,1,0,0">
-            <StackPanel>
-                <Include:NavigationBar />
-            </StackPanel>
-        </Border>
+        <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
+            <Include:NavigationBar />
+        </StackPanel>
         <!--  /Navigation Bar  -->
     </Grid>
 </Page>
