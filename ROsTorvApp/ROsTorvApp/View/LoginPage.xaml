@@ -14,7 +14,10 @@
     </Page.DataContext>
 
     <Grid>
-        <Grid Background="#D8D8F6">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -34,9 +37,21 @@
                 <ColumnDefinition />
 
             </Grid.ColumnDefinitions>
-            <Grid Grid.ColumnSpan="2">
-                <Include:Header />
-            </Grid>
+            <Border
+                Grid.ColumnSpan="2"
+                BorderBrush="#81a6c7"
+                BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Comic Sans Ms"
+                        FontSize="25"
+                        Foreground="#d7dbff"
+                        Text="Logind / Opret Bruger" />
+                    <TextBlock Text="" />
+                </Grid>
+            </Border>
 
             <StackPanel
                 Grid.Row="4"
