@@ -16,6 +16,7 @@ namespace ROsTorvApp.Helpers
         private AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
         public string CurrentUsersFirstName { get; set; }
         public string CurrentUsersLastName { get; set; }
+        public static bool CurrentUserAdmin { get; set; }
 
         public string CurrentUsersFullName
         {
