@@ -13,6 +13,18 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         public Event Event1;
         public ObservableCollection<Event> EventCollection { get; set; }
+        public string AdminCheck
+        {
+            get
+            {
+                if (Login.IsAdmin == true)
+                {
+                    return "Admin Activated!";
+                }
+
+                return "Plep account";
+            }
+        }
 
         public EventCollectionVM()
         {

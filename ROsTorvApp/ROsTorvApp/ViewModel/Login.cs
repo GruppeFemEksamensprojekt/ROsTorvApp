@@ -25,7 +25,7 @@ namespace ROsTorvApp.ViewModel
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        private bool IsAdmin { get; set; }
+        public static bool IsAdmin { get; set; }
         public ICommand LoginCommand { get; set; }
         private UserHandler UserHandler = new UserHandler();
 
