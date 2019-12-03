@@ -45,8 +45,6 @@ namespace ROsTorvApp.ViewModel
                 else
                 {
                     ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
-                    var messageDialog = new MessageDialog($"Velkommen tilbage {UserHandler.CurrentUsersFullName}");
-                    messageDialog.ShowAsync();
                 }
             }
             else
