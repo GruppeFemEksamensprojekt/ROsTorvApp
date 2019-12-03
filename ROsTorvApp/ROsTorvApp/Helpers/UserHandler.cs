@@ -12,11 +12,13 @@ namespace ROsTorvApp.Helpers
     class UserHandler
     {
         public ObservableCollection<UserAccount> UserList { get; set; }
-
+        private CustomerCollectionVM CustomerCollectionVM = new CustomerCollectionVM();
+        private AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
         public UserHandler()
         {
             UserList = new ObservableCollection<UserAccount>();
-            LoadPersonsAsync();
+            //LoadPersonsAsync();
+            UpdateUserList();
         }
         
         public void UpdateUserList()

@@ -18,11 +18,17 @@ namespace ROsTorvApp.ViewModel.Collections
         
         public Customer Customer1;
         private ObservableCollection<Customer> _customerCollection;
-        public static ObservableCollection<Customer> CustomerCollection { get; set; }
+        public ObservableCollection<Customer> CustomerCollection
+        {
+            get { return _customerCollection;}
+        }
+
+
 
         public CustomerCollectionVM()
         {
-            AddCustomer(Customer1 = new Customer("Customer","Email.com","password","20120100"));
+            _customerCollection = new ObservableCollection<Customer>();
+            AddCustomer(new Customer("Customer","Email.com","password","20120100"));
         }
         //A method which adds a new Customer to the list of customers.
         public void AddCustomer(Customer customer)
