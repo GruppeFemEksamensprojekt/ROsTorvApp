@@ -45,6 +45,8 @@ namespace ROsTorvApp.ViewModel
                 else
                 {
                     ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+                    var messageDialog = new MessageDialog($"Velkommen tilbage {UserHandler.CurrentUsersFullName}");
+                    messageDialog.ShowAsync();
                 }
             }
             else
@@ -63,6 +65,7 @@ namespace ROsTorvApp.ViewModel
                     if (User.UserName == UserName && User.Password == Password)
                     {
                         IsAdmin = User.IsAdmin;
+                        UserHandler.CurrentUsersFirstName = User.UserName;
                         return true;
                     }
                 }

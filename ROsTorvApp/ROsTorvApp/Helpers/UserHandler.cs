@@ -14,6 +14,13 @@ namespace ROsTorvApp.Helpers
         public ObservableCollection<UserAccount> UserList { get; set; }
         private CustomerCollectionVM CustomerCollectionVM = new CustomerCollectionVM();
         private AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+        public string CurrentUsersFirstName { get; set; }
+        public string CurrentUsersLastName { get; set; }
+
+        public string CurrentUsersFullName
+        {
+            get { return $"{CurrentUsersFirstName} {CurrentUsersLastName}"; }
+        }
         public UserHandler()
         {
             UserList = new ObservableCollection<UserAccount>();
