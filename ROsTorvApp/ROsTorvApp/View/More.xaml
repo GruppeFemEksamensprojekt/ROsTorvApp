@@ -9,7 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid Background="white">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -29,9 +32,21 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2">
-            <Include:Header />
-        </Grid>
+        <Border
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Mere" />
+                <TextBlock Text="" />
+            </Grid>
+        </Border>
         <!--  Page  -->
         <TextBlock
             Grid.Row="2"
@@ -41,9 +56,15 @@
 
 
         <!--  Navigation Bar  -->
-        <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
-            <Include:NavigationBar />
-        </StackPanel>
+        <Border
+            Grid.Row="12"
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,1,0,0">
+            <StackPanel>
+                <Include:NavigationBar />
+            </StackPanel>
+        </Border>
         <!--  /Navigation Bar  -->
     </Grid>
 </Page>
