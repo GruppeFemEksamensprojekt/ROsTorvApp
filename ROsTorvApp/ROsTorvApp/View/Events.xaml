@@ -96,7 +96,7 @@
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Events" />
-                <TextBlock Text="" />
+                <TextBlock Text="{Binding AdminCheck}" />
             </Grid>
         </Border>
         <!--  Page  -->
