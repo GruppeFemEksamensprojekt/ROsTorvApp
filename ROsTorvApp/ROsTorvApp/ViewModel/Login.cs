@@ -63,6 +63,7 @@ namespace ROsTorvApp.ViewModel
                     if (User.UserName == UserName && User.Password == Password)
                     {
                         IsAdmin = User.IsAdmin;
+                        UserHandler.CurrentUsersFirstName = User.UserName;
                         return true;
                     }
                 }
