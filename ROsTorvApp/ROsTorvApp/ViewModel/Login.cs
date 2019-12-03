@@ -40,11 +40,11 @@ namespace ROsTorvApp.ViewModel
             {
                 if (IsAdmin)
                 {
-                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+                    ((Frame)Window.Current.Content).Navigate(typeof(More));
                 }
                 else
                 {
-                    ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
                 }
             }
             else
