@@ -175,6 +175,16 @@
   <ItemGroup>
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\EventImg.png" />
+    <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
+    <Content Include="Assets\Images\Events\Events-Konkurrence.jpg" />
+    <Content Include="Assets\Images\Events\Events-lucia-1.jpg" />
+    <Content Include="Assets\Images\Events\Events-mandler.jpg" />
+    <Content Include="Assets\Images\Events\Events-minigolf.jpg" />
+    <Content Include="Assets\Images\Events\Events-Mistelten.jpg" />
+    <Content Include="Assets\Images\Events\Events-oensketræet.jpg" />
+    <Content Include="Assets\Images\Events\Events-Onlinemagasin.jpg" />
+    <Content Include="Assets\Images\Events\Events-Workshop.jpg" />
+    <Content Include="Assets\Images\Events\Events-Åbningstider.jpg" />
     <Content Include="Assets\Images\Føtex.jpg" />
     <Content Include="Assets\Images\Gamestop.png" />
     <Content Include="Assets\Images\HomeImg.png" />
