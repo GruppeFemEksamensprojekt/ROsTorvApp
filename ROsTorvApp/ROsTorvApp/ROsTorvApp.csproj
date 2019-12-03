@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Helpers\PersistenceFacade.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Helpers\UserHandler.cs" />
     <Compile Include="Include\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
@@ -174,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\BackImage.png" />
+    <Content Include="Assets\Images\Billede1.jpg" />
     <Content Include="Assets\Images\EventImg.png" />
     <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
     <Content Include="Assets\Images\Events\Events-Konkurrence.jpg" />

@@ -47,8 +47,9 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
+
             AddCommand = new RelayCommand(AddStore, null);
-            //DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
+            DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
         }
 
         #endregion
@@ -64,7 +65,6 @@ namespace ROsTorvApp.ViewModel.Collections
                 _selectedStore = value;
             }
         }
-
         public static bool StoreIsSelected()
         {
             return SelectedStore != null;
@@ -87,12 +87,22 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         #endregion
 
+        #region XAML-Bindings
         //This method Adds a new store, bound in XAML page.
 
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM,StoreNameVM,OpeningHoursVM,DescriptionVM,LocationFloorVM,LocationNoVM,ImageStoreVM,StoreCategoryVM,PhoneNoVM));
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, DescriptionVM, LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
         }
+        // This method deletes a selected store, if one is selected.
+        public void DeleteStore()
+        {
+            if (SelectedStore != null)
+            {
+                StoreCollection.Remove(SelectedStore);
+            }
+        } 
+        #endregion
 
         //A method which adds a new Store to the list of stores.
         public static void AddStoreToList(Store store)

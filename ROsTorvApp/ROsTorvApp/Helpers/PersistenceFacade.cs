@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.System;
 using ROsTorvApp.Model.Users;
 using ROsTorvApp.ViewModel.Collections;
 using Newtonsoft.Json;
@@ -14,50 +16,28 @@ namespace ROsTorvApp.Helpers
     {
         private static string jsonFileName = "UsersAsJson.dat";
 
-
-        public ObservableCollection<UserAccount> Userlist { get; set; }
-
-        public PersistenceFacade()
+        public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
-            Userlist = new ObservableCollection<UserAccount>();
+            string usersJsonString = JsonConvert.SerializeObject(users);
+            SerializeUsersFileAsync(usersJsonString, jsonFileName);
         }
 
-        public void UpdateUserList()
+        public static async Task<ObservableCollection<UserAccount>> LoadUserFromJson()
         {
-            foreach (var admin in AdminCollectionVM.AdminCollection)
-            {
-                Userlist.Add(admin);
-            }
-
-            foreach (var customer in CustomerCollectionVM.CustomerCollection)
-            {
-                Userlist.Add(customer);
-            }
+            string usersJsonString = await DeSerializeUsersFileAsync(jsonFileName);
+            return (ObservableCollection<UserAccount>)JsonConvert.DeserializeObject(usersJsonString, typeof(ObservableCollection<UserAccount>));
         }
 
-        public void UserlistFromSaved()
+        public static async void SerializeUsersFileAsync(string UsersString, string fileName)
         {
-
+            StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(localFile, UsersString);
         }
 
-        public void SaveUserToJson()
+        public static async Task<string> DeSerializeUsersFileAsync(String fileName)
         {
-
-        }
-
-        public void LoadUserFromJson()
-        {
-
-        }
-
-        public void SerializeUsersFileAsync()
-        {
-
-        }
-
-        public void DeSerializeUsersFileAsync()
-        {
-
+            StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+            return await FileIO.ReadTextAsync(localFile);
         }
     }
 }
