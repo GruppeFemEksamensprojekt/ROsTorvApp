@@ -14,7 +14,7 @@
     </Page.DataContext>
     <Page.Resources>
         <DataTemplate x:Key="EventDataTemplate">
-            <StackPanel Margin="0,10">
+            <StackPanel Margin="0,15">
                 <Border
                     BorderBrush="Gainsboro"
                     BorderThickness="1"
@@ -61,7 +61,10 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <Grid Background="Teal">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -81,15 +84,27 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2">
-            <Include:Header />
-        </Grid>
+        <Border
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Events" />
+                <TextBlock Text="" />
+            </Grid>
+        </Border>
         <!--  Page  -->
         <ScrollViewer
             Grid.Row="1"
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
-            Padding="35,25">
+            Padding="35,0">
             <ListView
                 ItemTemplate="{StaticResource EventDataTemplate}"
                 ItemsSource="{Binding EventCollection}"
@@ -98,9 +113,15 @@
 
 
         <!--  Navigation Bar  -->
-        <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
-            <Include:NavigationBar />
-        </StackPanel>
+        <Border
+            Grid.Row="12"
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,1,0,0">
+            <StackPanel>
+                <Include:NavigationBar />
+            </StackPanel>
+        </Border>
         <!--  /Navigation Bar  -->
     </Grid>
 </Page>
