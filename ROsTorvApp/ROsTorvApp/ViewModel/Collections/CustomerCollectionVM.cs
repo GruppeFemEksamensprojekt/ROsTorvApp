@@ -18,7 +18,6 @@ namespace ROsTorvApp.ViewModel.Collections
     {
         
         public Customer Customer1;
-        private UserHandler UserHandler = new UserHandler();
         private ObservableCollection<Customer> _customerCollection;
         public ICommand AddCustomerCommand { get; set; }
         public ObservableCollection<Customer> CustomerCollection
