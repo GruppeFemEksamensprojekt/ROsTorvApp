@@ -18,18 +18,24 @@ namespace ROsTorvApp.Model.Users
         public Admin(string userName, string email, string password, string phoneNo)
             : base(userName,email,password,phoneNo,true)
         {
-            //AddCommand = new RelayCommand(AddStore,null);
-            //DeleteCommand = new RelayCommand(DeleteStore,StoreCollectionVM.StoreIsSelected);
+            AddCommand = new RelayCommand(AddStore, null);
+            DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
         }
 
-        //public void AddStore()
+        //public void AddStoreToList()
         //{
-        //    StoreCollectionVM.AddStore(new Store(Store.StoreId, Store.StoreName,Store.OpeningHours,Store.Description,Store.LocationFloor,Store.LocationNo,Store.ImageStore,Store.StoreCategory,Store.PhoneNo));
+        //    //StoreCollectionVM.AddStoreToList();
         //}
 
-        //public void DeleteStore()
-        //{
-        //    StoreCollectionVM.StoreCollection.Remove(StoreCollectionVM.SelectedStore);
-        //}
+
+        public void AddStore()
+        {
+            StoreCollectionVM.AddStoreToList(new Store(Store.StoreId, Store.StoreName, Store.OpeningHours, Store.Description, Store.LocationFloor, Store.LocationNo, Store.ImageStore, Store.StoreCategory, Store.PhoneNo));
+        }
+
+        public void DeleteStore()
+        {
+            StoreCollectionVM.StoreCollection.Remove(StoreCollectionVM.SelectedStore);
+        }
     }
 }

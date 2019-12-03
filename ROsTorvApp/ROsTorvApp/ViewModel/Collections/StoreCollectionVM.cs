@@ -17,7 +17,15 @@ namespace ROsTorvApp.ViewModel.Collections
    public class StoreCollectionVM : INotifyPropertyChanged
    {
         #region Instance Fields
-
+        public int StoreIdVM { get; set; }
+        public string StoreNameVM { get; set; }
+        public string OpeningHoursVM { get; set; }
+        public string DescriptionVM { get; set; }
+        public int LocationFloorVM { get; set; }
+        public int LocationNoVM { get; set; }
+        public string PhoneNoVM { get; set; }
+        public string ImageStoreVM { get; set; }
+        public string StoreCategoryVM { get; set; }
         private static Store _selectedStore;
         private bool _showStoreDetails;
         #endregion
@@ -72,7 +80,7 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         #endregion
         //A method which adds a new Store to the list of stores.
-        public static void AddStore(Store store)
+        public static void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
         }

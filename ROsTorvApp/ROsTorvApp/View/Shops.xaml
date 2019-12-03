@@ -76,6 +76,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Height="100" Width="100" HorizontalAlignment="Center" Content="ADD"></Button>
         </Grid>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
