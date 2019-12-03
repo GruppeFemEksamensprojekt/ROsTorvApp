@@ -28,5 +28,9 @@ namespace ROsTorvApp.ViewModel.Collections
             AdminCollection.Add(admin);
         }
 
+
+
+
+
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Center;
 using ROsTorvApp.View;
 
@@ -17,6 +18,18 @@ namespace ROsTorvApp.ViewModel.Collections
    public class StoreCollectionVM : INotifyPropertyChanged
    {
         #region Instance Fields
+        public int StoreIdVM { get; set; }
+        public string StoreNameVM { get; set; }
+        public string OpeningHoursVM { get; set; }
+        public string DescriptionVM { get; set; }
+        public int LocationFloorVM { get; set; }
+        public int LocationNoVM { get; set; }
+        public string PhoneNoVM { get; set; }
+        public string ImageStoreVM { get; set; }
+        public string StoreCategoryVM { get; set; }
+
+        public ICommand AddCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
 
         private static Store _selectedStore;
         private bool _showStoreDetails;
@@ -34,6 +47,9 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
+
+            AddCommand = new RelayCommand(AddStore, null);
+            DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
         }
 
         #endregion
@@ -49,7 +65,6 @@ namespace ROsTorvApp.ViewModel.Collections
                 _selectedStore = value;
             }
         }
-
         public static bool StoreIsSelected()
         {
             return SelectedStore != null;
@@ -71,13 +86,29 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
         }
         #endregion
+
+        #region XAML-Bindings
+        //This method Adds a new store, bound in XAML page.
+
+        public void AddStore()
+        {
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, DescriptionVM, LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+        }
+        // This method deletes a selected store, if one is selected.
+        public void DeleteStore()
+        {
+            if (SelectedStore != null)
+            {
+                StoreCollection.Remove(SelectedStore);
+            }
+        } 
+        #endregion
+
         //A method which adds a new Store to the list of stores.
-        public static void AddStore(Store store)
+        public static void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
         }
-
-
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
