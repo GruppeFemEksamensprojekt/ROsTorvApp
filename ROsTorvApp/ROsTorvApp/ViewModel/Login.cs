@@ -1,65 +1,76 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.ApplicationModel.UserDataTasks;
 using Windows.System;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ROsTorvApp.Annotations;
+using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Users;
+using ROsTorvApp.View;
 using ROsTorvApp.ViewModel.Collections;
 
 namespace ROsTorvApp.ViewModel
 {
     public class Login
     {
-        public ObservableCollection<UserAccount> UserList { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        private bool IsAdmin { get; set; }
+        public ICommand LoginCommand { get; set; }
+        private UserHandler UserHandler = new UserHandler();
 
         public Login()
         {
-            UserList = new ObservableCollection<UserAccount>();
+            LoginCommand = new RelayCommand(LoginAction, null);
         }
-
-        //This method checks if the user logging in is an admin or not,
-        //if he is an admin, he will be sent to an admin specific page.'
-        public bool IsAdmin(UserAccount user)
+        
+        public void LoginAction()
         {
-            if (user.IsAdmin == true)
+            if (CheckLoginCredentials)
             {
-                ((Frame) Window.Current.Content).Navigate(typeof(MainPage));
-            }
-            return false;
-        }
-        //This pseudo login-system, checks if username and password fit together,
-        //if it is then it lets the user log in, nothing is encrypted or hashed,
-        //so this system is really weak and is only here for proof of concept/testing.
-        public bool CheckLoginCredentials(UserAccount user)
-        {
-            MergeList();
-            foreach (var user1 in UserList)
-            {
-                if (user.UserName == user1.UserName && user.Password == user1.Password)
+                if (IsAdmin)
                 {
-                    return ((Frame) Window.Current.Content).Navigate(typeof(MainPage));
+                    ((Frame)Window.Current.Content).Navigate(typeof(More));
+                }
+                else
+                {
+                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
                 }
             }
-            return false;
+            else
+            {
+                var messageDialog = new MessageDialog("Failed login");
+                messageDialog.ShowAsync();
+            }
         }
-        //This method merge the two lists in AdminCollection and CustomerCollection together,
-        //so we only need to check on list when a user log in.
-        public void MergeList()
+
+        private bool CheckLoginCredentials
         {
-            foreach (var admin in AdminCollectionVM.AdminCollection)
+            get
             {
-                UserList.Add(admin);
-            }
-            foreach (var customer in CustomerCollectionVM.CustomerCollection)
-            {
-                UserList.Add(customer);
+                foreach (var User in UserHandler.UserList)
+                {
+                    if (User.UserName == UserName && User.Password == Password)
+                    {
+                        IsAdmin = User.IsAdmin;
+                        UserHandler.CurrentUserAdmin = User.IsAdmin;
+                        UserHandler.CurrentUsersFirstName = User.UserName;
+                        return true;
+                    }
+                }
+                return false;
             }
         }
+
     }
 }

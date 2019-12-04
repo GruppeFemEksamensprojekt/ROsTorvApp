@@ -3,13 +3,68 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Include="using:ROsTorvApp.Include"
+    xmlns:collections="using:ROsTorvApp.ViewModel.Collections"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ROsTorvApp.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
-    <Grid Background="white">
+    <Page.DataContext>
+        <collections:EventCollectionVM />
+    </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="EventDataTemplate">
+            <StackPanel Margin="0,15">
+                <Border
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1"
+                    CornerRadius="2 2 2 2">
+                    <StackPanel>
+                        <Image Source="{Binding EventImage}" />
+                        <Border BorderBrush="Gainsboro" BorderThickness="0,1,0,0">
+                            <StackPanel Background="White">
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+                                        <StackPanel>
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                FontSize="20"
+                                                Text="{Binding EventName}" />
+                                        </StackPanel>
+                                        <StackPanel>
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                HorizontalAlignment="left"
+                                                Opacity="0.5"
+                                                Text="{Binding DurationDateText}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Bottom"
+                                        Text="Click to read more" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -29,15 +84,32 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2">
-            <Include:Header />
-        </Grid>
-        <!--  Page  -->
-        <TextBlock
-            Grid.Row="2"
+        <Border
             Grid.ColumnSpan="2"
-            HorizontalAlignment="Center"
-            Text="Event page" />
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Events" />
+                <TextBlock Text="{Binding AdminCheck}" />
+            </Grid>
+        </Border>
+        <!--  Page  -->
+        <ScrollViewer
+            Grid.Row="1"
+            Grid.RowSpan="10"
+            Grid.ColumnSpan="2"
+            Padding="35,0">
+            <ListView
+                ItemTemplate="{StaticResource EventDataTemplate}"
+                ItemsSource="{Binding EventCollection}"
+                SelectedValue="{Binding SelectedEvent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+        </ScrollViewer>
 
 
         <!--  Navigation Bar  -->

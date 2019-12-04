@@ -12,24 +12,9 @@ namespace ROsTorvApp.Model.Users
 {
     public class Admin : UserAccount
     {
-        public ICommand AddCommand { get; set; }
-        public ICommand DeleteCommand { get; set; }
-
         public Admin(string userName, string email, string password, string phoneNo)
             : base(userName,email,password,phoneNo,true)
         {
-            //AddCommand = new RelayCommand(AddStore,null);
-            //DeleteCommand = new RelayCommand(DeleteStore,StoreCollectionVM.StoreIsSelected);
         }
-
-        //public void AddStore()
-        //{
-        //    StoreCollectionVM.AddStore(new Store(Store.StoreId, Store.StoreName,Store.OpeningHours,Store.Description,Store.LocationFloor,Store.LocationNo,Store.ImageStore,Store.StoreCategory,Store.PhoneNo));
-        //}
-
-        //public void DeleteStore()
-        //{
-        //    StoreCollectionVM.StoreCollection.Remove(StoreCollectionVM.SelectedStore);
-        //}
     }
 }

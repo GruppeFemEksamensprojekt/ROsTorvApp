@@ -16,17 +16,25 @@ namespace ROsTorvApp.ViewModel.Collections
         public Admin Admin1;
         private ObservableCollection<Admin> _adminCollection;
 
-        public static ObservableCollection<Admin> AdminCollection { get; set; }
+        public ObservableCollection<Admin> AdminCollection
+        {
+            get { return _adminCollection; }
+        }
 
         public AdminCollectionVM()
         {
-            AddAdmin(Admin1 = new Admin("Admin", "E-Mail@Email.com", "password", "40404040"));
+            _adminCollection = new ObservableCollection<Admin>();
+            AddAdmin(new Admin("Admin", "E-Mail@Email.com", "password", "40404040"));
         }
         //A method which adds a new Admin to the list of admins.
         public void AddAdmin(Admin admin)
         {
             AdminCollection.Add(admin);
         }
+
+
+
+
 
     }
 }

@@ -14,7 +14,10 @@
     <Page.DataContext>
         <collections:StoreCollectionVM />
     </Page.DataContext>
-    <Grid Background="white">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -34,14 +37,21 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!--  Header  -->
-        <Grid Grid.ColumnSpan="2" Background="Gold">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontFamily="Comic Sans MS"
-                FontSize="30"
-                Text="Butikker" />
-        </Grid>
+        <Border
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Butikker" />
+                <TextBlock Text="{Binding AdminCheck}" />
+            </Grid>
+        </Border>
         <!--  Page  -->
         <Grid
             Grid.Row="1"
@@ -57,7 +67,7 @@
                                     <Image
                                         Width="50"
                                         Height="40"
-                                        Source="{Binding ImageStore}" />
+                                        Source="{Binding ImageStore, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <TextBlock
                                     Width="250"
@@ -76,11 +86,28 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Command="{Binding AddCommand, Mode=OneWay}" Content="ADD" />
+                <Button Command="{Binding DeleteCommand, Mode=OneWay}" Content="Delete" />
+                <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Browse..." />
+                <TextBox PlaceholderText="Description" Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="Image" Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="Location floor" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="Location number" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="Opening hours" Text="{Binding OpeningHoursVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="The stores phone number" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="The category of the store" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="The stores ID" Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox PlaceholderText="The name of the store" Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            </StackPanel>
         </Grid>
         <!--  Navigation Bar  -->
+
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>
+
         <!--  /Navigation Bar  -->
 
     </Grid>

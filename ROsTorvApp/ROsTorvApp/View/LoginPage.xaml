@@ -5,12 +5,19 @@
     xmlns:Include="using:ROsTorvApp.Include"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ROsTorvApp.View"
+    xmlns:login="using:ROsTorvApp.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <login:Login />
+    </Page.DataContext>
 
     <Grid>
-        <Grid Background="#D8D8F6">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -30,9 +37,21 @@
                 <ColumnDefinition />
 
             </Grid.ColumnDefinitions>
-            <Grid Grid.ColumnSpan="2">
-                <Include:Header />
-            </Grid>
+            <Border
+                Grid.ColumnSpan="2"
+                BorderBrush="#81a6c7"
+                BorderThickness="0,0,0,1">
+                <Grid>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Comic Sans Ms"
+                        FontSize="25"
+                        Foreground="#d7dbff"
+                        Text="Logind / Opret Bruger" />
+                    <TextBlock Text="" />
+                </Grid>
+            </Border>
 
             <StackPanel
                 Grid.Row="4"
@@ -41,7 +60,7 @@
                 Grid.ColumnSpan="2">
                 <StackPanel Width="220">
                     <TextBlock FontSize="20" Text="Brugernavn:" />
-                    <TextBox Text="" />
+                    <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
@@ -51,7 +70,7 @@
                 Grid.ColumnSpan="2">
                 <StackPanel Width="220">
                     <TextBlock FontSize="20" Text="Password:" />
-                    <TextBox Text=""/>
+                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
@@ -62,6 +81,7 @@
                 <Button
                     Width="230"
                     Background="DarkBlue"
+                    Command="{Binding LoginCommand}"
                     Content="Log Ind"
                     Foreground="White" />
             </StackPanel>
@@ -74,8 +94,9 @@
                 <Button
                     Width="100"
                     Margin="0,0,5,0"
+                    Click="Button_Click_Create_User"
                     Content="Opret bruger"
-                    FontSize="10" Click="Button_Click" />
+                    FontSize="10" />
                 <Button
                     Width="100"
                     Content="Glemt kodeord?"
