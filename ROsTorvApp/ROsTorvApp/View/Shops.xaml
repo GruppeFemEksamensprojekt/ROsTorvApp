@@ -107,7 +107,7 @@
                                     Margin="10"
                                     FontFamily="Comic Sans MS"
                                     FontSize="20"
-                                    Text="{Binding StoreName}" />
+                                    Text="{Binding OpeningHours}" />
                                 <StackPanel VerticalAlignment="Center">
                                     <Button
                                         HorizontalAlignment="Right"
