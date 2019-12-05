@@ -35,6 +35,19 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Button
+            Grid.Column="0"
+            Margin="20,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="Button_Click">
+            <Button.Background>
+                <SolidColorBrush Opacity="0" />
+            </Button.Background>
+            <StackPanel>
+                <Image Height="20" Source="/Assets/Images/BackImage.png" />
+            </StackPanel>
+        </Button>
         <!--  Header  -->
         <Border
             Grid.ColumnSpan="2"
@@ -47,7 +60,7 @@
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
-                    Text="Tilføj Butik"/>
+                    Text="Tilføj Butik" />
             </Grid>
         </Border>
         <StackPanel
@@ -56,55 +69,75 @@
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center">
             <StackPanel>
-                <TextBlock Text="Navn:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" Width="300"/>
+                <TextBlock Margin="0,5,0,5" Text="Navn:" />
+                <TextBox
+                    Width="300"
+                    Margin="0,0,0,5"
+                    Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Deskription;" Margin="0 0 0 5"/>
+                <TextBlock Margin="0,0,0,5" Text="Deskription;" />
                 <TextBox Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Indsæt logo:" Margin="0 5 0 0"/>
-                <TextBox Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0" IsReadOnly="True"/>
-                <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Gennemse..." Margin="0 5 0 0"/>
+                <TextBlock Margin="0,5,0,0" Text="Indsæt logo:" />
+                <TextBox
+                    Margin="0,5,0,0"
+                    IsReadOnly="True"
+                    Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Button
+                    Margin="0,5,0,0"
+                    Command="{Binding BrowseCommand, Mode=OneWay}"
+                    Content="Gennemse..." />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Etage nr:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+                <TextBlock Margin="0,5,0,5" Text="Etage nr:" />
+                <TextBox Margin="0,0,0,5" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Butik nr:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+                <TextBlock Margin="0,5,0,5" Text="Butik nr:" />
+                <TextBox Margin="0,0,0,5" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Åbningstid:" Margin="0 5 0 5"/>
+                <TextBlock Margin="0,5,0,5" Text="Åbningstid:" />
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}"/>
-                    <TextBlock Text=":" Margin="5 0 5 0" VerticalAlignment="Center" FontSize="20"/>
-                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedOpeningMinutes, Mode=TwoWay}"/>
+                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5,0,5,0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text=":" />
+                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedOpeningMinutes, Mode=TwoWay}" />
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Lukketid:" Margin="0 5 0 5" VerticalAlignment="Center"/>
+                    <TextBlock
+                        Margin="0,5,0,5"
+                        VerticalAlignment="Center"
+                        Text="Lukketid:" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}"/>
-                    <TextBlock Text=":" Margin="5 0 5 0" VerticalAlignment="Center" FontSize="20"/>
-                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedClosingMinutes, Mode=TwoWay}"/>
+                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
+                    <TextBlock
+                        Margin="5,0,5,0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text=":" />
+                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedClosingMinutes, Mode=TwoWay}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Butikkens tlf. nr:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+                <TextBlock Margin="0,5,0,5" Text="Butikkens tlf. nr:" />
+                <TextBox Margin="0,0,0,5" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Kategori:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" />
+                <TextBlock Margin="0,5,0,5" Text="Kategori:" />
+                <TextBox Margin="0,0,0,5" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="ID:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" />
+                <TextBlock Margin="0,5,0,5" Text="ID:" />
+                <TextBox Margin="0,0,0,5" Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <Button Command="{Binding AddCommand, Mode=OneWay}" Content="Tilføj butik"/>
+            <Button Command="{Binding AddCommand, Mode=OneWay}" Content="Tilføj butik" />
         </StackPanel>
     </Grid>
 </Page>

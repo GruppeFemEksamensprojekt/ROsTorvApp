@@ -72,11 +72,13 @@
                                         Width="150"
                                         Margin="0,5"
                                         Background="white"
+                                        Command="{Binding RedirectToAddStorePage}"
                                         Content="Tilføj Butik" />
                                     <Button
                                         Width="150"
                                         Margin="0,5"
                                         Background="white"
+                                        Command="{Binding DeleteCommand}"
                                         Content="Slet Valgte" />
                                 </StackPanel>
                             </Flyout>

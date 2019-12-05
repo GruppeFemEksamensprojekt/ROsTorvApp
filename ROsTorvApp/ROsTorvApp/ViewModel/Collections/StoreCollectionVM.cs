@@ -75,6 +75,7 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return _selectedClosingMinutes; }
             set { _selectedClosingMinutes = value; }
         }
+        public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
@@ -106,6 +107,7 @@ namespace ROsTorvApp.ViewModel.Collections
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
+            RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
         }
 
         #endregion
@@ -158,7 +160,11 @@ namespace ROsTorvApp.ViewModel.Collections
                 StoreCollection.Remove(SelectedStore);
             }
         }
+        public void RedirectToAddStorePageMethod()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
 
+        }
         public async void BrowseStores()
         {
             FileOpenPicker f = new FileOpenPicker();
@@ -177,7 +183,7 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         //A method which adds a new Store to the list of stores.
-        public async void AddStoreToList(Store store)
+        public void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
             OnPropertyChanged(nameof(StoreCollection));
