@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ROsTorvApp.Helpers;
@@ -37,20 +38,29 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             _customerCollection = new ObservableCollection<Customer>();
             AddCustomerCommand = new RelayCommand(AddNewCustomer, null);
-            AddCustomer(new Customer("Customer","Email.com","password","20120100"));
+            //AddCustomer(new Customer("Customer","Email.com","password","20120100"));
         }
 
         public void AddNewCustomer()
         {
-            AddCustomer(new Customer(UserName, Email, Password, PhoneNo));
-            ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+            if (UserHandler.UsernameAvailability(UserName))
+            {
+                var messageDialog = new MessageDialog("Brugernavn findes allerede");
+                messageDialog.ShowAsync();
+            }
+            else
+            {
+                AddCustomer(new Customer(UserName, Email, Password, PhoneNo));
+                ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+            }
         }
 
         //A method which adds a new Customer to the list of customers.
         public void AddCustomer(Customer customer)
         {
-            CustomerCollection.Add(customer);
-            //UserHandler.SaveUsersAsync();
+            //CustomerCollection.Add(customer);
+            Singleton.Instance.UserList.Add(customer);
+            UserHandler.SaveUsersAsync();
         }
     }
 

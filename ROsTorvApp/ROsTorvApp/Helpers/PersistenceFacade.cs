@@ -15,7 +15,7 @@ namespace ROsTorvApp.Helpers
     class PersistenceFacade
     {
         private static string jsonFileName = "UsersAsJson.dat";
-
+        
         public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
             string usersJsonString = JsonConvert.SerializeObject(users);

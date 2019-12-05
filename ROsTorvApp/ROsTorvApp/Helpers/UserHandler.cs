@@ -11,49 +11,50 @@ namespace ROsTorvApp.Helpers
 {
     class UserHandler
     {
-        public ObservableCollection<UserAccount> UserList { get; set; }
         private CustomerCollectionVM CustomerCollectionVM = new CustomerCollectionVM();
         private AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
-        public string CurrentUsersFirstName { get; set; }
-        public string CurrentUsersLastName { get; set; }
+        public static string CurrentUsersFirstName { get; set; }
+        public static string CurrentUsersLastName { get; set; }
         public static bool CurrentUserAdmin { get; set; }
 
-        public string CurrentUsersFullName
+        public static string CurrentUsersFullName
         {
             get { return $"{CurrentUsersFirstName} {CurrentUsersLastName}"; }
         }
         public UserHandler()
         {
-            UserList = new ObservableCollection<UserAccount>();
-            //LoadPersonsAsync();
-            UpdateUserList();
+
         }
         
-        public void UpdateUserList()
+        public static bool UsernameAvailability(string Username)
         {
-            foreach (var admin in AdminCollectionVM.AdminCollection)
+            if (Singleton.Instance.UserList.Any(p => p.UserName == Username))
             {
-                UserList.Add(admin);
+                return true;
             }
 
-            foreach (var customer in CustomerCollectionVM.CustomerCollection)
-            {
-                UserList.Add(customer);
-            }
+            return false;
         }
 
-        public async void SaveUsersAsync()
+        public static void SaveUsersAsync()
         {
-            PersistenceFacade.SaveUserToJson(UserList);
+            PersistenceFacade.SaveUserToJson(Singleton.Instance.UserList);
         }
 
-        public async void LoadUsersAsync()
+        public static async void LoadUsersAsync()
         {
             ObservableCollection<UserAccount> users = await PersistenceFacade.LoadUserFromJson();
-            UserList.Clear();
-            foreach (var user in users)
+            Singleton.Instance.UserList.Clear();
+            if (users == null)
             {
-                UserList.Add(user);
+                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+            }
+            else
+            {
+                foreach (var user in users)
+                {
+                    Singleton.Instance.UserList.Add(user);
+                }
             }
         }
     }

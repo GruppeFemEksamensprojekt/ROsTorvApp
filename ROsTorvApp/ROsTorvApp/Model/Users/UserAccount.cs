@@ -7,7 +7,7 @@ using ROsTorvApp.ViewModel.Collections;
 
 namespace ROsTorvApp.Model.Users
 {
-    public abstract class UserAccount
+    public class UserAccount
     {
         public string UserName { get; set; }
         public string Email { get; set; }
