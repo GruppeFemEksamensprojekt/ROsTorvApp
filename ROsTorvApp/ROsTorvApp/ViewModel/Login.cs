@@ -25,7 +25,6 @@ namespace ROsTorvApp.ViewModel
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        private bool IsAdmin { get; set; }
         public ICommand LoginCommand { get; set; }
 
         public Login()
@@ -41,14 +40,7 @@ namespace ROsTorvApp.ViewModel
         {
             if (CheckLoginCredentials)
             {
-                if (IsAdmin)
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(More));
-                }
-                else
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
-                }
+                ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
             }
             else
             {
@@ -65,7 +57,6 @@ namespace ROsTorvApp.ViewModel
                 {
                     if (User.UserName == UserName && User.Password == Password)
                     {
-                        IsAdmin = User.Admin;
                         UserHandler.CurrentUserAdmin = User.Admin;
                         UserHandler.CurrentUsersUserName = User.UserName;
                         UserHandler.CurrentUsersFirstName = User.FirstName;
