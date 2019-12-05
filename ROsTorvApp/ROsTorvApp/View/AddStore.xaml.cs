@@ -20,9 +20,9 @@ namespace ROsTorvApp.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StoreDetails : Page
+    public sealed partial class AddStore : Page
     {
-        public StoreDetails()
+        public AddStore()
         {
             this.InitializeComponent();
         }

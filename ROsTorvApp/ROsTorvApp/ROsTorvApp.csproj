@@ -146,6 +146,9 @@
     <Compile Include="ViewModel\Collections\StoreCollectionVM.cs" />
     <Compile Include="ViewModel\Collections\AdminCollectionVM.cs" />
     <Compile Include="ViewModel\Login.cs" />
+    <Compile Include="View\AddStore.xaml.cs">
+      <DependentUpon>AddStore.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AppMenu.xaml.cs">
       <DependentUpon>AppMenu.xaml</DependentUpon>
     </Compile>
@@ -163,9 +166,6 @@
     </Compile>
     <Compile Include="View\Shops.xaml.cs">
       <DependentUpon>Shops.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\StoreDetails.xaml.cs">
-      <DependentUpon>StoreDetails.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\AddStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AppMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,10 +246,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Shops.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\StoreDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
