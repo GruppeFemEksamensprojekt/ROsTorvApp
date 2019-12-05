@@ -65,7 +65,7 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Indsæt logo:" Margin="0 5 0 0"/>
-                <TextBox Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0"/>
+                <TextBox Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0" IsReadOnly="True"/>
                 <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Gennemse..." Margin="0 5 0 0"/>
             </StackPanel>
             <StackPanel>
@@ -77,8 +77,12 @@
                 <TextBox Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Åbningstider:" Margin="0 5 0 5"/>
-                <TextBox Text="{Binding OpeningHoursVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+                <TextBlock Text="Åbningstid:" Margin="0 5 0 5"/>
+                <TimePicker ClockIdentifier="24HourClock" Time="{Binding OpeningHoursVM}"/>
+                <StackPanel>
+                    <TextBlock Text="Lukketid:" Margin="0 5 0 5" VerticalAlignment="Center"/>
+                    <TimePicker ClockIdentifier="24HourClock" Time="{Binding ClosingHoursVM}"/>
+                </StackPanel>
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Butikkens tlf. nr:" Margin="0 5 0 5"/>
