@@ -19,7 +19,7 @@ namespace ROsTorvApp.Model.Users
         public bool Admin { get; set; }
 
 
-        protected UserAccount(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo, bool Admin)
+        protected UserAccount(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo, bool admin)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -28,7 +28,7 @@ namespace ROsTorvApp.Model.Users
             Email = email;
             Password = password;
             PhoneNo = phoneNo;
-            Admin = Admin;
+            Admin = admin;
         }
 
         protected UserAccount()
