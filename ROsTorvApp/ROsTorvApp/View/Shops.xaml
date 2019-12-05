@@ -86,21 +86,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Command="{Binding AddCommand, Mode=OneWay}" Content="ADD" />
-                <Button Command="{Binding DeleteCommand, Mode=OneWay}" Content="Delete" />
-                <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Browse..." />
-                <TextBox PlaceholderText="Description" Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Image" Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Location floor" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Location number" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Opening hours" Text="{Binding OpeningHoursVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The stores phone number" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The category of the store" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The stores ID" Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The name of the store" Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-            </StackPanel>
         </Grid>
         <!--  Navigation Bar  -->
 
