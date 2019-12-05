@@ -34,6 +34,17 @@ namespace ROsTorvApp.ViewModel.Collections
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
         public StorageFile Test { get; set; }
+        public string AdminCheck
+        {
+            get
+            {
+                if (UserHandler.CurrentUserAdmin)
+                {
+                    return "Admin Activated!";
+                }
+                return "Plep account";
+            }
+        }
 
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -94,7 +105,15 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         public Visibility StoreDetailsVisibility
         {
-            get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
+            get
+            {
+                if (UserHandler.CurrentUserAdmin)
+                {
+                    return Visibility.Visible;
+                }
+                return Visibility.Collapsed;
+            }
+           // get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
         }
         #endregion
 
