@@ -18,8 +18,14 @@ namespace ROsTorvApp.Helpers
 
         public static async void FileCreation()
         {
-            StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileName);
+            var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(jsonFileName);
+            if (item == null)
+            {
+                StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileName);
+            }
+            
         }
+
         public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
             string usersJsonString = JsonConvert.SerializeObject(users);
