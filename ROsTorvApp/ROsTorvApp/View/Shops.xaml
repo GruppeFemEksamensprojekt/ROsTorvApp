@@ -42,20 +42,53 @@
             BorderBrush="#81a6c7"
             BorderThickness="0,0,0,1">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <TextBlock
+                    Grid.Column="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Butikker" />
-                <TextBlock Text="{Binding AdminCheck}" />
+                <Border
+                    Grid.Column="2"
+                    Height="35"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right"
+                    Background="White"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    CornerRadius="1">
+                    <Button Background="Transparent" Content="Indstillinger">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="150">
+                                    <Button
+                                        Width="150"
+                                        Margin="0,5"
+                                        Background="white"
+                                        Content="Tilføj Butik" />
+                                    <Button
+                                        Width="150"
+                                        Margin="0,5"
+                                        Background="white"
+                                        Content="Slet Valgte" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Border>
             </Grid>
         </Border>
         <!--  Page  -->
         <Grid
             Grid.Row="1"
-            Grid.RowSpan="11"
+            Grid.RowSpan="6"
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <ListView ItemsSource="{Binding StoreCollection}" SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
@@ -74,7 +107,7 @@
                                     Margin="10"
                                     FontFamily="Comic Sans MS"
                                     FontSize="20"
-                                    Text="{Binding StoreName}" />
+                                    Text="{Binding OpeningHours}" />
                                 <StackPanel VerticalAlignment="Center">
                                     <Button
                                         HorizontalAlignment="Right"
@@ -86,24 +119,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Command="{Binding AddCommand, Mode=OneWay}" Content="ADD" />
-                <Button Command="{Binding DeleteCommand, Mode=OneWay}" Content="Delete" />
-                <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Browse..." />
-                <TextBox PlaceholderText="Description" Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Image" Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Location floor" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Location number" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="Opening hours" Text="{Binding OpeningHoursVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The stores phone number" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The category of the store" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The stores ID" Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox PlaceholderText="The name of the store" Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-            </StackPanel>
         </Grid>
         <!--  Navigation Bar  -->
-
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>

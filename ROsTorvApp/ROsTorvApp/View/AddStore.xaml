@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="ROsTorvApp.View.AddStore"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:collections="using:ROsTorvApp.ViewModel.Collections"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ROsTorvApp.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <collections:StoreCollectionVM />
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!--  Header  -->
+        <Border
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Tilføj Butik"/>
+            </Grid>
+        </Border>
+        <StackPanel
+            Grid.Row="1"
+            Grid.RowSpan="12"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Navn:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" Width="300"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Deskription;" Margin="0 0 0 5"/>
+                <TextBox Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Indsæt logo:" Margin="0 5 0 0"/>
+                <TextBox Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0" IsReadOnly="True"/>
+                <Button Command="{Binding BrowseCommand, Mode=OneWay}" Content="Gennemse..." Margin="0 5 0 0"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Etage nr:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Butik nr:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Åbningstid:" Margin="0 5 0 5"/>
+                <TimePicker ClockIdentifier="24HourClock" Time="{Binding OpeningHoursVM}"/>
+                <StackPanel>
+                    <TextBlock Text="Lukketid:" Margin="0 5 0 5" VerticalAlignment="Center"/>
+                    <TimePicker ClockIdentifier="24HourClock" Time="{Binding ClosingHoursVM}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Butikkens tlf. nr:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Kategori:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="ID:" Margin="0 5 0 5"/>
+                <TextBox Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 5" />
+            </StackPanel>
+            <Button Command="{Binding AddCommand, Mode=OneWay}" Content="Tilføj butik"/>
+        </StackPanel>
+    </Grid>
+</Page>
