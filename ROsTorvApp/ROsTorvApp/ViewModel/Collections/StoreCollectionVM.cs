@@ -24,10 +24,24 @@ namespace ROsTorvApp.ViewModel.Collections
    public class StoreCollectionVM : INotifyPropertyChanged
    {
         #region Instance Fields
+
+        private string _selectedOpeningHours;
+        private string _selectedOpeningMinutes;
+        private string _selectedClosingHours;
+        private string _selectedClosingMinutes;
+
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
-        public string OpeningHoursVM { get; set; }
-        public string ClosingHoursVM { get; set; }
+
+        public string ClosingHoursVM
+        {
+            get { return $"{SelectedClosingHours}:{SelectedClosingMinutes}"; }
+        }
+
+        public string OpeningHoursVM
+        {
+            get { return $"{SelectedOpeningHours}:{SelectedOpeningMinutes}"; }
+        }
         public string DescriptionVM { get; set; }
         public int LocationFloorVM { get; set; }
         public int LocationNoVM { get; set; }
@@ -35,18 +49,31 @@ namespace ROsTorvApp.ViewModel.Collections
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
         public StorageFile Test { get; set; }
-        public string AdminCheck
+        public List<string> Timer { get; set; }
+        public List<string> Minutter { get; set; }
+
+        public string SelectedOpeningHours
         {
-            get
-            {
-                if (UserHandler.CurrentUserAdmin)
-                {
-                    return "Admin Activated!";
-                }
-                return "Plep account";
-            }
+            get { return _selectedOpeningHours; }
+            set { _selectedOpeningHours = value; }
+        }
+        public string SelectedOpeningMinutes
+        {
+            get { return _selectedOpeningMinutes; }
+            set { _selectedOpeningMinutes = value; }
         }
 
+        public string SelectedClosingHours
+        {
+            get { return _selectedClosingHours;}
+            set { _selectedClosingHours = value; }
+        }
+
+        public string SelectedClosingMinutes
+        {
+            get { return _selectedClosingMinutes; }
+            set { _selectedClosingMinutes = value; }
+        }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
@@ -60,16 +87,20 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             StoreCollection = new ObservableCollection<Store>();
             // Test Data
-            StoreCollection.Add(new Store(1, "Matas", "8:00-", "15:00","Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Beauty","40404040"));
+            StoreCollection.Add(new Store(1, "Matas", "10:00-", "10:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Beauty","40404040"));
             StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00-", "19:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Tøj","10101010"));
             StoreCollection.Add(new Store(3, "Gamestop+", "10:30-", "13:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming","32125341"));
             StoreCollection.Add(new Store(4, "Føtex", "11:00-", "20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer","95756214"));
             StoreCollection.Add(new Store(4, "Føtex", "11:00-", "20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
 
+            Timer = new List<string> {"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+            Minutter = new List<string> {"00", "15", "30", "45"};
 
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
+            _selectedOpeningHours = Timer[0];
+            _selectedOpeningMinutes = Minutter[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
@@ -106,15 +137,7 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         public Visibility StoreDetailsVisibility
         {
-            get
-            {
-                if (UserHandler.CurrentUserAdmin)
-                {
-                    return Visibility.Visible;
-                }
-                return Visibility.Collapsed;
-            }
-           // get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
+            get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
         }
         #endregion
 
