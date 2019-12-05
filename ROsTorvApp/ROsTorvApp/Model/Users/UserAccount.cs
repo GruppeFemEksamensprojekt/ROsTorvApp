@@ -9,6 +9,9 @@ namespace ROsTorvApp.Model.Users
 {
     public class UserAccount
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -16,8 +19,11 @@ namespace ROsTorvApp.Model.Users
         public bool IsAdmin { get; set; }
 
 
-        protected UserAccount(string userName, string email, string password, string phoneNo, bool isAdmin)
+        protected UserAccount(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo, bool isAdmin)
         {
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
             UserName = userName;
             Email = email;
             Password = password;

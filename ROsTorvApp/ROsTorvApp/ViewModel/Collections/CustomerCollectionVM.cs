@@ -50,7 +50,7 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             else
             {
-                AddCustomer(new Customer(UserName, Email, Password, PhoneNo));
+                AddCustomer(new Customer(FirstName, LastName, Age, UserName, Email, Password, PhoneNo));
                 ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
             }
         }

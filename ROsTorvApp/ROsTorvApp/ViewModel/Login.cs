@@ -67,7 +67,9 @@ namespace ROsTorvApp.ViewModel
                     {
                         IsAdmin = User.IsAdmin;
                         UserHandler.CurrentUserAdmin = User.IsAdmin;
-                        UserHandler.CurrentUsersFirstName = User.UserName;
+                        UserHandler.CurrentUsersUserName = User.UserName;
+                        UserHandler.CurrentUsersFirstName = User.FirstName;
+                        UserHandler.CurrentUsersLastName = User.LastName;
                         return true;
                     }
                 }

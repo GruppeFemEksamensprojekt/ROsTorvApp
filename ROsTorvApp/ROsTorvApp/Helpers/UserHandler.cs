@@ -11,11 +11,10 @@ namespace ROsTorvApp.Helpers
 {
     class UserHandler
     {
-        private CustomerCollectionVM CustomerCollectionVM = new CustomerCollectionVM();
-        private AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+        public static bool CurrentUserAdmin { get; set; }
+        public static string CurrentUsersUserName { get; set; }
         public static string CurrentUsersFirstName { get; set; }
         public static string CurrentUsersLastName { get; set; }
-        public static bool CurrentUserAdmin { get; set; }
 
         public static string CurrentUsersFullName
         {
