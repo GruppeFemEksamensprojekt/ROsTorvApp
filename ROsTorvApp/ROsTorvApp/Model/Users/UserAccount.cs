@@ -16,10 +16,10 @@ namespace ROsTorvApp.Model.Users
         public string Email { get; set; }
         public string Password { get; set; }
         public string PhoneNo { get; set; }
-        public bool IsAdmin { get; set; }
+        public bool Admin { get; set; }
 
 
-        protected UserAccount(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo, bool isAdmin)
+        protected UserAccount(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo, bool Admin)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -28,7 +28,7 @@ namespace ROsTorvApp.Model.Users
             Email = email;
             Password = password;
             PhoneNo = phoneNo;
-            IsAdmin = isAdmin;
+            Admin = Admin;
         }
 
         protected UserAccount()
