@@ -45,9 +45,9 @@
                     <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        FontFamily="Comic Sans Ms"
+                        FontFamily="Lucida Bright"
                         FontSize="25"
-                        Foreground="#d7dbff"
+                        Foreground="White"
                         Text="Logind / Opret Bruger" />
                     <TextBlock Text="" />
                 </Grid>
@@ -59,8 +59,12 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2">
                 <StackPanel Width="220">
-                    <TextBlock FontSize="20" Text="Brugernavn:" />
-                    <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Light"
+                        Foreground="White"
+                        Text="Brugernavn:" />
+                    <TextBox Background="white" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
@@ -69,8 +73,12 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2">
                 <StackPanel Width="220">
-                    <TextBlock FontSize="20" Text="Password:" />
-                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Light"
+                        Foreground="White"
+                        Text="Password:" />
+                    <TextBox Background="white" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
@@ -114,6 +122,7 @@
                     Background="DodgerBlue"
                     Content="Login med Facebook"
                     FontSize="10" />
+
                 <Button
                     Width="115"
                     Background="White"
