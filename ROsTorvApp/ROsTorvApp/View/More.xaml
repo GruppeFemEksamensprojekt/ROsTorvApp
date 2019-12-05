@@ -54,8 +54,9 @@
             Grid.Row="1"
             Grid.RowSpan="10"
             Grid.Column="0"
-            Grid.ColumnSpan="2">
-            <StackPanel Margin="20" Visibility="Collapsed">
+            Grid.ColumnSpan="2"
+            Visibility="Collapsed">
+            <StackPanel Margin="20">
                 <StackPanel>
                     <TextBlock
                         Margin="0,5"
@@ -125,10 +126,23 @@
         <!--  Center Information  -->
         <ScrollViewer
             Grid.Row="1"
-            Grid.RowSpan="10"
+            Grid.RowSpan="2"
             Grid.Column="0"
-            Grid.ColumnSpan="2">
-            <StackPanel Margin="20" Visibility="Visible" />
+            Grid.ColumnSpan="2"
+            Visibility="Visible">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="gwefw" />
+            </Grid>
 
         </ScrollViewer>
 
