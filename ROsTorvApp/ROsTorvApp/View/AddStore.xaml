@@ -78,10 +78,18 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Åbningstid:" Margin="0 5 0 5"/>
-                <TimePicker ClockIdentifier="24HourClock" Time="{Binding OpeningHoursVM}"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}"/>
+                    <TextBlock Text=":" Margin="5 0 5 0" VerticalAlignment="Center" FontSize="20"/>
+                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedOpeningMinutes, Mode=TwoWay}"/>
+                </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Lukketid:" Margin="0 5 0 5" VerticalAlignment="Center"/>
-                    <TimePicker ClockIdentifier="24HourClock" Time="{Binding ClosingHoursVM}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}"/>
+                    <TextBlock Text=":" Margin="5 0 5 0" VerticalAlignment="Center" FontSize="20"/>
+                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedClosingMinutes, Mode=TwoWay}"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel>
