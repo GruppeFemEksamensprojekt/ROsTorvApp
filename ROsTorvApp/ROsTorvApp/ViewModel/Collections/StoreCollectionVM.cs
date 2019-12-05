@@ -177,7 +177,7 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         //A method which adds a new Store to the list of stores.
-        public void AddStoreToList(Store store)
+        public async void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
             OnPropertyChanged(nameof(StoreCollection));
