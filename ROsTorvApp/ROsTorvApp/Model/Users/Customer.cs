@@ -12,8 +12,8 @@ namespace ROsTorvApp.Model.Users
     {
         public ObservableCollection<Store> FavoriteStores { get; set; }
 
-        public Customer(string userName, string email, string password, string phoneNo)
-            : base(userName,email,password,phoneNo,false)
+        public Customer(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo)
+            : base(firstName,lastName,age, userName,email,password,phoneNo,false)
         {
         }
         

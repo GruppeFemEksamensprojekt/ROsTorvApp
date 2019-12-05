@@ -42,20 +42,53 @@
             BorderBrush="#81a6c7"
             BorderThickness="0,0,0,1">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <TextBlock
+                    Grid.Column="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Butikker" />
-                <TextBlock Text="{Binding AdminCheck}" />
+                <Border
+                    Grid.Column="2"
+                    Height="35"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="Right"
+                    Background="White"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    CornerRadius="1">
+                    <Button Background="Transparent" Content="Indstillinger">
+                        <Button.Flyout>
+                            <Flyout>
+                                <StackPanel Width="150">
+                                    <Button
+                                        Width="150"
+                                        Margin="0,5"
+                                        Background="white"
+                                        Content="Tilføj Butik" />
+                                    <Button
+                                        Width="150"
+                                        Margin="0,5"
+                                        Background="white"
+                                        Content="Slet Valgte" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Border>
             </Grid>
         </Border>
         <!--  Page  -->
         <Grid
             Grid.Row="1"
-            Grid.RowSpan="11"
+            Grid.RowSpan="6"
             Grid.Column="0"
             Grid.ColumnSpan="2">
             <ListView ItemsSource="{Binding StoreCollection}" SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
@@ -88,7 +121,6 @@
             </ListView>
         </Grid>
         <!--  Navigation Bar  -->
-
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />
         </StackPanel>

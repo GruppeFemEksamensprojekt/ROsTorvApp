@@ -12,8 +12,8 @@ namespace ROsTorvApp.Model.Users
 {
     public class Admin : UserAccount
     {
-        public Admin(string userName, string email, string password, string phoneNo)
-            : base(userName,email,password,phoneNo,true)
+        public Admin(string firstName, string lastName, int age, string userName, string email, string password, string phoneNo)
+            : base(firstName, lastName, age, userName, email, password, phoneNo, true)
         {
         }
     }

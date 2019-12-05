@@ -64,7 +64,7 @@
                         FontWeight="Light"
                         Foreground="White"
                         Text="Brugernavn:" />
-                    <TextBox Background="white" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
@@ -78,7 +78,7 @@
                         FontWeight="Light"
                         Foreground="White"
                         Text="Password:" />
-                    <TextBox Background="white" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel

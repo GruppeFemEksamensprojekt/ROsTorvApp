@@ -25,27 +25,22 @@ namespace ROsTorvApp.ViewModel
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        private bool IsAdmin { get; set; }
         public ICommand LoginCommand { get; set; }
-        private UserHandler UserHandler = new UserHandler();
 
         public Login()
         {
             LoginCommand = new RelayCommand(LoginAction, null);
+            if (Singleton.Instance.UserList == null)
+            {
+                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+            }
         }
         
         public void LoginAction()
         {
             if (CheckLoginCredentials)
             {
-                if (IsAdmin)
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(More));
-                }
-                else
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
-                }
+                ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
             }
             else
             {
@@ -58,13 +53,14 @@ namespace ROsTorvApp.ViewModel
         {
             get
             {
-                foreach (var User in UserHandler.UserList)
+                foreach (var User in Singleton.Instance.UserList)
                 {
                     if (User.UserName == UserName && User.Password == Password)
                     {
-                        IsAdmin = User.IsAdmin;
-                        UserHandler.CurrentUserAdmin = User.IsAdmin;
-                        UserHandler.CurrentUsersFirstName = User.UserName;
+                        UserHandler.CurrentUserAdmin = User.Admin;
+                        UserHandler.CurrentUsersUserName = User.UserName;
+                        UserHandler.CurrentUsersFirstName = User.FirstName;
+                        UserHandler.CurrentUsersLastName = User.LastName;
                         return true;
                     }
                 }
