@@ -48,7 +48,7 @@
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Velkommen til Ro's Torv" />
-                <TextBlock Text="" />
+                <TextBlock Text="{Binding UsersFullName}" />
             </Grid>
         </Border>
         <!--  Page  -->

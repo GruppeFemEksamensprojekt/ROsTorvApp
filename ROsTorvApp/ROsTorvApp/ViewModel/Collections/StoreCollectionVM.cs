@@ -49,6 +49,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
         public StorageFile Test { get; set; }
+        public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
         public List<string> Timer { get; set; }
         public List<string> Minutter { get; set; }
 
@@ -176,9 +177,10 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         //A method which adds a new Store to the list of stores.
-        public static void AddStoreToList(Store store)
+        public void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
+            OnPropertyChanged(nameof(StoreCollection));
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
 

@@ -91,7 +91,7 @@
             Grid.RowSpan="6"
             Grid.Column="0"
             Grid.ColumnSpan="2">
-            <ListView ItemsSource="{Binding StoreCollection}" SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
+            <ListView ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="center:Store">
                         <StackPanel Orientation="Vertical">
