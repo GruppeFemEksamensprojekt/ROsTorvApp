@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ROsTorvApp.Annotations;
+using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Users;
 
 namespace ROsTorvApp.ViewModel.Collections
@@ -29,7 +30,9 @@ namespace ROsTorvApp.ViewModel.Collections
         //A method which adds a new Admin to the list of admins.
         public void AddAdmin(Admin admin)
         {
-            AdminCollection.Add(admin);
+            //AdminCollection.Add(admin);
+            Singleton.Instance.UserList.Add(admin);
+            UserHandler.SaveUsersAsync();
         }
 
 

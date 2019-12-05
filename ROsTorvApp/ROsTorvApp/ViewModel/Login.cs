@@ -27,11 +27,14 @@ namespace ROsTorvApp.ViewModel
         public string Password { get; set; }
         private bool IsAdmin { get; set; }
         public ICommand LoginCommand { get; set; }
-        private UserHandler UserHandler = new UserHandler();
 
         public Login()
         {
             LoginCommand = new RelayCommand(LoginAction, null);
+            if (Singleton.Instance.UserList == null)
+            {
+                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+            }
         }
         
         public void LoginAction()
@@ -58,7 +61,7 @@ namespace ROsTorvApp.ViewModel
         {
             get
             {
-                foreach (var User in UserHandler.UserList)
+                foreach (var User in Singleton.Instance.UserList)
                 {
                     if (User.UserName == UserName && User.Password == Password)
                     {
