@@ -12,6 +12,9 @@
         <local:CustomerCollectionVM />
     </Page.DataContext>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -29,8 +32,23 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
-
         </Grid.ColumnDefinitions>
+        <!--  Header  -->
+        <Border
+            Grid.ColumnSpan="2"
+            BorderBrush="#81a6c7"
+            BorderThickness="0,0,0,1">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Comic Sans Ms"
+                    FontSize="25"
+                    Foreground="#d7dbff"
+                    Text="Opret bruger" />
+                <TextBlock Text="{Binding UsersFullName}" />
+            </Grid>
+        </Border>
         <Grid Grid.ColumnSpan="2" />
         <Button
             Grid.Column="0"
@@ -46,17 +64,12 @@
             </StackPanel>
         </Button>
         <StackPanel
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.RowSpan="12"
-            Grid.ColumnSpan="2">
+            Grid.ColumnSpan="2"
+            Padding="50,0">
             <TextBlock
-                Margin="5"
-                HorizontalAlignment="Center"
-                FontSize="40"
-                FontWeight="Bold"
-                Text="Opret bruger" />
-            <TextBlock
-                Margin="5,0,0,10"
+                Margin="5,10,0,30"
                 HorizontalAlignment="Center"
                 FontSize="15"
                 FontStyle="Italic"
@@ -77,6 +90,7 @@
             <TextBox Margin="5" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button
                 Width="250"
+                Margin="0,20,0,0"
                 HorizontalAlignment="Center"
                 Background="DodgerBlue"
                 Command="{Binding AddCustomerCommand}"

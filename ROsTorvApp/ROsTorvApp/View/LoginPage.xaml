@@ -48,7 +48,7 @@
                         FontFamily="Lucida Bright"
                         FontSize="25"
                         Foreground="White"
-                        Text="Logind / Opret Bruger" />
+                        Text="Log-ind / Opret Bruger" />
                     <TextBlock Text="" />
                 </Grid>
             </Border>
@@ -58,7 +58,7 @@
                 Grid.RowSpan="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2">
-                <StackPanel Width="220">
+                <StackPanel Width="240">
                     <TextBlock
                         FontSize="20"
                         FontWeight="Light"
@@ -72,7 +72,7 @@
                 Grid.RowSpan="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2">
-                <StackPanel Width="220">
+                <StackPanel Width="240">
                     <TextBlock
                         FontSize="20"
                         FontWeight="Light"
@@ -84,14 +84,20 @@
             <StackPanel
                 Grid.Row="6"
                 Grid.ColumnSpan="2"
+                Width="240"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                <Button
-                    Width="230"
-                    Background="DarkBlue"
-                    Command="{Binding LoginCommand}"
-                    Content="Log Ind"
-                    Foreground="White" />
+                <Border
+                    Width="240"
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1">
+                    <Button
+                        Width="240"
+                        Background="#FF3E5A76"
+                        Command="{Binding LoginCommand}"
+                        Content="Log Ind"
+                        Foreground="White" />
+                </Border>
             </StackPanel>
             <StackPanel
                 Grid.Row="7"

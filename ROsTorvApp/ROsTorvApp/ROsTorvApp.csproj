@@ -178,6 +178,7 @@
     <Content Include="Assets\Images\BackgroundImg.jpg" />
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\Billede1.jpg" />
+    <Content Include="Assets\Images\CenterOversigt.jpg" />
     <Content Include="Assets\Images\EventImg.png" />
     <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
     <Content Include="Assets\Images\Events\Events-Konkurrence.jpg" />
@@ -192,6 +193,8 @@
     <Content Include="Assets\Images\Føtex.jpg" />
     <Content Include="Assets\Images\Gamestop.png" />
     <Content Include="Assets\Images\HomeImg.png" />
+    <Content Include="Assets\Images\Information.jpg" />
+    <Content Include="Assets\Images\KortOversigt.jpg" />
     <Content Include="Assets\Images\Matas.png" />
     <Content Include="Assets\Images\MoreImg.png" />
     <Content Include="Assets\Images\ShopImg.png" />
