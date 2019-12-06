@@ -23,5 +23,6 @@ namespace ROsTorvApp.Helpers
         {
             get { return instance ?? (instance = new SingletonUsers());}
         }
+
     }
 }
