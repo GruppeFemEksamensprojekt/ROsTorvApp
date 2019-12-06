@@ -68,10 +68,9 @@ namespace ROsTorvApp.Helpers
         {
             PersistenceFacade.FileCreationStore();
             ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
-            StoreCollectionVM.StoreCollection.Clear();
             if (stores == null)
             {
-                StoreCollectionVM StoreCollectionVM = new StoreCollectionVM();
+                StoreCollectionVM storeCollection = new StoreCollectionVM();
             }
             else
             {
