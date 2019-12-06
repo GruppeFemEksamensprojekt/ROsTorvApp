@@ -27,7 +27,7 @@ namespace ROsTorvApp.Helpers
         
         public static bool UsernameAvailability(string Username)
         {
-            if (Singleton.Instance.UserList.Any(p => p.UserName == Username))
+            if (SingletonUsers.Instance.UserList.Any(p => p.UserName == Username))
             {
                 return true;
             }
@@ -37,14 +37,14 @@ namespace ROsTorvApp.Helpers
 
         public static void SaveUsersAsync()
         {
-            PersistenceFacade.SaveUserToJson(Singleton.Instance.UserList);
+            PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
 
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
             ObservableCollection<UserAccount> users = await PersistenceFacade.LoadUserFromJson();
-            Singleton.Instance.UserList.Clear();
+            SingletonUsers.Instance.UserList.Clear();
             if (users == null)
             {
                 AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
@@ -53,7 +53,7 @@ namespace ROsTorvApp.Helpers
             {
                 foreach (var user in users)
                 {
-                    Singleton.Instance.UserList.Add(user);
+                    SingletonUsers.Instance.UserList.Add(user);
                 }
             }
         }
