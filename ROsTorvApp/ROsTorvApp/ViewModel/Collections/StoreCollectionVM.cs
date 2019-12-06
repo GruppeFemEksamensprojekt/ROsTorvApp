@@ -30,6 +30,11 @@ namespace ROsTorvApp.ViewModel.Collections
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
 
+        public string ClosingHoursVM
+        {
+            get { return $"{SelectedClosingHours}:{SelectedClosingMinutes}"; }
+        }
+
         public string OpeningHoursVM
         {
             get { return $"{SelectedOpeningHours} - {SelectedOpeningHours}"; }
@@ -50,7 +55,23 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return _selectedOpeningHours; }
             set { _selectedOpeningHours = value; }
         }
+        public string SelectedOpeningMinutes
+        {
+            get { return _selectedOpeningMinutes; }
+            set { _selectedOpeningMinutes = value; }
+        }
 
+        public string SelectedClosingHours
+        {
+            get { return _selectedClosingHours;}
+            set { _selectedClosingHours = value; }
+        }
+
+        public string SelectedClosingMinutes
+        {
+            get { return _selectedClosingMinutes; }
+            set { _selectedClosingMinutes = value; }
+        }
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -58,6 +79,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         private static Store _selectedStore;
         private bool _showStoreDetails;
+        private bool _showAdminButton;
         #endregion
 
         #region Constructor
@@ -77,7 +99,8 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
-            _selectedOpeningHours = OpeningAndClosingTime[0];
+            _selectedOpeningHours = Timer[0];
+            _selectedOpeningMinutes = Minutter[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
@@ -107,7 +130,8 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public bool ShowStoreDetails
         {
-            get { return _showStoreDetails; }
+            get 
+            { return _showStoreDetails; }
             set
             {
                 _showStoreDetails = value;
@@ -118,6 +142,32 @@ namespace ROsTorvApp.ViewModel.Collections
         public Visibility StoreDetailsVisibility
         {
             get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
+        }
+
+
+        // Viser "Instillinger" knappen på shop.xaml siden hvis brugeren der er logget ind er Admin
+        public bool ShowAdminButton
+        {
+            get 
+            {
+                if (UserHandler.CurrentUserAdmin)
+                {
+                    return _showAdminButton = true;
+                }
+                return false;
+            }
+            set
+            {
+                _showAdminButton = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShowAdminButtonVisibility));
+            }
+        }
+        public Visibility ShowAdminButtonVisibility
+        {
+            get 
+            {
+                return ShowAdminButton ? Visibility.Visible : Visibility.Collapsed; }
         }
         #endregion
 
