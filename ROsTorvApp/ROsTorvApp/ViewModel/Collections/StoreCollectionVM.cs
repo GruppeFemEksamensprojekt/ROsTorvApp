@@ -88,13 +88,11 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return _selectedOpeningHours; }
             set { _selectedOpeningHours = value; }
         }
-
         public string SelectedClosingHours
         {
             get { return _selectedClosingHours; }
             set { _selectedClosingHours = value; }
         }
-
         #endregion
 
         public ICommand RedirectToAddStorePage { get; set; }
@@ -180,7 +178,6 @@ namespace ROsTorvApp.ViewModel.Collections
         public void RedirectToAddStorePageMethod()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
-
         }
         public async void BrowseStores()
         {

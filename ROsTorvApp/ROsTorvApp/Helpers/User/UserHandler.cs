@@ -16,6 +16,7 @@ namespace ROsTorvApp.Helpers
         public static string CurrentUsersUserName { get; set; }
         public static string CurrentUsersFirstName { get; set; }
         public static string CurrentUsersLastName { get; set; }
+        public static bool FileExists { get; set; }
 
         public static string CurrentUsersFullName
         {
@@ -24,7 +25,7 @@ namespace ROsTorvApp.Helpers
 
         public UserHandler()
         {
-
+            FileExists = false;
         }
         
         public static bool UsernameAvailability(string Username)
@@ -58,6 +59,7 @@ namespace ROsTorvApp.Helpers
                     SingletonUsers.Instance.UserList.Add(user);
                 }
             }
+            FileExists = true;
         }
     }
 }

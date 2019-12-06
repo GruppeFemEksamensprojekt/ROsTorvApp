@@ -9,9 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <Page.DataContext>
-        <ViewModelCollections:StoreCollectionVM />
-    </Page.DataContext>
+
 
     <Grid>
         <Grid.Background>
