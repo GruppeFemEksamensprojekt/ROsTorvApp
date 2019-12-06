@@ -70,9 +70,9 @@ namespace ROsTorvApp.Helpers
             ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
             StoreCollectionVM.StoreCollection.Clear();
             foreach (var store in stores)
-                {
-                    StoreCollectionVM.StoreCollection.Add(store);
-                }
+            {
+                StoreCollectionVM.StoreCollection.Add(store);
+            }
         }
 
 
