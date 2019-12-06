@@ -59,7 +59,7 @@ namespace ROsTorvApp.ViewModel.Collections
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
 
-            StoreHandler.LoadStoresAsync();
+            //StoreHandler.LoadStoresAsync();
         }
 
         #endregion
