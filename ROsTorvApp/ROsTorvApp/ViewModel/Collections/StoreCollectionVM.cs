@@ -27,46 +27,11 @@ namespace ROsTorvApp.ViewModel.Collections
 
         private string _selectedOpeningHours;
         private string _selectedClosingHours;
-
-        public int StoreIdVM { get; set; }
-        public string StoreNameVM { get; set; }
-
-        public string OpeningAndClosingHoursVM
-        {
-            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
-        }
-
-        public string DescriptionVM { get; set; }
-        public int LocationFloorVM { get; set; }
-        public int LocationNoVM { get; set; }
-        public string PhoneNoVM { get; set; }
-        public string ImageStoreVM { get; set; }
-        public string StoreCategoryVM { get; set; }
-        public StorageFile Test { get; set; }
-        public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
-        public List<string> OpeningAndClosingTime { get; set; }
-
-        public string SelectedOpeningHours
-        {
-            get { return _selectedOpeningHours; }
-            set { _selectedOpeningHours = value; }
-        }
-
-        //hej
-        public string SelectedClosingHours
-        {
-            get { return _selectedClosingHours; }
-            set { _selectedClosingHours = value; }
-        }
-
-        public ICommand RedirectToAddStorePage { get; set; }
-        public ICommand AddCommand { get; set; }
-        public ICommand DeleteCommand { get; set; }
-        public ICommand BrowseCommand { get; set; }
-
         private static Store _selectedStore;
         private bool _showStoreDetails;
         private bool _showAdminButton;
+
+
         #endregion
 
         #region Constructor
@@ -100,6 +65,42 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         #region Properties
+
+        public string OpeningAndClosingHoursVM
+        {
+            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
+        }
+
+        #region StoreDetails
+        public int StoreIdVM { get; set; }
+        public string StoreNameVM { get; set; }
+        public string DescriptionVM { get; set; }
+        public int LocationFloorVM { get; set; }
+        public int LocationNoVM { get; set; }
+        public string PhoneNoVM { get; set; }
+        public string ImageStoreVM { get; set; }
+        public string StoreCategoryVM { get; set; }
+        public StorageFile Test { get; set; }
+        public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
+        public List<string> OpeningAndClosingTime { get; set; }
+        public string SelectedOpeningHours
+        {
+            get { return _selectedOpeningHours; }
+            set { _selectedOpeningHours = value; }
+        }
+
+        public string SelectedClosingHours
+        {
+            get { return _selectedClosingHours; }
+            set { _selectedClosingHours = value; }
+        }
+
+        #endregion
+
+        public ICommand RedirectToAddStorePage { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand BrowseCommand { get; set; }
         public static ObservableCollection<Store> StoreCollection { get; set; }
         // A property for binding the store you select in the view.
         public static Store SelectedStore
@@ -109,10 +110,6 @@ namespace ROsTorvApp.ViewModel.Collections
             {
                 _selectedStore = value;
             }
-        }
-        public static bool StoreIsSelected()
-        {
-            return SelectedStore != null;
         }
 
         public bool ShowStoreDetails
@@ -158,13 +155,18 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         #endregion
 
-        #region XAML-Bindings
-        //This method Adds a new store, bound in XAML page.
+        #region Methods
 
+        public static bool StoreIsSelected()
+        {
+            return SelectedStore != null;
+        }
+
+        //This method Adds a new store, bound in XAML page.
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, DescriptionVM, 
-                LocationFloorVM, LocationNoVM, ImageStoreVM,StoreCategoryVM,PhoneNoVM));
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, DescriptionVM,
+                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
         }
         // This method deletes a selected store, if one is selected.
         public void DeleteStore()
@@ -190,12 +192,10 @@ namespace ROsTorvApp.ViewModel.Collections
             f.FileTypeFilter.Add(".png");
             Test = await f.PickSingleFileAsync();
             ImageStoreVM = "/Assets/Images/" + Test.Name;
-            
+
             OnPropertyChanged();
             OnPropertyChanged(nameof(Test));
         }
-
-        #endregion
 
         //A method which adds a new Store to the list of stores.
         public void AddStoreToList(Store store)
@@ -205,6 +205,7 @@ namespace ROsTorvApp.ViewModel.Collections
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
             UserHandler.SaveStoresAsync();
         }
+        #endregion
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
