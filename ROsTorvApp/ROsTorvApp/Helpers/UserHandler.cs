@@ -42,7 +42,7 @@ namespace ROsTorvApp.Helpers
 
         public static async void LoadUsersAsync()
         {
-            PersistenceFacade.FileCreation();
+            PersistenceFacade.FileCreationUser();
             ObservableCollection<UserAccount> users = await PersistenceFacade.LoadUserFromJson();
             Singleton.Instance.UserList.Clear();
             if (users == null)
