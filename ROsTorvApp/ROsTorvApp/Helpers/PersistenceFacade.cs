@@ -27,7 +27,6 @@ namespace ROsTorvApp.Helpers
             }
 
         }
-
         public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
             string usersJsonString = JsonConvert.SerializeObject(users);
