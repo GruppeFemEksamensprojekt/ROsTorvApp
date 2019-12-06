@@ -63,7 +63,8 @@
                     Background="White"
                     BorderBrush="White"
                     BorderThickness="1"
-                    CornerRadius="1">
+                    CornerRadius="1"
+                    Visibility="{Binding ShowAdminButtonVisibility}">
                     <Button Background="Transparent" Content="Indstillinger">
                         <Button.Flyout>
                             <Flyout>
