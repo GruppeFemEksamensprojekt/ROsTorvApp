@@ -99,30 +99,17 @@
                 <TextBox Margin="0,0,0,5" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Åbningstid:" />
+                <TextBlock Margin="0,5,0,5" Text="Åbnings- og lukketid:" />
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
+                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
                     <TextBlock
                         Margin="5,0,5,0"
                         VerticalAlignment="Center"
                         FontSize="20"
-                        Text=":" />
-                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedOpeningMinutes, Mode=TwoWay}" />
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,5,0,5"
-                        VerticalAlignment="Center"
-                        Text="Lukketid:" />
+                        Text="-" />
+                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding Timer}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
-                    <TextBlock
-                        Margin="5,0,5,0"
-                        VerticalAlignment="Center"
-                        FontSize="20"
-                        Text=":" />
-                    <ComboBox ItemsSource="{Binding Minutter}" SelectedValue="{Binding SelectedClosingMinutes, Mode=TwoWay}" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>

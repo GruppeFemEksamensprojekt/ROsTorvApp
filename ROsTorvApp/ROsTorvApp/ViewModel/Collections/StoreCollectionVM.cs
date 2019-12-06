@@ -26,18 +26,14 @@ namespace ROsTorvApp.ViewModel.Collections
         #region Instance Fields
 
         private string _selectedOpeningHours;
+        private string _selectedClosingHours;
 
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
 
-        public string ClosingHoursVM
+        public string OpeningAndClosingHoursVM
         {
-            get { return $"{SelectedClosingHours}:{SelectedClosingMinutes}"; }
-        }
-
-        public string OpeningHoursVM
-        {
-            get { return $"{SelectedOpeningHours} - {SelectedOpeningHours}"; }
+            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
         }
 
         public string DescriptionVM { get; set; }
@@ -55,23 +51,14 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return _selectedOpeningHours; }
             set { _selectedOpeningHours = value; }
         }
-        public string SelectedOpeningMinutes
-        {
-            get { return _selectedOpeningMinutes; }
-            set { _selectedOpeningMinutes = value; }
-        }
 
+        //hej
         public string SelectedClosingHours
         {
-            get { return _selectedClosingHours;}
+            get { return _selectedClosingHours; }
             set { _selectedClosingHours = value; }
         }
 
-        public string SelectedClosingMinutes
-        {
-            get { return _selectedClosingMinutes; }
-            set { _selectedClosingMinutes = value; }
-        }
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -99,8 +86,8 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
-            _selectedOpeningHours = Timer[0];
-            _selectedOpeningMinutes = Minutter[0];
+            _selectedOpeningHours = OpeningAndClosingTime[0];
+            _selectedClosingHours = OpeningAndClosingTime[15];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
@@ -176,7 +163,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, DescriptionVM, 
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, DescriptionVM, 
                 LocationFloorVM, LocationNoVM, ImageStoreVM,StoreCategoryVM,PhoneNoVM));
         }
         // This method deletes a selected store, if one is selected.
