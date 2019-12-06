@@ -26,22 +26,15 @@ namespace ROsTorvApp.ViewModel.Collections
         #region Instance Fields
 
         private string _selectedOpeningHours;
-        private string _selectedOpeningMinutes;
-        private string _selectedClosingHours;
-        private string _selectedClosingMinutes;
 
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
 
-        public string ClosingHoursVM
-        {
-            get { return $"{SelectedClosingHours}:{SelectedClosingMinutes}"; }
-        }
-
         public string OpeningHoursVM
         {
-            get { return $"{SelectedOpeningHours}:{SelectedOpeningMinutes}"; }
+            get { return $"{SelectedOpeningHours} - {SelectedOpeningHours}"; }
         }
+
         public string DescriptionVM { get; set; }
         public int LocationFloorVM { get; set; }
         public int LocationNoVM { get; set; }
@@ -50,31 +43,14 @@ namespace ROsTorvApp.ViewModel.Collections
         public string StoreCategoryVM { get; set; }
         public StorageFile Test { get; set; }
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
-        public List<string> Timer { get; set; }
-        public List<string> Minutter { get; set; }
+        public List<string> OpeningAndClosingTime { get; set; }
 
         public string SelectedOpeningHours
         {
             get { return _selectedOpeningHours; }
             set { _selectedOpeningHours = value; }
         }
-        public string SelectedOpeningMinutes
-        {
-            get { return _selectedOpeningMinutes; }
-            set { _selectedOpeningMinutes = value; }
-        }
 
-        public string SelectedClosingHours
-        {
-            get { return _selectedClosingHours;}
-            set { _selectedClosingHours = value; }
-        }
-
-        public string SelectedClosingMinutes
-        {
-            get { return _selectedClosingMinutes; }
-            set { _selectedClosingMinutes = value; }
-        }
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -89,20 +65,19 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             StoreCollection = new ObservableCollection<Store>();
             // Test Data
-            StoreCollection.Add(new Store(1, "Matas", "10:00-", "10:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Beauty","40404040"));
-            StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00-", "19:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Tøj","10101010"));
-            StoreCollection.Add(new Store(3, "Gamestop+", "10:30-", "13:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming","32125341"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00-", "20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer","95756214"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00-", "20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+            StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Beauty","40404040"));
+            StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Tøj","10101010"));
+            StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming","32125341"));
+            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer","95756214"));
+            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
 
-            Timer = new List<string> {"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
-            Minutter = new List<string> {"00", "15", "30", "45"};
+            OpeningAndClosingTime = new List<string> {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", 
+                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"};
 
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
-            _selectedOpeningHours = Timer[0];
-            _selectedOpeningMinutes = Minutter[0];
+            _selectedOpeningHours = OpeningAndClosingTime[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
@@ -151,7 +126,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM, 
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, DescriptionVM, 
                 LocationFloorVM, LocationNoVM, ImageStoreVM,StoreCategoryVM,PhoneNoVM));
         }
         // This method deletes a selected store, if one is selected.
