@@ -31,5 +31,13 @@ namespace ROsTorvApp.View
         {
             ((Frame)Window.Current.Content).GoBack();
         }
+
+        private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+            }
+        }
     }
 }
