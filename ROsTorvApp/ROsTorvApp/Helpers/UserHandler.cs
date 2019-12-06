@@ -45,7 +45,7 @@ namespace ROsTorvApp.Helpers
         {
             PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
         }
-        
+
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
