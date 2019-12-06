@@ -38,14 +38,17 @@ namespace ROsTorvApp.ViewModel
         
         public void LoginAction()
         {
-            if (CheckLoginCredentials)
+            if (UserName != null  && Password != null)
             {
-                ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
-            }
-            else
-            {
-                var messageDialog = new MessageDialog("Failed login");
-                messageDialog.ShowAsync();
+                if (CheckLoginCredentials)
+                {
+                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+                }
+                else
+                {
+                    var messageDialog = new MessageDialog("Failed login");
+                    messageDialog.ShowAsync();
+                }
             }
         }
 

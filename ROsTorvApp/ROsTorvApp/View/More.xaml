@@ -189,6 +189,13 @@
             </StackPanel>
 
         </ScrollViewer>
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
+            <Button
+                Width="200"
+                HorizontalAlignment="Center"
+                Click="Button_Click"
+                Content="Log ud" />
+        </StackPanel>
 
 
         <!--  Navigation Bar  -->
