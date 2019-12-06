@@ -15,6 +15,7 @@
         <collections:StoreCollectionVM />
     </Page.DataContext>
     <Grid>
+
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
         </Grid.Background>
