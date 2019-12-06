@@ -32,5 +32,13 @@ namespace ROsTorvApp.View
         {
             this.Frame.Navigate(typeof(OpretBruger));
         }
+
+        private void UIElement_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.KeyStatus.ScanCode == 28)
+            {
+                
+            }
+        }
     }
 }

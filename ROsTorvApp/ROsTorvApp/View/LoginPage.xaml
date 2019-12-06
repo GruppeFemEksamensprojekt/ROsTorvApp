@@ -78,7 +78,7 @@
                         FontWeight="Light"
                         Foreground="White"
                         Text="Password:" />
-                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="UIElement_OnKeyDown" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
