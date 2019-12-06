@@ -121,8 +121,10 @@
     </Compile>
     <Compile Include="Helpers\PersistenceFacade.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
-    <Compile Include="Helpers\SingletonUsers.cs" />
-    <Compile Include="Helpers\UserHandler.cs" />
+    <Compile Include="Helpers\Store\SingletonStores.cs" />
+    <Compile Include="Helpers\User\SingletonUsers.cs" />
+    <Compile Include="Helpers\Store\StoreHandler.cs" />
+    <Compile Include="Helpers\User\UserHandler.cs" />
     <Compile Include="Include\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>

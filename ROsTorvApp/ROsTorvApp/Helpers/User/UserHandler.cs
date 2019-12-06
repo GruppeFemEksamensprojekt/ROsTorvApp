@@ -21,6 +21,7 @@ namespace ROsTorvApp.Helpers
         {
             get { return $"{CurrentUsersFirstName} {CurrentUsersLastName}"; }
         }
+
         public UserHandler()
         {
 
@@ -40,12 +41,7 @@ namespace ROsTorvApp.Helpers
         {
             PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
-
-        public static void SaveStoresAsync()
-        {
-            PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
-        }
-
+        
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
@@ -63,20 +59,5 @@ namespace ROsTorvApp.Helpers
                 }
             }
         }
-
-        public static async void LoadStoresAsync()
-        {
-            PersistenceFacade.FileCreationStore();
-            ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
-            StoreCollectionVM.StoreCollection.Clear();
-            foreach (var store in stores)
-            {
-                StoreCollectionVM.StoreCollection.Add(store);
-            }
-        }
-
-
-
-
     }
 }

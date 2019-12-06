@@ -16,26 +16,26 @@ namespace ROsTorvApp.Helpers
     class PersistenceFacade
     {
         #region UserList
-        private static string jsonFileName = "UsersAsJson.dat";
+        private static string jsonFileNameUser = "UsersAsJson.dat";
 
         public static async void FileCreationUser()
         {
-            var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(jsonFileName);
+            var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(jsonFileNameUser);
             if (item == null)
             {
-                StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileName);
+                StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileNameUser);
             }
 
         }
         public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
             string usersJsonString = JsonConvert.SerializeObject(users);
-            SerializeUsersFileAsync(usersJsonString, jsonFileName);
+            SerializeUsersFileAsync(usersJsonString, jsonFileNameUser);
         }
 
         public static async Task<ObservableCollection<UserAccount>> LoadUserFromJson()
         {
-            string usersJsonString = await DeSerializeUsersFileAsync(jsonFileName);
+            string usersJsonString = await DeSerializeUsersFileAsync(jsonFileNameUser);
             return (ObservableCollection<UserAccount>)JsonConvert.DeserializeObject(usersJsonString, typeof(ObservableCollection<UserAccount>));
         }
 
@@ -51,15 +51,16 @@ namespace ROsTorvApp.Helpers
             return await FileIO.ReadTextAsync(localFile);
         }
         #endregion
+
         #region Stores
-        private static string jsonFileName2 = "StoresAsJson.dat";
+        private static string jsonFileNameStore = "StoresAsJson.dat";
 
         public static async void FileCreationStore()
         {
-            var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(jsonFileName2);
+            var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(jsonFileNameStore);
             if (item == null)
             {
-                StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileName2);
+                StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileNameStore);
             }
 
         }
@@ -67,12 +68,12 @@ namespace ROsTorvApp.Helpers
         public static void SaveStoreToJson(ObservableCollection<Store> stores)
         {
             string storesJsonString = JsonConvert.SerializeObject(stores);
-            SerializeUsersFileAsync(storesJsonString, jsonFileName2);
+            SerializeUsersFileAsync(storesJsonString, jsonFileNameStore);
         }
 
         public static async Task<ObservableCollection<Store>> LoadStoreFromJson()
         {
-            string storesJsonString = await DeSerializeStoresFileAsync(jsonFileName2);
+            string storesJsonString = await DeSerializeStoresFileAsync(jsonFileNameStore);
             return (ObservableCollection<Store>)JsonConvert.DeserializeObject(storesJsonString, typeof(ObservableCollection<Store>));
         }
 
