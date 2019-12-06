@@ -13,7 +13,7 @@ namespace ROsTorvApp.Helpers
     {
         public StoreHandler()
         {
-            
+
         }
 
         public static void SaveStoresAsync()
@@ -25,10 +25,17 @@ namespace ROsTorvApp.Helpers
         {
             PersistenceFacade.FileCreationStore();
             ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
-            StoreCollectionVM.StoreCollection.Clear();
-            foreach (var store in stores)
+            SingletonStores.Instance.StoreList.Clear();
+            if (stores == null)
             {
-                StoreCollectionVM.StoreCollection.Add(store);
+                StoreCollectionVM storeCollectionVm = new StoreCollectionVM();
+            }
+            else
+            {
+                foreach (var store in stores)
+                {
+                    SingletonStores.Instance.StoreList.Add(store);
+                }
             }
         }
     }
