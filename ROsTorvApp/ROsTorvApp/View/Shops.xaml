@@ -106,7 +106,6 @@
             Grid.ColumnSpan="2">
             <ListView
                 x:Name="ListViewShops"
-                Margin="20"
                 ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
                 <ListView.ItemTemplate>
