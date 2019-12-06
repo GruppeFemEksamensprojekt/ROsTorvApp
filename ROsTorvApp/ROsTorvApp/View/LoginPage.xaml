@@ -78,7 +78,7 @@
                         FontWeight="Light"
                         Foreground="White"
                         Text="Password:" />
-                    <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <PasswordBox PasswordChanged="PasswordBox_OnPasswordChanged" />
                 </StackPanel>
             </StackPanel>
             <StackPanel

@@ -101,6 +101,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _selectedStore = StoreCollection[0];
             _showStoreDetails = false;
+            _selectedStore = null;
             _selectedOpeningHours = Timer[0];
             _selectedOpeningMinutes = Minutter[0];
 

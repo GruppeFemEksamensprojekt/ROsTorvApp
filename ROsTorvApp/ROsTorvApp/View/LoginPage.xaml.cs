@@ -32,5 +32,13 @@ namespace ROsTorvApp.View
         {
             this.Frame.Navigate(typeof(OpretBruger));
         }
+
+        private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic) this.DataContext).Password = ((PasswordBox) sender).Password;
+            }
+        }
+        }
     }
-}
