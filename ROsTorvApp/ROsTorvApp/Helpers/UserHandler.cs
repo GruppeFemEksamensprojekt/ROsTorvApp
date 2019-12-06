@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ROsTorvApp.Model.Center;
 using ROsTorvApp.Model.Users;
 using ROsTorvApp.ViewModel.Collections;
 
@@ -40,6 +41,11 @@ namespace ROsTorvApp.Helpers
             PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
 
+        public static void SaveStoresAsync()
+        {
+            PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
+        }
+        
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
@@ -57,5 +63,27 @@ namespace ROsTorvApp.Helpers
                 }
             }
         }
+
+        public static async void LoadStoresAsync()
+        {
+            PersistenceFacade.FileCreationStore();
+            ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
+            StoreCollectionVM.StoreCollection.Clear();
+            if (stores == null)
+            {
+                StoreCollectionVM StoreCollectionVM = new StoreCollectionVM();
+            }
+            else
+            {
+                foreach (var store in stores)
+                {
+                    StoreCollectionVM.StoreCollection.Add(store);
+                }
+            }
+        }
+
+
+
+
     }
 }
