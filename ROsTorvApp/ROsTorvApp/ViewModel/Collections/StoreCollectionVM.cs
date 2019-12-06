@@ -109,6 +109,8 @@ namespace ROsTorvApp.ViewModel.Collections
             DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
+
+            UserHandler.LoadStoresAsync();
         }
 
         #endregion
@@ -159,6 +161,7 @@ namespace ROsTorvApp.ViewModel.Collections
             if (SelectedStore != null)
             {
                 StoreCollection.Remove(SelectedStore);
+                UserHandler.SaveStoresAsync();
             }
         }
         public void RedirectToAddStorePageMethod()
@@ -189,6 +192,7 @@ namespace ROsTorvApp.ViewModel.Collections
             StoreCollection.Add(store);
             OnPropertyChanged(nameof(StoreCollection));
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            UserHandler.SaveStoresAsync();
         }
 
         #region INotifyPropertyChanged

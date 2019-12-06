@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ROsTorvApp.Model.Center;
 using ROsTorvApp.Model.Users;
 using ROsTorvApp.ViewModel.Collections;
 
@@ -27,7 +28,7 @@ namespace ROsTorvApp.Helpers
         
         public static bool UsernameAvailability(string Username)
         {
-            if (Singleton.Instance.UserList.Any(p => p.UserName == Username))
+            if (SingletonUsers.Instance.UserList.Any(p => p.UserName == Username))
             {
                 return true;
             }
@@ -37,14 +38,19 @@ namespace ROsTorvApp.Helpers
 
         public static void SaveUsersAsync()
         {
-            PersistenceFacade.SaveUserToJson(Singleton.Instance.UserList);
+            PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
 
+        public static void SaveStoresAsync()
+        {
+            PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
+        }
+        
         public static async void LoadUsersAsync()
         {
-            PersistenceFacade.FileCreation();
+            PersistenceFacade.FileCreationUser();
             ObservableCollection<UserAccount> users = await PersistenceFacade.LoadUserFromJson();
-            Singleton.Instance.UserList.Clear();
+            SingletonUsers.Instance.UserList.Clear();
             if (users == null)
             {
                 AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
@@ -53,9 +59,30 @@ namespace ROsTorvApp.Helpers
             {
                 foreach (var user in users)
                 {
-                    Singleton.Instance.UserList.Add(user);
+                    SingletonUsers.Instance.UserList.Add(user);
                 }
             }
         }
+
+        public static async void LoadStoresAsync()
+        {
+            PersistenceFacade.FileCreationStore();
+            ObservableCollection<Store> stores = await PersistenceFacade.LoadStoreFromJson();
+            if (stores == null)
+            {
+                StoreCollectionVM storeCollection = new StoreCollectionVM();
+            }
+            else
+            {
+                foreach (var store in stores)
+                {
+                    StoreCollectionVM.StoreCollection.Add(store);
+                }
+            }
+        }
+
+
+
+
     }
 }

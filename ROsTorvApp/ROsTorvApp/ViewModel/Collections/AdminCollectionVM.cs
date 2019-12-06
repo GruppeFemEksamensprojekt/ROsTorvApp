@@ -31,7 +31,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public void AddAdmin(Admin admin)
         {
             //AdminCollection.Add(admin);
-            Singleton.Instance.UserList.Add(admin);
+            SingletonUsers.Instance.UserList.Add(admin);
             UserHandler.SaveUsersAsync();
         }
 

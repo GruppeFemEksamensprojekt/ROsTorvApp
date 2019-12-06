@@ -8,20 +8,20 @@ using ROsTorvApp.Model.Users;
 
 namespace ROsTorvApp.Helpers
 {
-    public sealed class Singleton
+    public sealed class SingletonUsers
     {
-        private static Singleton instance = null;
+        private static SingletonUsers instance = null;
         public ObservableCollection<UserAccount> UserList { get; }
 
-        private Singleton()
+        private SingletonUsers()
         {
             UserList = new ObservableCollection<UserAccount>();
             UserHandler.LoadUsersAsync();
         }
 
-        public static Singleton Instance
+        public static SingletonUsers Instance
         {
-            get { return instance ?? (instance = new Singleton());}
+            get { return instance ?? (instance = new SingletonUsers());}
         }
     }
 }
