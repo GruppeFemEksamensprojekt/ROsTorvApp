@@ -71,10 +71,10 @@ namespace ROsTorvApp.Helpers
             SerializeUsersFileAsync(storesJsonString, jsonFileName2);
         }
 
-        public static async Task<ObservableCollection<UserAccount>> LoadStoreFromJson()
+        public static async Task<ObservableCollection<Store>> LoadStoreFromJson()
         {
             string storesJsonString = await DeSerializeStoresFileAsync(jsonFileName2);
-            return (ObservableCollection<UserAccount>)JsonConvert.DeserializeObject(storesJsonString, typeof(ObservableCollection<UserAccount>));
+            return (ObservableCollection<Store>)JsonConvert.DeserializeObject(storesJsonString, typeof(ObservableCollection<Store>));
         }
 
         public static async void SerializeStoresFileAsync(string storesString, string fileName)
