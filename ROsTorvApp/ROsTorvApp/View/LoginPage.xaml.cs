@@ -37,7 +37,7 @@ namespace ROsTorvApp.View
         {
             if (e.KeyStatus.ScanCode == 28)
             {
-                
+                ((dynamic) this.DataContext).LoginAction();
             }
         }
 

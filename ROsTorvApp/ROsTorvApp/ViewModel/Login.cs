@@ -24,7 +24,7 @@ namespace ROsTorvApp.ViewModel
     public class Login
     {
         public string UserName { get; set; }
-        public string Password { get; set; }
+        public string Password { private get; set; }
         public ICommand LoginCommand { get; set; }
 
         public Login()
