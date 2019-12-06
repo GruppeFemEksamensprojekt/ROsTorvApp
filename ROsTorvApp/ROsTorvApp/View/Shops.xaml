@@ -44,23 +44,24 @@
             BorderThickness="0,0,0,1">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <TextBlock
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
+                    Grid.Column="0"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="left"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Butikker" />
                 <Border
-                    Grid.Column="2"
+                    Grid.Column="1"
                     Height="35"
                     Margin="0,0,20,0"
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="right"
                     Background="White"
                     BorderBrush="White"
                     BorderThickness="1"
@@ -87,6 +88,14 @@
                         </Button.Flyout>
                     </Button>
                 </Border>
+                <Grid
+                    Grid.Column="2"
+                    Width="50"
+                    Height="50"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="right">
+                    <Include:BurgerMenu />
+                </Grid>
             </Grid>
         </Border>
         <!--  Page  -->
@@ -97,6 +106,7 @@
             Grid.ColumnSpan="2">
             <ListView
                 x:Name="ListViewShops"
+                Margin="20"
                 ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
                 <ListView.ItemTemplate>

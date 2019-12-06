@@ -43,13 +43,13 @@
                 BorderThickness="0,0,0,1">
                 <Grid>
                     <TextBlock
-                        HorizontalAlignment="Center"
+                        Margin="20,0,0,0"
+                        HorizontalAlignment="left"
                         VerticalAlignment="Center"
                         FontFamily="Lucida Bright"
                         FontSize="25"
                         Foreground="White"
-                        Text="Log-ind / Opret Bruger" />
-                    <TextBlock Text="" />
+                        Text="Log-ind" />
                 </Grid>
             </Border>
 

@@ -90,12 +90,20 @@
             BorderThickness="0,0,0,1">
             <Grid>
                 <TextBlock
-                    HorizontalAlignment="Center"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="left"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Events" />
+                <Grid
+                    Width="50"
+                    Height="50"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="right">
+                    <Include:BurgerMenu />
+                </Grid>
             </Grid>
         </Border>
         <!--  Page  -->

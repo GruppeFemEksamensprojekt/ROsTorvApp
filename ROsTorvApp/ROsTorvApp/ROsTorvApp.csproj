@@ -125,6 +125,9 @@
     <Compile Include="Helpers\User\SingletonUsers.cs" />
     <Compile Include="Helpers\Store\StoreHandler.cs" />
     <Compile Include="Helpers\User\UserHandler.cs" />
+    <Compile Include="Include\BurgerMenu.xaml.cs">
+      <DependentUpon>BurgerMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Include\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,7 @@
     <Content Include="Assets\Images\BackgroundImg.jpg" />
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\Billede1.jpg" />
+    <Content Include="Assets\Images\BMmenu.png" />
     <Content Include="Assets\Images\CenterOversigt.jpg" />
     <Content Include="Assets\Images\EventImg.png" />
     <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
@@ -215,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Include\BurgerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Include\Header.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

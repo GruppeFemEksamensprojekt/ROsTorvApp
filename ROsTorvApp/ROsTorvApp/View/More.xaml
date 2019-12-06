@@ -38,13 +38,20 @@
             BorderThickness="0,0,0,1">
             <Grid>
                 <TextBlock
-                    HorizontalAlignment="Center"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="left"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Mere" />
-                <TextBlock Text="" />
+                <Grid
+                    Width="50"
+                    Height="50"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="right">
+                    <Include:BurgerMenu />
+                </Grid>
             </Grid>
         </Border>
         <!--  Page  -->
@@ -189,14 +196,6 @@
             </StackPanel>
 
         </ScrollViewer>
-        <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
-            <Button
-                Width="200"
-                HorizontalAlignment="Center"
-                Click="Button_Click"
-                Content="Log ud" />
-        </StackPanel>
-
 
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">

@@ -2,6 +2,7 @@
     x:Class="ROsTorvApp.View.AddStore"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Include="using:ROsTorvApp.Include"
     xmlns:collections="using:ROsTorvApp.ViewModel.Collections"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ROsTorvApp.View"
@@ -55,12 +56,20 @@
             BorderThickness="0,0,0,1">
             <Grid>
                 <TextBlock
-                    HorizontalAlignment="Center"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="left"
                     VerticalAlignment="Center"
                     FontFamily="Comic Sans Ms"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Tilføj Butik" />
+                <Grid
+                    Width="50"
+                    Height="50"
+                    Margin="0,0,20,0"
+                    HorizontalAlignment="right">
+                    <Include:BurgerMenu />
+                </Grid>
             </Grid>
         </Border>
         <StackPanel
@@ -107,10 +116,9 @@
                         VerticalAlignment="Center"
                         FontSize="20"
                         Text="-" />
-                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}"/>
+                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                </StackPanel>
+                <StackPanel Orientation="Horizontal" />
             </StackPanel>
             <StackPanel>
                 <TextBlock Margin="0,5,0,5" Text="Butikkens tlf. nr:" />
