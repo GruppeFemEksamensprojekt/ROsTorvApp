@@ -96,7 +96,6 @@
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Events" />
-                <TextBlock Text="{Binding AdminCheck}" />
             </Grid>
         </Border>
         <!--  Page  -->
@@ -105,10 +104,7 @@
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
             Padding="35,0">
-            <ListView
-                ItemTemplate="{StaticResource EventDataTemplate}"
-                ItemsSource="{Binding EventCollection}"
-                SelectedValue="{Binding SelectedEvent, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <ListView ItemTemplate="{StaticResource EventDataTemplate}" ItemsSource="{Binding EventCollection}" />
         </ScrollViewer>
 
 
