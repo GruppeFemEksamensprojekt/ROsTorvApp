@@ -59,7 +59,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public void AddCustomer(Customer customer)
         {
             //CustomerCollection.Add(customer);
-            Singleton.Instance.UserList.Add(customer);
+            SingletonUsers.Instance.UserList.Add(customer);
             UserHandler.SaveUsersAsync();
         }
     }

@@ -32,5 +32,21 @@ namespace ROsTorvApp.View
         {
             this.Frame.Navigate(typeof(OpretBruger));
         }
+
+        private void UIElement_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.KeyStatus.ScanCode == 28)
+            {
+                
+            }
+        }
+
+        private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                ((dynamic) this.DataContext).Password = ((PasswordBox) sender).Password;
+            }
+        }
     }
 }
