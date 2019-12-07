@@ -36,6 +36,7 @@
                                         <StackPanel>
                                             <TextBlock
                                                 Grid.Column="0"
+                                                FontFamily="dubai"
                                                 FontSize="20"
                                                 Text="{Binding EventName}" />
                                         </StackPanel>
@@ -43,6 +44,7 @@
                                             <TextBlock
                                                 Grid.Column="1"
                                                 HorizontalAlignment="left"
+                                                FontFamily="dubai"
                                                 Opacity="0.5"
                                                 Text="{Binding DurationDateText}" />
                                         </StackPanel>
@@ -52,6 +54,7 @@
                                         Grid.Column="1"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Bottom"
+                                        FontFamily="dubai"
                                         Text="Click to read more" />
                                 </Grid>
                             </StackPanel>
@@ -93,7 +96,7 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left"
                     VerticalAlignment="Center"
-                    FontFamily="Comic Sans Ms"
+                    FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Events" />

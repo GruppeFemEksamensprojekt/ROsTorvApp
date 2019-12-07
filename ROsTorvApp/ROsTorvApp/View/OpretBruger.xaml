@@ -42,7 +42,7 @@
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    FontFamily="Comic Sans Ms"
+                    FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Opret bruger" />
@@ -71,22 +71,45 @@
             <TextBlock
                 Margin="5,10,0,30"
                 HorizontalAlignment="Center"
+                FontFamily="dubai"
                 FontSize="15"
                 FontStyle="Italic"
+                Foreground="#d7dbff"
                 Text="Opret din bruger ved at udfylde felterne nedenfor." />
-            <TextBlock Margin="5,0,0,0" Text="Fornavn" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Fornavn" />
             <TextBox Margin="5" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="Efternavn" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Efternavn" />
             <TextBox Margin="5" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="Alder" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Alder" />
             <TextBox Margin="5" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="Brugernavn" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Brugernavn" />
             <TextBox Margin="5" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="E-mail" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="E-mail" />
             <TextBox Margin="5" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="Telefon nr" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Telefon nr" />
             <TextBox Margin="5" Text="{Binding PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Margin="5,0,0,0" Text="Kodeord" />
+            <TextBlock
+                Margin="5,0,0,0"
+                Foreground="#d7dbff"
+                Text="Kodeord" />
             <PasswordBox Margin="5" PasswordChanged="PasswordBox_OnPasswordChanged" />
             <Button
                 Width="250"

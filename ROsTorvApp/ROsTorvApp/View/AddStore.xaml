@@ -59,7 +59,7 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left"
                     VerticalAlignment="Center"
-                    FontFamily="Comic Sans Ms"
+                    FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Tilføj Butik" />
@@ -76,63 +76,153 @@
             Grid.Row="1"
             Grid.RowSpan="12"
             Grid.ColumnSpan="2"
+            Margin="0,20,0,0"
             HorizontalAlignment="Center">
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Navn:" />
+                <TextBlock
+                    Margin="0,5,0,5"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="Navn:" />
                 <TextBox
                     Width="300"
                     Margin="0,0,0,5"
                     Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,0,0,5" Text="Deskription;" />
+                <TextBlock
+                    Margin="0,0,0,5"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="Deskription;" />
                 <TextBox Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,0" Text="Indsæt logo:" />
-                <TextBox
+                <TextBlock
                     Margin="0,5,0,0"
-                    IsReadOnly="True"
-                    Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Button
-                    Margin="0,5,0,0"
-                    Command="{Binding BrowseCommand, Mode=OneWay}"
-                    Content="Gennemse..." />
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="Indsæt logo:" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,5,0,0"
+                        IsReadOnly="True"
+                        Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Grid.Column="2"
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Right"
+                        Command="{Binding BrowseCommand, Mode=OneWay}"
+                        Content="Gennemse..."
+                        FontFamily="dubai"
+                        Foreground="#d7dbff" />
+                </Grid>
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Etage nr:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Padding="0,0,5,0">
+                        <TextBlock
+                            Margin="0,5,0,5"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Etage nr:" />
+                        <TextBox Margin="0,0,0,5" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Padding="0,0,5,0">
+                        <TextBlock
+                            Margin="0,5,0,5"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Butik nr:" />
+                        <TextBox Margin="0,0,0,5" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                        <TextBlock
+                            Margin="15,5,0,5"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Åbningstid:" />
+                        <ComboBox
+                            Width="140"
+                            HorizontalAlignment="Right"
+                            ItemsSource="{Binding OpeningAndClosingTime}"
+                            SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <TextBlock
+                            Margin="15,5,0,5"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Lukketid:" />
+                        <ComboBox
+                            Width="140"
+                            HorizontalAlignment="Right"
+                            ItemsSource="{Binding OpeningAndClosingTime}"
+                            SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
+                    </StackPanel>
+                </Grid>
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Butik nr:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Åbnings- og lukketid:" />
-                <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
-                    <TextBlock
-                        Margin="5,0,5,0"
-                        VerticalAlignment="Center"
-                        FontSize="20"
-                        Text="-" />
-                    <ComboBox ItemsSource="{Binding OpeningAndClosingTime}" SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Butikkens tlf. nr:" />
+                <TextBlock
+                    Margin="0,5,0,5"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="Butikkens tlf. nr:" />
                 <TextBox Margin="0,0,0,5" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="Kategori:" />
+                <TextBlock
+                    Margin="0,5,0,5"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="Kategori:" />
                 <TextBox Margin="0,0,0,5" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="0,5,0,5" Text="ID:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock
+                    Margin="0,5,0,5"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff"
+                    Text="ID:" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,0,5"
+                        Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        Grid.Column="2"
+                        Margin="0,0,0,5"
+                        HorizontalAlignment="right"
+                        Command="{Binding AddCommand, Mode=OneWay}"
+                        Content="Tilføj butik"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff" />
+                </Grid>
             </StackPanel>
-            <Button Command="{Binding AddCommand, Mode=OneWay}" Content="Tilføj butik" />
         </StackPanel>
     </Grid>
 </Page>

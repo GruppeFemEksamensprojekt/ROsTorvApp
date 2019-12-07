@@ -41,7 +41,7 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left"
                     VerticalAlignment="Center"
-                    FontFamily="Comic Sans Ms"
+                    FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Mere" />
@@ -62,13 +62,13 @@
             Grid.RowSpan="10"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Visibility="Collapsed">
+            Visibility="Visible">
             <StackPanel Margin="20">
                 <StackPanel>
                     <TextBlock
                         Margin="0,5"
-                        FontWeight="bold"
-                        Foreground="white"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
                         Text="Her bor vi:" />
                     <Border
                         BorderBrush="#fff"
@@ -77,7 +77,7 @@
                         <Image Source="/Assets/Images/KortOversigt.jpg" />
                     </Border>
                     <TextBlock
-                        Foreground="#FFDBDBFB"
+                        Foreground="#d7dbff"
                         Text="Det er nemt at finde RO's Torv – uanset om du er i bil, på cykel, med bus, tog eller ude at gå."
                         TextWrapping="Wrap" />
                 </StackPanel>
@@ -89,39 +89,59 @@
                     Margin="20" />
                 <RichTextBlock Foreground="#FFDBDBFB" SelectionHighlightColor="Green">
                     <Paragraph Margin="0,10,0,0">
-                        <Run FontWeight="bold">Bil</Run>
+                        <Run
+                            FontFamily="dubai"
+                            FontWeight="bold"
+                            Foreground="#d7dbff">
+                            Bil
+                        </Run>
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         RO’s Torv finder du nemt i bil, og der er over 1.100 parkeringspladser lige ved døren – de første 2 timer er gratis.
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         kan nemt planlægge din rute ved hjælp af kortet – skal du finde RO’s Torv på din GPS, skal du skrive Københavnsvej 29, 4000 Roskilde
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Run FontWeight="bold">Bus</Run>
+                        <Run
+                            FontFamily="dubai"
+                            FontWeight="bold"
+                            Foreground="#d7dbff">
+                            Bus
+                        </Run>
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         En lang række buslinjer stopper lige foran hovedindgangen til RO’s Torv.
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         Stoppestedet hedder “RO’s Torv”, og de fleste busser hertil kører også forbi Roskilde Station.
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Run FontWeight="bold">Tog</Run>
+                        <Run
+                            FontFamily="dubai"
+                            FontWeight="bold"
+                            Foreground="#d7dbff">
+                            Tog
+                        </Run>
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         Tag toget til Roskilde Station – her fra er der kun 800 meter til RO’s Torv.
                     </Paragraph>
                     <Paragraph>
                         Se gåturen på kortet. Du kan også vælge at tage en af de mange busser.
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Run FontWeight="bold">Cykel</Run>
+                        <Run
+                            FontFamily="dubai"
+                            FontWeight="bold"
+                            Foreground="#d7dbff">
+                            Cykel
+                        </Run>
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         Er du på cykel finder du nemt og hurtigt vejen på kortet.
                     </Paragraph>
-                    <Paragraph>
+                    <Paragraph FontFamily="dubai" Foreground="#d7dbff">
                         Benyt cykelstativerne udenfor RO’s Torv mod Københavnsvej.
                     </Paragraph>
 
@@ -136,7 +156,7 @@
             Grid.RowSpan="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Visibility="Visible">
+            Visibility="Collapsed">
             <StackPanel Padding="20">
                 <TextBlock
                     Grid.Column="0"

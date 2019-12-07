@@ -53,7 +53,7 @@
                     Margin="20,0,0,0"
                     HorizontalAlignment="left"
                     VerticalAlignment="Center"
-                    FontFamily="Comic Sans Ms"
+                    FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Butikker" />
@@ -121,8 +121,9 @@
                                 <TextBlock
                                     Width="250"
                                     Margin="10"
-                                    FontFamily="Comic Sans MS"
+                                    FontFamily="dubai"
                                     FontSize="20"
+                                    Foreground="#d7dbff"
                                     Text="{Binding StoreName}" />
                                 <StackPanel VerticalAlignment="Center">
                                     <Button

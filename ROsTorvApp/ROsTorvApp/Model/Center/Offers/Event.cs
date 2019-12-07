@@ -25,7 +25,7 @@ namespace ROsTorvApp.Model.Center.Offers
         }
         public string DurationDateText
         {
-            get { return $"{StartDate.ToString("dd/MM")} - {EndDate.ToString("dd/MM")} - {DateTime.Now.ToString("yyyy")}"; }
+            get { return $"Fra {StartDate.ToString("dd/MM")} - {EndDate.ToString("dd/MM")} - {DateTime.Now.ToString("yyyy")}"; }
         }
     }
 }
