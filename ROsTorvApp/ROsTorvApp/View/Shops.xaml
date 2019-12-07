@@ -106,10 +106,69 @@
             Grid.ColumnSpan="2"
             Visibility="{Binding HideStoreListViewOnSelectionVisibility}">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ListView
+                    Grid.ColumnSpan="4"
+                    ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Padding="0,10"
+                                BorderBrush="#FF6D74A2"
+                                BorderThickness="0,0,0,1">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Border
+                                        Width="60"
+                                        Height="60"
+                                        Background="white"
+                                        CornerRadius="30">
+                                        <StackPanel Grid.Column="0">
+                                            <Image Height="60" Source="{Binding ImageStore}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Padding="10,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            FontFamily="dubai"
+                                            FontSize="25"
+                                            Foreground="#d7dbff"
+                                            Text="{Binding StoreName}" />
+                                        <TextBlock
+                                            FontFamily="dubai"
+                                            Foreground="#d7dbff"
+                                            Opacity="0.5"
+                                            Text="{Binding StoreCategory}" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
                 <ListView
                     x:Name="ListViewShops"
                     ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding SelectedStore, Mode=TwoWay}">
+                    SelectedItem="{Binding SelectedStore, Mode=TwoWay}"
+                    Visibility="Collapsed">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="center:Store">
                             <StackPanel Orientation="Vertical">
