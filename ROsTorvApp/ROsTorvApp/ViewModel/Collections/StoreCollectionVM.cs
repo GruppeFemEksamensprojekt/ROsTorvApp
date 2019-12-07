@@ -27,8 +27,9 @@ namespace ROsTorvApp.ViewModel.Collections
 
         private string _selectedOpeningHours;
         private string _selectedClosingHours;
-        private static Store _selectedStore;
-        private bool _showStoreDetails;
+        private Store _selectedStore;
+        private bool _showStoreDetailsOnSelection;
+        private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
 
 
@@ -50,15 +51,15 @@ namespace ROsTorvApp.ViewModel.Collections
 
 
             _selectedStore = StoreCollection[0];
-            _showStoreDetails = false;
+            _showStoreDetailsOnSelection = false;
             _selectedOpeningHours = OpeningAndClosingTime[0];
             _selectedClosingHours = OpeningAndClosingTime[15];
 
             AddCommand = new RelayCommand(AddStore, null);
-            DeleteCommand = new RelayCommand(DeleteStore, StoreCollectionVM.StoreIsSelected);
+            DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
-
+            BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
             //StoreHandler.LoadStoresAsync();
         }
 
@@ -99,35 +100,57 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
+        public ICommand BackToStoreListViewCommand { get; set; }
         public static ObservableCollection<Store> StoreCollection { get; set; }
         // A property for binding the store you select in the view.
-        public static Store SelectedStore
+        public Store SelectedStore
         {
             get { return _selectedStore; }
+            // This happens when you select a store from the Listview
             set
             {
                 _selectedStore = value;
+                OnPropertyChanged();
+                // Hides the Storelistview (Shops) and shows to store details pane, from the selected item
+                HideStoreListViewOnSelection = true;
+                ShowStoreDetailsOnSelection = true;
             }
         }
 
-        public bool ShowStoreDetails
+        // if true, then SHOW the Store details screen for the selected store
+        public bool ShowStoreDetailsOnSelection
         {
             get 
-            { return _showStoreDetails; }
+            { return _showStoreDetailsOnSelection; }
             set
             {
-                _showStoreDetails = value;
+                _showStoreDetailsOnSelection = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(StoreDetailsVisibility));
+                OnPropertyChanged(nameof(ShowStoreDetailsOnSelectionVisibility));
             }
         }
-        public Visibility StoreDetailsVisibility
+        public Visibility ShowStoreDetailsOnSelectionVisibility
         {
-            get { return ShowStoreDetails ? Visibility.Visible : Visibility.Collapsed; }
+            get { return ShowStoreDetailsOnSelection ? Visibility.Visible : Visibility.Collapsed; }
         }
 
+        // If true, then HIDE the Store Listview on a any selected store
+        public bool HideStoreListViewOnSelection
+        {
+            get { return _hideStoreListViewOnSelection; }
+            set
+            {
+                _hideStoreListViewOnSelection = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(HideStoreListViewOnSelectionVisibility));
+            }
+        }
+        public Visibility HideStoreListViewOnSelectionVisibility
+        {
+            get { return HideStoreListViewOnSelection ? Visibility.Collapsed : Visibility.Visible; }
+        }
 
-        // Viser "Instillinger" knappen på shop.xaml siden hvis brugeren der er logget ind er Admin
+        // Shows the "Indstillinger" button on the Shop.xaml page, if the user is logged in as admin
         public bool ShowAdminButton
         {
             get 
@@ -154,10 +177,16 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         #region Methods
-
-        public static bool StoreIsSelected()
+        public bool StoreIsSelected()
         {
             return SelectedStore != null;
+        }
+
+        // shows the store list and hides to store details pane
+        public void BackToStoreListView()
+        {
+            ShowStoreDetailsOnSelection = false;
+            HideStoreListViewOnSelection = false;
         }
 
         //This method Adds a new store, bound in XAML page.
@@ -174,6 +203,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 StoreCollection.Remove(SelectedStore);
                 StoreHandler.SaveStoresAsync();
             }
+            BackToStoreListView();
         }
         public void RedirectToAddStorePageMethod()
         {

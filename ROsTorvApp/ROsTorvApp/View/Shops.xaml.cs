@@ -26,5 +26,6 @@ namespace ROsTorvApp.View
         {
             this.InitializeComponent();
         }
+
     }
 }

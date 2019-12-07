@@ -36,34 +36,44 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button
-            Grid.Column="0"
-            Margin="20,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="Button_Click">
-            <Button.Background>
-                <SolidColorBrush Opacity="0" />
-            </Button.Background>
-            <StackPanel>
-                <Image Height="20" Source="/Assets/Images/BackImage.png" />
-            </StackPanel>
-        </Button>
+
         <!--  Header  -->
         <Border
             Grid.ColumnSpan="2"
             BorderBrush="#81a6c7"
             BorderThickness="0,0,0,1">
             <Grid>
-                <TextBlock
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
                     Margin="20,0,0,0"
-                    HorizontalAlignment="left"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Click="Button_Click">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0" />
+                    </Button.Background>
+                    <StackPanel>
+                        <Image Height="20" Source="/Assets/Images/BackImage.png" />
+                    </StackPanel>
+                </Button>
+                <TextBlock
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="center"
                     VerticalAlignment="Center"
                     FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Tilføj Butik" />
                 <Grid
+                    Grid.Column="3"
                     Width="50"
                     Height="50"
                     Margin="0,0,20,0"

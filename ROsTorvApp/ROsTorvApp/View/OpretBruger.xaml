@@ -49,7 +49,6 @@
                 <TextBlock Text="{Binding UsersFullName}" />
             </Grid>
         </Border>
-        <Grid Grid.ColumnSpan="2" />
         <Button
             Grid.Column="0"
             Margin="20,0,0,0"
