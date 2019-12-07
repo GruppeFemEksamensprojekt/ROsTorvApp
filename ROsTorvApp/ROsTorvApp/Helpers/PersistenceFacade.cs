@@ -68,7 +68,7 @@ namespace ROsTorvApp.Helpers
         public static void SaveStoreToJson(ObservableCollection<Store> stores)
         {
             string storesJsonString = JsonConvert.SerializeObject(stores);
-            SerializeUsersFileAsync(storesJsonString, jsonFileNameStore);
+            SerializeStoresFileAsync(storesJsonString, jsonFileNameStore);
         }
 
         public static async Task<ObservableCollection<Store>> LoadStoreFromJson()
