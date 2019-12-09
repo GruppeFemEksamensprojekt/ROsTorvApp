@@ -18,7 +18,7 @@ namespace ROsTorvApp.Helpers
 
         public static void SaveStoresAsync()
         {
-            PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
+            //PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
         }
 
         public static async void LoadStoresAsync()

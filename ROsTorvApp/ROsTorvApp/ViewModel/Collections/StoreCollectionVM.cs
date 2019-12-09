@@ -98,7 +98,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
         public ICommand BackToStoreListViewCommand { get; set; }
-        public static ObservableCollection<Store> StoreCollection { get; set; }
+        public ObservableCollection<Store> StoreCollection { get; set; }
         // A property for binding the store you select in the view.
         public Store SelectedStore
         {
@@ -198,7 +198,8 @@ namespace ROsTorvApp.ViewModel.Collections
             if (SelectedStore != null)
             {
                 StoreCollection.Remove(SelectedStore);
-                StoreHandler.SaveStoresAsync();
+                //StoreHandler.SaveStoresAsync();
+                PersistenceFacade.SaveStoreToJson(StoreCollection);
             }
             BackToStoreListView();
         }
@@ -260,7 +261,8 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             StoreCollection.Add(store);
             OnPropertyChanged(nameof(StoreCollection));
-            StoreHandler.SaveStoresAsync();
+            //StoreHandler.SaveStoresAsync();
+            PersistenceFacade.SaveStoreToJson(StoreCollection);
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
         #endregion
