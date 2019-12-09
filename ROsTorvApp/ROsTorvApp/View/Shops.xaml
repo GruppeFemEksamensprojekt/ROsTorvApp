@@ -98,7 +98,7 @@
             </Grid>
         </Border>
         <!--  Page  -->
-        <!--  HideStoreListViewOnSelectionVisibility  -->
+        <!--  Store Listview panel  -->
         <ScrollViewer
             Grid.Row="1"
             Grid.RowSpan="10"
@@ -127,7 +127,6 @@
                                 Padding="0,10"
                                 BorderBrush="#FF6D74A2"
                                 BorderThickness="0,0,0,1">
-
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
@@ -163,43 +162,9 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
-                <ListView
-                    x:Name="ListViewShops"
-                    ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    SelectedItem="{Binding SelectedStore, Mode=TwoWay}"
-                    Visibility="Collapsed">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="center:Store">
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <Image
-                                            Width="50"
-                                            Height="40"
-                                            Source="{Binding ImageStore, UpdateSourceTrigger=PropertyChanged}" />
-                                    </StackPanel>
-                                    <TextBlock
-                                        Width="250"
-                                        Margin="10"
-                                        FontFamily="dubai"
-                                        FontSize="20"
-                                        Foreground="#d7dbff"
-                                        Text="{Binding StoreName}" />
-                                    <StackPanel VerticalAlignment="Center">
-                                        <Button
-                                            HorizontalAlignment="Right"
-                                            Background="Gold"
-                                            Content="STJERNE" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
             </Grid>
         </ScrollViewer>
-        <!--  ShowStoreDetailsOnSelectionVisibility  -->
+        <!--  Store Details Panel  -->
         <ScrollViewer
             Grid.Row="1"
             Grid.RowSpan="10"

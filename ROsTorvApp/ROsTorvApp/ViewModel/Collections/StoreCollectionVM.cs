@@ -24,31 +24,28 @@ namespace ROsTorvApp.ViewModel.Collections
    public class StoreCollectionVM : INotifyPropertyChanged
    {
         #region Instance Fields
-
         private string _selectedOpeningHours;
         private string _selectedClosingHours;
         private Store _selectedStore;
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
-
-
         #endregion
 
-        #region Constructoras
+        #region Constructors
         public StoreCollectionVM()
         {
             StoreCollection = new ObservableCollection<Store>();
+            FillStoreList();
             //Test Data
-            StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
-            StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
-            StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+            //StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
+            //StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
+            //StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
+            //StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
+            //StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
 
             OpeningAndClosingTime = new List<string> {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", 
                 "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"};
-           //FillStoreList();
 
            // _selectedStore = StoreCollection[0]; // Not really needed kek
             _showStoreDetailsOnSelection = false;
@@ -67,11 +64,6 @@ namespace ROsTorvApp.ViewModel.Collections
 
         #region Properties
 
-        public string OpeningAndClosingHoursVM
-        {
-            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
-        }
-
         #region StoreDetails
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
@@ -81,8 +73,10 @@ namespace ROsTorvApp.ViewModel.Collections
         public string PhoneNoVM { get; set; }
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
-        public StorageFile Test { get; set; }
-        public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
+        public string OpeningAndClosingHoursVM
+        {
+            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
+        }
         public List<string> OpeningAndClosingTime { get; set; }
         public string SelectedOpeningHours
         {
@@ -95,6 +89,9 @@ namespace ROsTorvApp.ViewModel.Collections
             set { _selectedClosingHours = value; }
         }
         #endregion
+
+        public StorageFile Test { get; set; }
+        public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
 
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
@@ -225,7 +222,7 @@ namespace ROsTorvApp.ViewModel.Collections
             OnPropertyChanged(nameof(Test));
         }
 
-        // Ongoing - 
+        // Checks if the StoresAsJson.json exists, if yes put them into StoreCollection, if no, fill StoreCollection with dummy data
         public async void FillStoreList()
         {
             ObservableCollection<Store> stores;
@@ -242,16 +239,23 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             catch (FileNotFoundException)
             {
-                
                 // Fill with dummy data
-                AddStoreToList(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
-                AddStoreToList(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
-                AddStoreToList(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
-                AddStoreToList(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
-                AddStoreToList(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+                AddStoreDummyData();
             }
         }
-        //A method which adds a new Store to the list of stores.
+
+        //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
+        public void AddStoreDummyData()
+        {
+            // Fill with dummy data
+            StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
+            StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
+            StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
+            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
+            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+            PersistenceFacade.SaveStoreToJson(StoreCollection);
+        }
+        //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
         public void AddStoreToList(Store store)
         {
             StoreCollection.Add(store);
