@@ -172,171 +172,166 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Visibility="{Binding ShowStoreDetailsOnSelectionVisibility}">
-            <StackPanel Margin="20">
-                <Button
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel
+                    Grid.Row="0"
                     Grid.Column="0"
+                    Grid.ColumnSpan="4"
                     Margin="0,0,0,10"
+                    Background="White">
+                    <Image Height="Auto" Source="{Binding SelectedStore.ImageStore}" />
+                </StackPanel>
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="35"
+                    Height="30"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Top"
                     Command="{Binding BackToStoreListViewCommand}">
-                    <Button.Background>
-                        <SolidColorBrush Opacity="0" />
-                    </Button.Background>
                     <StackPanel>
-                        <Image Height="20" Source="/Assets/Images/BackImage.png" />
+                        <Image Height="Auto" Source="/Assets/Images/BackImage.png" />
                     </StackPanel>
                 </Button>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <StackPanel
-                        Grid.Column="0"
-                        Grid.ColumnSpan="4"
-                        Height="160"
-                        Margin="0,0,0,10"
-                        Background="White">
-                        <Image Source="{Binding SelectedStore.ImageStore}" />
-                    </StackPanel>
-                    <!--  Type  -->
+                <!--  Type  -->
+                <!--  Åbningstider  -->
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="10,0,10,0">
                     <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        HorizontalAlignment="left"
                         FontFamily="dubai"
-                        FontWeight="bold"
-                        Foreground="#d7dbff"
-                        Text="Kategori:" />
-                    <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        HorizontalAlignment="right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.StoreCategory}" />
-                    <!--  Åbningstider  -->
-                    <TextBlock
-                        Grid.Row="2"
-                        FontFamily="dubai"
-                        FontWeight="bold"
-                        Foreground="#d7dbff"
-                        Text="Åbningstider:" />
-                    <TextBlock
-                        Grid.Row="3"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="Hverdage:" />
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        HorizontalAlignment="right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.OpeningHours}" />
-                    <TextBlock
-                        Grid.Row="4"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="Lørdag:" />
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        HorizontalAlignment="right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.OpeningHours}" />
-                    <TextBlock
-                        Grid.Row="5"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="Søndag:" />
-                    <TextBlock
-                        Grid.Row="5"
-                        Grid.Column="1"
-                        HorizontalAlignment="right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.OpeningHours}" />
-                    <!--  Placering  -->
-                    <TextBlock
-                        Grid.Row="2"
-                        Grid.Column="2"
-                        Margin="10,0,0,0"
-                        FontFamily="dubai"
-                        FontWeight="bold"
-                        Foreground="#d7dbff"
-                        Text="Find Butikken:" />
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="2"
-                        Margin="10,0,0,0"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="Etage:" />
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="3"
-                        HorizontalAlignment="Right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.LocationFloor}" />
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="2"
-                        Margin="10,0,0,0"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="Butiks Nummer:" />
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="3"
-                        HorizontalAlignment="Right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.LocationFloor}" />
-                    <!--  Om Butikken  -->
-                    <TextBlock
-                        Grid.Row="6"
-                        Margin="0,20,0,0"
-                        FontFamily="dubai"
+                        FontSize="20"
                         FontWeight="bold"
                         Foreground="#d7dbff"
                         Text="Om Butikken" />
+                    <Grid Margin="0,0,0,10">
+                        <TextBlock
+                            HorizontalAlignment="left"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Kategori:" />
+                        <TextBlock
+                            HorizontalAlignment="right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.StoreCategory}" />
+                    </Grid>
                     <TextBlock
-                        Grid.Row="7"
+                        FontFamily="dubai"
+                        FontWeight="bold"
+                        Foreground="#d7dbff"
+                        Text="Åbningstider" />
+                    <Grid Margin="0,0,0,5">
+                        <TextBlock
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Hverdage:" />
+                        <TextBlock
+                            HorizontalAlignment="right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.OpeningHours}" />
+                    </Grid>
+                    <Grid Margin="0,0,0,5">
+                        <TextBlock
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Lørdag:" />
+                        <TextBlock
+                            HorizontalAlignment="right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.OpeningHours}" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Søndag:" />
+                        <TextBlock
+                            HorizontalAlignment="right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.OpeningHours}" />
+                    </Grid>
+                </StackPanel>
+                <!--  Placering  -->
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,0,10,0">
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontFamily="dubai"
+                        FontSize="20"
+                        FontWeight="bold"
+                        Foreground="#d7dbff"
+                        Text="Find Butikken" />
+                    <Grid Margin="0,0,0,5">
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Etage:" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.LocationFloor}" />
+                    </Grid>
+                    <Grid Margin="0,0,0,5">
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Butiks Nr:" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.LocationNo}" />
+                    </Grid>
+                    <Grid>
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="Telefon Nr:" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Text="{Binding SelectedStore.PhoneNo}" />
+                    </Grid>
+                </StackPanel>
+                <!--  Om Butikken  -->
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
+                    <TextBlock
+                        Margin="10,10,0,0"
+                        VerticalAlignment="Top"
                         FontFamily="dubai"
                         Foreground="#d7dbff"
-                        Text="Telefon Nummer:" />
-                    <TextBlock
-                        Grid.Row="7"
-                        Grid.Column="1"
-                        HorizontalAlignment="Right"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.PhoneNo}" />
-                    <TextBlock
-                        Grid.Row="8"
-                        Grid.ColumnSpan="4"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Text="{Binding SelectedStore.Description}" />
-                </Grid>
-            </StackPanel>
+                        Text="{Binding SelectedStore.Description}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <ScrollViewer Grid.Row="3" Grid.ColumnSpan="4">
+                    <ListView x:Name="Offers" ItemsSource="" />
+                </ScrollViewer>
+            </Grid>
         </ScrollViewer>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">

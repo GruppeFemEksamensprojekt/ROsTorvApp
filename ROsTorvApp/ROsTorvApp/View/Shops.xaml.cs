@@ -28,6 +28,5 @@ namespace ROsTorvApp.View
             this.InitializeComponent();
             StoreListViewElement = StoreListView1;
         }
-
     }
 }
