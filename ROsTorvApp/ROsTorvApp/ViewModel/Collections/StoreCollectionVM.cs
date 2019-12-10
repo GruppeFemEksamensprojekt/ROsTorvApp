@@ -23,6 +23,7 @@ namespace ROsTorvApp.ViewModel.Collections
 {
    public class StoreCollectionVM : INotifyPropertyChanged
    {
+
         #region Instance Fields
         private string _selectedOpeningHours;
         private string _selectedClosingHours;
@@ -37,18 +38,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public StoreCollectionVM()
         {
             _storeCollection = new ObservableCollection<Store>();
-            //FillStoreList();
-            //Test Data
-            //StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
-            //StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
-            //StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
-            //StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
-            //StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
 
-            OpeningAndClosingTime = new List<string> {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", 
-                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"};
-
-           // _selectedStore = StoreCollection[0]; // Not really needed kek
             _showStoreDetailsOnSelection = false;
             _selectedOpeningHours = OpeningAndClosingTime[0];
             _selectedClosingHours = OpeningAndClosingTime[15];
@@ -58,7 +48,6 @@ namespace ROsTorvApp.ViewModel.Collections
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
-            //StoreHandler.LoadStoresAsync();
         }
 
         #endregion
@@ -78,7 +67,9 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
         }
-        public List<string> OpeningAndClosingTime { get; set; }
+        public List<string> OpeningAndClosingTime { get { return new List<string> {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"};
+            } }
         public string SelectedOpeningHours
         {
             get { return _selectedOpeningHours; }
@@ -187,8 +178,10 @@ namespace ROsTorvApp.ViewModel.Collections
         // shows the store list and hides to store details pane
         public void BackToStoreListView()
         {
+            Shops.StoreListViewElement.SelectedIndex = -1;
             ShowStoreDetailsOnSelection = false;
             HideStoreListViewOnSelection = false;
+
         }
 
         //This method Adds a new store, bound in XAML page.

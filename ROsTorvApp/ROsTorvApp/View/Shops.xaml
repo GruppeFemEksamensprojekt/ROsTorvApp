@@ -113,6 +113,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <ListView
+                    x:Name="StoreListView1"
                     Grid.ColumnSpan="4"
                     ItemsSource="{Binding StoreCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedItem="{Binding SelectedStore, Mode=TwoWay}">

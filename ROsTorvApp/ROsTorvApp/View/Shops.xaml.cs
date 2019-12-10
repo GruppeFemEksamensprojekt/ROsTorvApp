@@ -22,9 +22,11 @@ namespace ROsTorvApp.View
     /// </summary>
     public sealed partial class Shops : Page
     {
+        public static ListView StoreListViewElement {get; set;}
         public Shops()
         {
             this.InitializeComponent();
+            StoreListViewElement = StoreListView1;
         }
 
     }
