@@ -155,6 +155,9 @@
     <Compile Include="View\AddStore.xaml.cs">
       <DependentUpon>AddStore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AppMenu.xaml.cs">
       <DependentUpon>AppMenu.xaml</DependentUpon>
     </Compile>
@@ -236,6 +239,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\AddStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
