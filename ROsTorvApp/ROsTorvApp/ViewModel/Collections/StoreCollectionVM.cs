@@ -30,13 +30,14 @@ namespace ROsTorvApp.ViewModel.Collections
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
+        private ObservableCollection<Store> _storeCollection;
         #endregion
 
         #region Constructors
         public StoreCollectionVM()
         {
-            StoreCollection = new ObservableCollection<Store>();
-            FillStoreList();
+            _storeCollection = new ObservableCollection<Store>();
+            //FillStoreList();
             //Test Data
             //StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
             //StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
@@ -98,7 +99,11 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
         public ICommand BackToStoreListViewCommand { get; set; }
-        public ObservableCollection<Store> StoreCollection { get; set; }
+        public ObservableCollection<Store> StoreCollection
+        {
+            get { return SingletonStores.Instance.StoreList; }
+            set { _storeCollection = value; }
+        }
         // A property for binding the store you select in the view.
         public Store SelectedStore
         {
@@ -197,9 +202,8 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             if (SelectedStore != null)
             {
-                StoreCollection.Remove(SelectedStore);
-                //StoreHandler.SaveStoresAsync();
-                PersistenceFacade.SaveStoreToJson(StoreCollection);
+                SingletonStores.Instance.StoreList.Remove(SelectedStore);
+                StoreHandler.SaveStoresAsync();
             }
             BackToStoreListView();
         }
@@ -246,23 +250,22 @@ namespace ROsTorvApp.ViewModel.Collections
         }
 
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
-        public void AddStoreDummyData()
+        public static void AddStoreDummyData()
         {
             // Fill with dummy data
-            StoreCollection.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
-            StoreCollection.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
-            StoreCollection.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
-            StoreCollection.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
-            PersistenceFacade.SaveStoreToJson(StoreCollection);
+            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
+            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
+            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+            StoreHandler.SaveStoresAsync();
         }
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
         public void AddStoreToList(Store store)
         {
-            StoreCollection.Add(store);
-            OnPropertyChanged(nameof(StoreCollection));
-            //StoreHandler.SaveStoresAsync();
-            PersistenceFacade.SaveStoreToJson(StoreCollection);
+            SingletonStores.Instance.StoreList.Add(store);
+            OnPropertyChanged(nameof(SingletonStores.Instance.StoreList));
+            StoreHandler.SaveStoresAsync();
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
         #endregion

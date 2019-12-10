@@ -18,7 +18,7 @@ namespace ROsTorvApp.Helpers
 
         public static void SaveStoresAsync()
         {
-            //PersistenceFacade.SaveStoreToJson(StoreCollectionVM.StoreCollection);
+            PersistenceFacade.SaveStoreToJson(SingletonStores.Instance.StoreList);
         }
 
         public static async void LoadStoresAsync()
@@ -28,7 +28,7 @@ namespace ROsTorvApp.Helpers
             SingletonStores.Instance.StoreList.Clear();
             if (stores == null)
             {
-                StoreCollectionVM storeCollectionVm = new StoreCollectionVM();
+                StoreCollectionVM.AddStoreDummyData();
             }
             else
             {

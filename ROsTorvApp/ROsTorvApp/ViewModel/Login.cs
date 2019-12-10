@@ -30,10 +30,6 @@ namespace ROsTorvApp.ViewModel
         public Login()
         {
             LoginCommand = new RelayCommand(LoginAction, null);
-            if (SingletonUsers.Instance.UserList == null)
-            {
-                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
-            }
         }
         
         public void LoginAction()
