@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ROsTorvApp.Helpers;
+using ROsTorvApp.ViewModel.Collections;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -23,9 +25,15 @@ namespace ROsTorvApp.Include
         public BurgerMenu()
         {
             this.InitializeComponent();
+            this.DataContext = new StoreCollectionVM();
+        }
+        
+        private void Button_AdminPanel(object sender, RoutedEventArgs e)
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Logout(object sender, RoutedEventArgs e)
         {
             ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
         }

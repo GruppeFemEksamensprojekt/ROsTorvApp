@@ -110,6 +110,41 @@ namespace ROsTorvApp.ViewModel.Collections
             }
         }
 
+        public string Time
+        {
+            get
+            {
+                DateTime time = new DateTime();
+                DateTime timeNow = DateTime.Now;
+                if (timeNow.Hour >= 5 && timeNow.Hour < 9)
+                {
+                    return "God morgen,";
+                }
+
+                if (timeNow.Hour > 5 && timeNow.Hour < 12)
+                {
+                    return "God formiddag,";
+                }
+
+                if (timeNow.Hour == 12)
+                {
+                    return "God middag,";
+                }
+
+                if (timeNow.Hour > 12 && timeNow.Hour < 18)
+                {
+                    return "God eftermiddag,";
+                }
+
+                if (timeNow.Hour > 18)
+                {
+                    return "God aften,";
+                }
+
+                return timeNow.ToShortTimeString();
+            }
+        }
+
         // if true, then SHOW the Store details screen for the selected store
         public bool ShowStoreDetailsOnSelection
         {

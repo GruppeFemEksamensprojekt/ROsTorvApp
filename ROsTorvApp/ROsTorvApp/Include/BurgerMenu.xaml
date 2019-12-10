@@ -18,8 +18,16 @@
                         <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
                             <Button
                                 Width="200"
+                                Margin="0,5"
                                 HorizontalAlignment="Center"
-                                Click="Button_Click"
+                                Click="Button_AdminPanel"
+                                Content="Admin panel"
+                                Visibility="{Binding ShowAdminButtonVisibility}" />
+                            <Button
+                                Width="200"
+                                Margin="0,5"
+                                HorizontalAlignment="Center"
+                                Click="Button_Logout"
                                 Content="Log ud" />
                         </StackPanel>
                     </StackPanel>

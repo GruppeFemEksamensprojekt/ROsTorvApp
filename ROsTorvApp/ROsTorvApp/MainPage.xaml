@@ -48,7 +48,7 @@
                     FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff">
-                    <Run Text="Velkommen" />
+                    <Run Text="{Binding Time}" />
                     <Run Text="{Binding UsersFullName}" />
                 </TextBlock>
                 <Grid
