@@ -227,28 +227,6 @@ namespace ROsTorvApp.ViewModel.Collections
             OnPropertyChanged(nameof(Test));
         }
 
-        // Checks if the StoresAsJson.json exists, if yes put them into StoreCollection, if no, fill StoreCollection with dummy data
-        public async void FillStoreList()
-        {
-            ObservableCollection<Store> stores;
-            try
-            {
-                stores = await PersistenceFacade.LoadStoreFromJson();
-                if (stores != null)
-                {
-                    foreach (var item in stores)
-                    {
-                        StoreCollection.Add(item);
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                // Fill with dummy data
-                AddStoreDummyData();
-            }
-        }
-
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
         public static void AddStoreDummyData()
         {
