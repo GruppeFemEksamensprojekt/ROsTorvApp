@@ -208,7 +208,7 @@
                     <StackPanel
                         Grid.Column="0"
                         Grid.ColumnSpan="4"
-                        Height="160"
+                        Height="auto"
                         Margin="0,0,0,10"
                         Background="White">
                         <Image Source="{Binding SelectedStore.ImageStore}" />
