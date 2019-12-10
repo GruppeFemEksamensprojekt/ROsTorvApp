@@ -85,7 +85,7 @@
                     Margin="0,0,0,5"
                     FontFamily="dubai"
                     Foreground="#d7dbff"
-                    Text="Deskription;" />
+                    Text="Deskription:" />
                 <TextBox Text="{Binding SelectedStore.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
