@@ -1,6 +1,8 @@
-﻿using ROsTorvApp.ViewModel.Collections;
+﻿using ROsTorvApp.Model.Center.Offers;
+using ROsTorvApp.ViewModel.Collections;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -19,12 +21,13 @@ namespace ROsTorvApp.Model.Center
         public string PhoneNo { get; set; }
         public string ImageStore { get; set; }
         public string StoreCategory { get; set; }
+        public ObservableCollection<Offer> StoreOffers { get; set; }
 
-        public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory, string phoneNo)
+        public Store(int storeId, string storeName, string openingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory, string phoneNo, ObservableCollection<Offer> storeOffers)
         {
+            storeOffers = new ObservableCollection<Offer>();
             //StoreCollectionVM StoreCollection = new StoreCollectionVM();
             //StoreCollection.StoreCollection.Add(new Store(storeId, storeName, openingHours, description, locationFloor, locationNo, imageStore, storeCategory));
-
             PhoneNo = phoneNo;
             StoreId = storeId;
             StoreName = storeName;
@@ -33,8 +36,8 @@ namespace ROsTorvApp.Model.Center
             LocationFloor = locationFloor;
             LocationNo = locationNo;
             ImageStore= imageStore;
-            StoreCategory = storeCategory;    
-            
+            StoreCategory = storeCategory;
+            StoreOffers = storeOffers;
         }
 
         public Store()

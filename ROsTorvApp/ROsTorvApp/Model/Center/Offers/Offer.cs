@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Center.Offers
 {
-    class Offer
+    public class Offer
     {
         public int OfferId { get; set; }
         public string Description { get; set; }
