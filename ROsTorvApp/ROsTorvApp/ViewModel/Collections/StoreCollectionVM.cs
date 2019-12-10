@@ -121,17 +121,17 @@ namespace ROsTorvApp.ViewModel.Collections
                     return "God morgen,";
                 }
 
-                if (timeNow.Hour > 5 && timeNow.Hour < 12)
+                if (timeNow.Hour > 9 && timeNow.Hour < 12)
                 {
                     return "God formiddag,";
                 }
 
-                if (timeNow.Hour == 12)
+                if (timeNow.Hour >= 12 && timeNow.Hour < 13)
                 {
                     return "God middag,";
                 }
 
-                if (timeNow.Hour > 12 && timeNow.Hour < 18)
+                if (timeNow.Hour > 13 && timeNow.Hour < 18)
                 {
                     return "God eftermiddag,";
                 }
