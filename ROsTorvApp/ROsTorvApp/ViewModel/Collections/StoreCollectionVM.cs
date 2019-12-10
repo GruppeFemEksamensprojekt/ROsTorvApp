@@ -188,7 +188,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public void AddStore()
         {
             AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, DescriptionVM,
-                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM, null));
         }
         // This method deletes a selected store, if one is selected.
         public void DeleteStore()
@@ -224,11 +224,11 @@ namespace ROsTorvApp.ViewModel.Collections
         public static void AddStoreDummyData()
         {
             // Fill with dummy data
-            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040"));
-            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010"));
-            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341"));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214"));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214"));
+            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040", null));
+            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010", null));
+            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341", null));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214", null));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214", null));
             StoreHandler.SaveStoresAsync();
         }
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
