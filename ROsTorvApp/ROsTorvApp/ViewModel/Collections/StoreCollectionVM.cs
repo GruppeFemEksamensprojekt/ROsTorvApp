@@ -249,7 +249,14 @@ namespace ROsTorvApp.ViewModel.Collections
             f.FileTypeFilter.Add(".jpg");
             f.FileTypeFilter.Add(".png");
             Test = await f.PickSingleFileAsync();
-            ImageStoreVM = "/Assets/Images/" + Test.Name;
+            try
+            {
+                ImageStoreVM = "/Assets/Images/" + Test.Name;
+            }
+            catch (NullReferenceException e)
+            {
+                return;
+            }
 
             OnPropertyChanged();
             OnPropertyChanged(nameof(Test));
