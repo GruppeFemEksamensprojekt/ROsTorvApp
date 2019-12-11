@@ -78,6 +78,7 @@
                 <TextBox
                     Width="300"
                     Margin="0,0,0,5"
+                    MaxLength="20"
                     Text="{Binding SelectedStore.StoreName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
@@ -145,7 +146,10 @@
                             FontFamily="dubai"
                             Foreground="#d7dbff"
                             Text="Etage nr:" />
-                        <TextBox Margin="0,0,0,5" Text="{Binding SelectedStore.LocationFloor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox
+                            Margin="0,0,0,5"
+                            MaxLength="1"
+                            Text="{Binding SelectedStore.LocationFloor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Grid.Row="1" Padding="0,0,5,0">
                         <TextBlock
@@ -153,7 +157,10 @@
                             FontFamily="dubai"
                             Foreground="#d7dbff"
                             Text="Butik nr:" />
-                        <TextBox Margin="0,0,0,5" Text="{Binding SelectedStore.LocationNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox
+                            Margin="0,0,0,5"
+                            MaxLength="2"
+                            Text="{Binding SelectedStore.LocationNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="1">
@@ -189,7 +196,10 @@
                     FontFamily="dubai"
                     Foreground="#d7dbff"
                     Text="Butikkens tlf. nr:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding SelectedStore.PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox
+                    Margin="0,0,0,5"
+                    MaxLength="8"
+                    Text="{Binding SelectedStore.PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -198,8 +208,8 @@
                     Foreground="#d7dbff"
                     Text="Kategori:" />
                 <ComboBox
-                    Width="200"
                     Margin="0,0,0,5"
+                    HorizontalAlignment="Stretch"
                     ItemsSource="{Binding StoreCategories}"
                     SelectedValue="{Binding SelectedStore.StoreCategory, Mode=TwoWay}" />
             </StackPanel>
@@ -211,15 +221,16 @@
                     Text="ID:" />
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="97*" />
+                        <ColumnDefinition Width="96.8" />
+                        <ColumnDefinition Width="106*" />
                     </Grid.ColumnDefinitions>
 
                     <TextBox
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Margin="0,0,0,5"
+                        MaxLength="2"
                         Text="{Binding SelectedStore.StoreId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
                         Grid.Column="2"
