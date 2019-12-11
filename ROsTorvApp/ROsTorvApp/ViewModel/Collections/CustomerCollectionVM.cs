@@ -45,8 +45,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             if (UserHandler.UsernameAvailability(UserName))
             {
-                var messageDialog = new MessageDialog("Brugernavn findes allerede");
-                messageDialog.ShowAsync();
+                UserHandler.contentDialog("Brugernavn findes allerede", "User exists");
             }
             else
             {
