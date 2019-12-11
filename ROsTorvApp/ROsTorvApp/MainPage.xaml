@@ -61,9 +61,22 @@
             </Grid>
         </Border>
         <!--  Page  -->
+        <ScrollViewer
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="20">
+            <StackPanel>
 
-
-
+                <StackPanel>
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        Foreground="#d7dbff"
+                        Opacity="0.5"
+                        Text="Featured Event" />
+                </StackPanel>
+                <StackPanel />
+            </StackPanel>
+        </ScrollViewer>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
             <Include:NavigationBar />

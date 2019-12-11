@@ -18,6 +18,7 @@ using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Center;
 using ROsTorvApp.View;
 using Microsoft.Win32;
+using ROsTorvApp.Model.Center.Offers;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
@@ -25,14 +26,11 @@ namespace ROsTorvApp.ViewModel.Collections
     {
 
         #region Instance Fields
-        private string _selectedOpeningHours;
-        private string _selectedClosingHours;
         private static Store _selectedStore;
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
         private ObservableCollection<Store> _storeCollection;
-        private string _selectedStoreCategories;
         #endregion
 
         #region Constructors
@@ -131,7 +129,6 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             get
             {
-                DateTime time = new DateTime();
                 DateTime timeNow = DateTime.Now;
                 if (timeNow.Hour >= 5 && timeNow.Hour < 9)
                 {
@@ -240,7 +237,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public void AddStore()
         {
             AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
-                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM, null));
+                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
         }
         public void SaveStoreMethod()
         {
@@ -298,11 +295,11 @@ namespace ROsTorvApp.ViewModel.Collections
         public static void AddStoreDummyData()
         {
             // Fill with dummy data
-            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", StoreCategories[9], "40404040", null));
-            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", StoreCategories[4], "10101010", null));
-            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", OpeningAndClosingTime[1], OpeningAndClosingTime[16], "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", StoreCategories[5], "32125341", null));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", StoreCategories[2], "95756214", null));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Burger King", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Burger King description!!!", 1, 6, "/Assets/Images/Billede1.jpg", StoreCategories[10], "98273461", null));
+            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", StoreCategories[9], "40404040"));
+            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", StoreCategories[4], "10101010"));
+            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", OpeningAndClosingTime[1], OpeningAndClosingTime[16], "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", StoreCategories[5], "32125341"));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", StoreCategories[2], "95756214"));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Burger King", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Burger King description!!!", 1, 6, "/Assets/Images/Billede1.jpg", StoreCategories[10], "98273461"));
             StoreHandler.SaveStoresAsync();
         }
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
