@@ -21,13 +21,13 @@ using Microsoft.Win32;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
-   public class StoreCollectionVM : INotifyPropertyChanged
-   {
+    public class StoreCollectionVM : INotifyPropertyChanged
+    {
 
         #region Instance Fields
         private string _selectedOpeningHours;
         private string _selectedClosingHours;
-        private Store _selectedStore;
+        private static Store _selectedStore;
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
@@ -95,6 +95,7 @@ namespace ROsTorvApp.ViewModel.Collections
             get { return SingletonStores.Instance.StoreList; }
             set { _storeCollection = value; }
         }
+        public static Store TransferSelectedStore{ get { return _selectedStore; } }
         // A property for binding the store you select in the view.
         public Store SelectedStore
         {
