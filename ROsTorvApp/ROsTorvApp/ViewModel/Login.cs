@@ -50,6 +50,11 @@ namespace ROsTorvApp.ViewModel
                     messageDialog.ShowAsync();
                 }
             }
+            else
+            {
+                var messageDialog = new MessageDialog("Failed login");
+                messageDialog.ShowAsync();
+            }
         }
 
         private bool CheckLoginCredentials
