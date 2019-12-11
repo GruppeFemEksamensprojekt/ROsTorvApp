@@ -208,8 +208,9 @@
                         Grid.Column="2"
                         Margin="0,0,0,5"
                         HorizontalAlignment="right"
+                        Command="{Binding SaveStoreCommand}"
                         Click="ButtonBase_OnClick"
-                        Content="Edit butik"
+                        Content="Gem Ændring"
                         FontFamily="dubai"
                         Foreground="#d7dbff" />
                 </Grid>

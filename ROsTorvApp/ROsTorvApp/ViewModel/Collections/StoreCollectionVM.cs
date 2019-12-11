@@ -48,6 +48,7 @@ namespace ROsTorvApp.ViewModel.Collections
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
+            SaveStoreCommand = new RelayCommand(StoreHandler.SaveStoresAsync, StoreIsSelected);
         }
 
         #endregion
@@ -90,6 +91,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
         public ICommand BackToStoreListViewCommand { get; set; }
+        public ICommand SaveStoreCommand { get; set; }
         public ObservableCollection<Store> StoreCollection
         {
             get { return SingletonStores.Instance.StoreList; }
