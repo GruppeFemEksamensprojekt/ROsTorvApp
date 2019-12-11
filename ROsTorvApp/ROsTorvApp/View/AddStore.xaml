@@ -97,15 +97,29 @@
                 <TextBox
                     Width="300"
                     Margin="0,0,0,5"
+                    MaxLength="20"
                     Text="{Binding StoreNameVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock
-                    Margin="0,0,0,5"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="Deskription;" />
-                <TextBox Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Text="Beskrivelse:" />
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Opacity="0.5"
+                        Text=" (max 250 karakterer):" />
+                </StackPanel>
+                <TextBox
+                    Height="120"
+                    MaxHeight="120"
+                    MaxLength="250"
+                    Text="{Binding DescriptionVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -151,7 +165,10 @@
                             FontFamily="dubai"
                             Foreground="#d7dbff"
                             Text="Etage nr:" />
-                        <TextBox Margin="0,0,0,5" Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox
+                            Margin="0,0,0,5"
+                            MaxLength="1"
+                            Text="{Binding LocationFloorVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Grid.Row="1" Padding="0,0,5,0">
                         <TextBlock
@@ -159,7 +176,10 @@
                             FontFamily="dubai"
                             Foreground="#d7dbff"
                             Text="Butik nr:" />
-                        <TextBox Margin="0,0,0,5" Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox
+                            Margin="0,0,0,5"
+                            MaxLength="2"
+                            Text="{Binding LocationNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="1">
@@ -195,7 +215,10 @@
                     FontFamily="dubai"
                     Foreground="#d7dbff"
                     Text="Butikkens tlf. nr:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox
+                    Margin="0,0,0,5"
+                    MaxLength="8"
+                    Text="{Binding PhoneNoVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -226,6 +249,7 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="3"
                         Margin="0,0,0,5"
+                        MaxLength="2"
                         Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
                         Grid.Column="3"
