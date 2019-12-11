@@ -52,7 +52,7 @@ namespace ROsTorvApp.ViewModel
             }
             else
             {
-                UserHandler.contentDialog("Mangler input","Failed login");
+                UserHandler.contentDialog("Ingen input","Failed login");
             }
         }
 
