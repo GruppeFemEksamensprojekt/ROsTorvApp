@@ -270,7 +270,7 @@ namespace ROsTorvApp.ViewModel.Collections
             SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010", null));
             SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341", null));
             SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214", null));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Billede1.jpg", "Dagligvarer", "95756214", null));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Burger King", "11:00 - 20:00", "Burger King description!!!", 1, 6, "/Assets/Images/Billede1.jpg", "Restaurant", "98273461", null));
             StoreHandler.SaveStoresAsync();
         }
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
