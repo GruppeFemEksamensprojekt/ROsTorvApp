@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using ROsTorvApp.Model.Center;
 using ROsTorvApp.Model.Users;
 using ROsTorvApp.ViewModel.Collections;
@@ -58,6 +59,18 @@ namespace ROsTorvApp.Helpers
                     SingletonUsers.Instance.UserList.Add(user);
                 }
             }
+        }
+
+        public static async void contentDialog(string message, string title)
+        {
+            ContentDialog contentDialog = new ContentDialog
+            {
+                Title = title,
+                Content = message,
+                CloseButtonText = "Ok",
+                DefaultButton = ContentDialogButton.Close
+            };
+            ContentDialogResult result = await contentDialog.ShowAsync();
         }
     }
 }
