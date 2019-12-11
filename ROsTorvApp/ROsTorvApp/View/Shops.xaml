@@ -56,37 +56,6 @@
                     FontSize="25"
                     Foreground="#d7dbff"
                     Text="Butikker" />
-                <Border
-                    Grid.Column="1"
-                    Height="35"
-                    Margin="0,0,20,0"
-                    HorizontalAlignment="right"
-                    Background="White"
-                    BorderBrush="White"
-                    BorderThickness="1"
-                    CornerRadius="1"
-                    Visibility="{Binding ShowAdminButtonVisibility}">
-                    <Button Background="Transparent" Content="Indstillinger">
-                        <Button.Flyout>
-                            <Flyout>
-                                <StackPanel Width="150">
-                                    <Button
-                                        Width="150"
-                                        Margin="0,5"
-                                        Background="white"
-                                        Command="{Binding RedirectToAddStorePage}"
-                                        Content="Tilføj Butik" />
-                                    <Button
-                                        Width="150"
-                                        Margin="0,5"
-                                        Background="white"
-                                        Command="{Binding DeleteCommand}"
-                                        Content="Slet Valgte" />
-                                </StackPanel>
-                            </Flyout>
-                        </Button.Flyout>
-                    </Button>
-                </Border>
                 <Grid
                     Grid.Column="2"
                     Width="50"
