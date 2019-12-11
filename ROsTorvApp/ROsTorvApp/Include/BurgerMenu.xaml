@@ -16,13 +16,24 @@
                 <Flyout>
                     <StackPanel>
                         <StackPanel Grid.Row="8" Grid.ColumnSpan="2">
-                            <Button
-                                Width="200"
-                                Margin="0,5"
-                                HorizontalAlignment="Center"
-                                Command="{Binding RedirectToAdminPanelCommand}"
-                                Content="Admin Panel"
-                                Visibility="{Binding ShowAdminButtonVisibility}" />
+                            <StackPanel Visibility="{Binding ShowAdminButtonVisibility}">
+                                <Button
+                                    Width="200"
+                                    Margin="0,5"
+                                    Command="{Binding RedirectToAddStorePage}"
+                                    Content="Tilføj Butik" />
+                                <Button
+                                    Width="200"
+                                    Margin="0,5"
+                                    HorizontalAlignment="Center"
+                                    Command="{Binding RedirectToAdminPanelCommand}"
+                                    Content="Edit Butik" />
+                                <Button
+                                    Width="200"
+                                    Margin="0,5"
+                                    Command="{Binding DeleteCommand}"
+                                    Content="Slet Valgte" />
+                            </StackPanel>
                             <Button
                                 Width="200"
                                 Margin="0,5"

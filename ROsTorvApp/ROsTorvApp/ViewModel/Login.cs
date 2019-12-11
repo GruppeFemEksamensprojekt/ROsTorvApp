@@ -46,12 +46,13 @@ namespace ROsTorvApp.ViewModel
                 }
                 else
                 {
+                    LoginPage.PasswordBox.Password = "";
                     UserHandler.contentDialog("Forkert brugernavn eller password", "Failed login");
                 }
             }
             else
             {
-                UserHandler.contentDialog("Mangler input","Failed login");
+                UserHandler.contentDialog("Ingen input","Failed login");
             }
         }
 

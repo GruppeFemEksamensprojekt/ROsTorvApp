@@ -80,7 +80,10 @@
                         FontWeight="Light"
                         Foreground="White"
                         Text="Password:" />
-                    <PasswordBox KeyDown="UIElement_OnKeyDown" PasswordChanged="PasswordBox_OnPasswordChanged" />
+                    <PasswordBox
+                        Name="PasswordBoxDerp"
+                        KeyDown="UIElement_OnKeyDown"
+                        PasswordChanged="PasswordBox_OnPasswordChanged" />
                 </StackPanel>
             </StackPanel>
             <StackPanel
