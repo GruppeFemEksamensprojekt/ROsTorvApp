@@ -206,6 +206,15 @@
     <Content Include="Assets\Images\KortOversigt.jpg" />
     <Content Include="Assets\Images\Matas.png" />
     <Content Include="Assets\Images\MoreImg.png" />
+    <Content Include="Assets\Images\Offers\GameStopTilbud1.jpg" />
+    <Content Include="Assets\Images\Offers\GameStopTilbud2.jpg" />
+    <Content Include="Assets\Images\Offers\GameStopTilbud3.jpg" />
+    <Content Include="Assets\Images\Offers\GameStopTilbud4.jpg" />
+    <Content Include="Assets\Images\Offers\MatasTilbud1.jpg" />
+    <Content Include="Assets\Images\Offers\MatasTilbud2.jpg" />
+    <Content Include="Assets\Images\Offers\ToejEkspertenTilbud1.jpg" />
+    <Content Include="Assets\Images\Offers\TøjEkspertenTilbud2.jpg" />
+    <Content Include="Assets\Images\Offers\TøjEkspertenTilbud3.jpg" />
     <Content Include="Assets\Images\ShopImg.png" />
     <Content Include="Assets\Images\TøjEksperten.jpg" />
     <Content Include="Properties\Default.rd.xml" />
@@ -279,9 +288,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Images\Offers\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
