@@ -118,7 +118,7 @@
                         Grid.ColumnSpan="2"
                         Margin="0,5,0,0"
                         IsReadOnly="True"
-                        Text="{Binding Test.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        Text="{Binding ImageFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
                         Grid.Column="2"
                         Margin="0,5,0,0"
@@ -166,7 +166,7 @@
                             Width="140"
                             HorizontalAlignment="Right"
                             ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
+                            SelectedValue="{Binding SelectedStore.OpeningHours, Mode=TwoWay}" />
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1">
@@ -179,7 +179,7 @@
                             Width="140"
                             HorizontalAlignment="Right"
                             ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
+                            SelectedValue="{Binding SelectedStore.ClosingHours, Mode=TwoWay}" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -201,7 +201,7 @@
                     Width="200"
                     Margin="0,0,0,5"
                     ItemsSource="{Binding StoreCategories}"
-                    SelectedValue="{Binding SelectedStoreCategory, Mode=TwoWay}" />
+                    SelectedValue="{Binding SelectedStore.StoreCategory, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -225,7 +225,6 @@
                         Grid.Column="2"
                         Margin="0,0,0,5"
                         HorizontalAlignment="right"
-                        Click="ButtonBase_OnClick"
                         Command="{Binding SaveStoreCommand}"
                         Content="Gem Ændring"
                         FontFamily="dubai"

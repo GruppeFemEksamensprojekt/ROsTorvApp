@@ -41,9 +41,9 @@ namespace ROsTorvApp.ViewModel.Collections
             _storeCollection = new ObservableCollection<Store>();
 
             _showStoreDetailsOnSelection = false;
-            _selectedOpeningHours = OpeningAndClosingTime[0];
-            _selectedClosingHours = OpeningAndClosingTime[15];
-            _selectedStoreCategories = StoreCategories[0];
+            //_selectedOpeningHours = OpeningAndClosingTime[0];
+            //_selectedClosingHours = OpeningAndClosingTime[15];
+            //_selectedStoreCategories = StoreCategories[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
@@ -51,7 +51,7 @@ namespace ROsTorvApp.ViewModel.Collections
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
             RedirectToAdminPanelCommand = new RelayCommand(RedirectToAdminpanel, StoreIsSelected);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
-            SaveStoreCommand = new RelayCommand(StoreHandler.SaveStoresAsync, StoreIsSelected);
+            SaveStoreCommand = new RelayCommand(SaveStoreMethod, StoreIsSelected);
         }
 
         #endregion
@@ -67,11 +67,8 @@ namespace ROsTorvApp.ViewModel.Collections
         public string PhoneNoVM { get; set; }
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
-        public string OpeningAndClosingHoursVM
-        {
-            get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
-        }
-        public List<string> OpeningAndClosingTime 
+        public string OpeningAndClosingHoursVM { get; }      
+        public static List<string> OpeningAndClosingTime 
         { 
             get 
             { 
@@ -82,8 +79,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 };
             } 
         }
-
-        public List<string> StoreCategories
+        public static List<string> StoreCategories
         {
             get
             {
@@ -94,25 +90,10 @@ namespace ROsTorvApp.ViewModel.Collections
                 };
             }
         }
-
-        public string SelectedStoreCategory 
-        {
-            get { return _selectedStoreCategories; }
-            set { _selectedStoreCategories = value; } 
-        }
-        public string SelectedOpeningHours
-        {
-            get { return _selectedOpeningHours; }
-            set { _selectedOpeningHours = value; }
-        }
-        public string SelectedClosingHours
-        {
-            get { return _selectedClosingHours; }
-            set { _selectedClosingHours = value; }
-        }
+        public string ImageFileName { get; set; }
         #endregion
 
-        public StorageFile Test { get; set; }
+        public StorageFile ImageFile { get; set; }
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
 
         #region ICommand
@@ -258,8 +239,14 @@ namespace ROsTorvApp.ViewModel.Collections
         //This method Adds a new store, bound in XAML page.
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, DescriptionVM,
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
                 LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM, null));
+        }
+        public void SaveStoreMethod()
+        {
+            Shops.StoreListViewElement.SelectedIndex = -1;
+            ((Frame)Window.Current.Content).GoBack();
+            StoreHandler.SaveStoresAsync();
         }
         // This method deletes a selected store, if one is selected.
         public void DeleteStore()
@@ -274,6 +261,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void RedirectToAddStorePageMethod()
         {
+            Shops.StoreListViewElement.SelectedIndex = -1;
             ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
         }
         public void RedirectToAdminpanel()
@@ -289,29 +277,32 @@ namespace ROsTorvApp.ViewModel.Collections
             f.FileTypeFilter.Add(".jpeg");
             f.FileTypeFilter.Add(".jpg");
             f.FileTypeFilter.Add(".png");
-            Test = await f.PickSingleFileAsync();
+            ImageFile = await f.PickSingleFileAsync();
+            ImageStoreVM = "/Assets/Images/" + ImageFile.Name;
+            ImageFileName = ImageFile.Name;
             try
             {
-                ImageStoreVM = "/Assets/Images/" + Test.Name;
+                SelectedStore.ImageStore = ImageStoreVM;
             }
-            catch (NullReferenceException e)
+            catch (Exception)
             {
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ImageFileName));
                 return;
             }
-
             OnPropertyChanged();
-            OnPropertyChanged(nameof(Test));
+            OnPropertyChanged(nameof(ImageFileName));
         }
 
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
         public static void AddStoreDummyData()
         {
             // Fill with dummy data
-            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", "10:00 - 17:00", "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", "Helse/Beauty", "40404040", null));
-            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", "10:00 - 17:00", "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", "Beklædning", "10101010", null));
-            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", "10:30 - 18:00", "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", "Gaming/Elektronik", "32125341", null));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", "11:00 - 20:00", "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", "Dagligvarer", "95756214", null));
-            SingletonStores.Instance.StoreList.Add(new Store(4, "Burger King", "11:00 - 20:00", "Burger King description!!!", 1, 6, "/Assets/Images/Billede1.jpg", "Restaurant", "98273461", null));
+            SingletonStores.Instance.StoreList.Add(new Store(1, "Matas", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Matas description!!!", 1, 2, "/Assets/Images/Matas.png", StoreCategories[9], "40404040", null));
+            SingletonStores.Instance.StoreList.Add(new Store(2, "Tøj Eksperten", OpeningAndClosingTime[0], OpeningAndClosingTime[14], "Tøj Eksperten description!!!", 1, 3, "/Assets/Images/TøjEksperten.jpg", StoreCategories[4], "10101010", null));
+            SingletonStores.Instance.StoreList.Add(new Store(3, "Gamestop+", OpeningAndClosingTime[1], OpeningAndClosingTime[16], "Gamestop+ description!!!", 1, 4, "/Assets/Images/Gamestop.png", StoreCategories[5], "32125341", null));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Føtex", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Føtex description!!!", 1, 5, "/Assets/Images/Føtex.jpg", StoreCategories[2], "95756214", null));
+            SingletonStores.Instance.StoreList.Add(new Store(4, "Burger King", OpeningAndClosingTime[2], OpeningAndClosingTime[18], "Burger King description!!!", 1, 6, "/Assets/Images/Billede1.jpg", StoreCategories[10], "98273461", null));
             StoreHandler.SaveStoresAsync();
         }
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage

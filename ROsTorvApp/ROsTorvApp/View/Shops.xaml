@@ -242,8 +242,11 @@
                         <TextBlock
                             HorizontalAlignment="right"
                             FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="{Binding SelectedStore.OpeningHours}" />
+                            Foreground="#d7dbff">
+                            <Run Text="{Binding SelectedStore.OpeningHours}" />
+                            <Run Text="-" />
+                            <Run Text="{Binding SelectedStore.ClosingHours}" />
+                        </TextBlock>
                     </Grid>
                     <Grid Margin="0,0,0,5">
                         <TextBlock
@@ -253,8 +256,11 @@
                         <TextBlock
                             HorizontalAlignment="right"
                             FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="{Binding SelectedStore.OpeningHours}" />
+                            Foreground="#d7dbff">
+                            <Run Text="{Binding SelectedStore.OpeningHours}" />
+                            <Run Text="-" />
+                            <Run Text="{Binding SelectedStore.ClosingHours}" />
+                        </TextBlock>
                     </Grid>
                     <Grid>
                         <TextBlock
@@ -264,8 +270,11 @@
                         <TextBlock
                             HorizontalAlignment="right"
                             FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="{Binding SelectedStore.OpeningHours}" />
+                            Foreground="#d7dbff">
+                            <Run Text="{Binding SelectedStore.OpeningHours}" />
+                            <Run Text="-" />
+                            <Run Text="{Binding SelectedStore.ClosingHours}" />
+                        </TextBlock>
                     </Grid>
                 </StackPanel>
                 <!--  Placering  -->
