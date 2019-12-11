@@ -104,7 +104,10 @@
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Telefon nr" />
-            <TextBox Margin="5" Text="{Binding PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="8"
+                Text="{Binding PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
