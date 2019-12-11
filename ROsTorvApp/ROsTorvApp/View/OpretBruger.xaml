@@ -79,27 +79,42 @@
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Fornavn" />
-            <TextBox Margin="5" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="15"
+                Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Efternavn" />
-            <TextBox Margin="5" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="15"
+                Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Alder" />
-            <TextBox Margin="5" Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="3"
+                Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Brugernavn" />
-            <TextBox Margin="5" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="16"
+                Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="E-mail" />
-            <TextBox Margin="5" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="5"
+                MaxLength="25"
+                Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
@@ -112,7 +127,10 @@
                 Margin="5,0,0,0"
                 Foreground="#d7dbff"
                 Text="Kodeord" />
-            <PasswordBox Margin="5" PasswordChanged="PasswordBox_OnPasswordChanged" />
+            <PasswordBox
+                Margin="5"
+                MaxLength="16"
+                PasswordChanged="PasswordBox_OnPasswordChanged" />
             <Button
                 Width="250"
                 Margin="0,20,0,0"
