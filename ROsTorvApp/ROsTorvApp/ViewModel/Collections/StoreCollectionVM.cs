@@ -32,6 +32,7 @@ namespace ROsTorvApp.ViewModel.Collections
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
         private ObservableCollection<Store> _storeCollection;
+        private string _selectedStoreCategories;
         #endregion
 
         #region Constructors
@@ -42,6 +43,7 @@ namespace ROsTorvApp.ViewModel.Collections
             _showStoreDetailsOnSelection = false;
             _selectedOpeningHours = OpeningAndClosingTime[0];
             _selectedClosingHours = OpeningAndClosingTime[15];
+            _selectedStoreCategories = StoreCategories[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
@@ -69,9 +71,35 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             get { return $"{SelectedOpeningHours} - {SelectedClosingHours}"; }
         }
-        public List<string> OpeningAndClosingTime { get { return new List<string> {"10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
-                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"};
-            } }
+        public List<string> OpeningAndClosingTime 
+        { 
+            get 
+            { 
+                return new List<string> 
+                {
+                    "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+                "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"
+                };
+            } 
+        }
+
+        public List<string> StoreCategories
+        {
+            get
+            {
+                return new List<string>
+                {
+                    "Bolig & livsstil", "Børn & fritid", "Dagligvarer & specialiteter", "Damemode", "Herremode", "Elektronik", 
+                    "Erhverv, kontorer & service", "Modetilbehør", "Sko", "Skønhed & sundhed", "Restauranter", "Underholdning", "Sport"
+                };
+            }
+        }
+
+        public string SelectedStoreCategory 
+        {
+            get { return _selectedStoreCategories; }
+            set { _selectedStoreCategories = value; } 
+        }
         public string SelectedOpeningHours
         {
             get { return _selectedOpeningHours; }

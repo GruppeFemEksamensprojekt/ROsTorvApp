@@ -95,11 +95,11 @@
                         Text=" (max 250 karakterer):" />
                 </StackPanel>
                 <TextBox
+                    Height="120"
+                    MaxHeight="120"
                     MaxLength="250"
                     Text="{Binding SelectedStore.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    TextWrapping="Wrap" 
-                    Height="120"
-                    MaxHeight="120"/>
+                    TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -197,7 +197,11 @@
                     FontFamily="dubai"
                     Foreground="#d7dbff"
                     Text="Kategori:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding SelectedStore.StoreCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ComboBox
+                    Width="200"
+                    Margin="0,0,0,5"
+                    ItemsSource="{Binding StoreCategories}"
+                    SelectedValue="{Binding SelectedStoreCategory, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel>
                 <TextBlock

@@ -203,7 +203,7 @@
                     FontFamily="dubai"
                     Foreground="#d7dbff"
                     Text="Kategori:" />
-                <TextBox Margin="0,0,0,5" Text="{Binding StoreCategoryVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ComboBox Margin="0,0,0,5" ItemsSource="{Binding StoreCategories}" Width="200"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock
@@ -213,24 +213,24 @@
                     Text="ID:" />
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="59*" />
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="100*" />
                     </Grid.ColumnDefinitions>
 
                     <TextBox
                         Grid.Column="0"
-                        Grid.ColumnSpan="2"
+                        Grid.ColumnSpan="3"
                         Margin="0,0,0,5"
                         Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <Button
-                        Grid.Column="2"
-                        Margin="0,0,0,5"
-                        HorizontalAlignment="right"
+                        Grid.Column="3"
+                        HorizontalAlignment="Right"
                         Command="{Binding AddCommand, Mode=OneWay}"
                         Content="Tilføj butik"
                         FontFamily="dubai"
-                        Foreground="#d7dbff" />
+                        Foreground="#d7dbff" VerticalAlignment="Top" />
                 </Grid>
             </StackPanel>
         </StackPanel>
