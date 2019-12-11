@@ -20,8 +20,8 @@
                                 Width="200"
                                 Margin="0,5"
                                 HorizontalAlignment="Center"
-                                Click="Button_AdminPanel"
-                                Content="Admin panel"
+                                Command="{Binding RedirectToAdminPanelCommand}"
+                                Content="Admin Panel"
                                 Visibility="{Binding ShowAdminButtonVisibility}" />
                             <Button
                                 Width="200"

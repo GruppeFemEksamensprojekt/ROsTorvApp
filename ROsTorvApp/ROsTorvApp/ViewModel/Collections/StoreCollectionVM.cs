@@ -47,6 +47,7 @@ namespace ROsTorvApp.ViewModel.Collections
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
             RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
+            RedirectToAdminPanelCommand = new RelayCommand(RedirectToAdminpanel, StoreIsSelected);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
             SaveStoreCommand = new RelayCommand(StoreHandler.SaveStoresAsync, StoreIsSelected);
         }
@@ -86,12 +87,16 @@ namespace ROsTorvApp.ViewModel.Collections
         public StorageFile Test { get; set; }
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
 
+        #region ICommand
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand BrowseCommand { get; set; }
         public ICommand BackToStoreListViewCommand { get; set; }
         public ICommand SaveStoreCommand { get; set; }
+        public ICommand RedirectToAdminPanelCommand { get; set; }
+        #endregion
+
         public ObservableCollection<Store> StoreCollection
         {
             get { return SingletonStores.Instance.StoreList; }
@@ -151,7 +156,7 @@ namespace ROsTorvApp.ViewModel.Collections
         // if true, then SHOW the Store details screen for the selected store
         public bool ShowStoreDetailsOnSelection
         {
-            get 
+            get
             { return _showStoreDetailsOnSelection; }
             set
             {
@@ -243,6 +248,11 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
         }
+        public void RedirectToAdminpanel()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel), _selectedStore);
+        }
+
         public async void BrowseStores()
         {
             FileOpenPicker f = new FileOpenPicker();

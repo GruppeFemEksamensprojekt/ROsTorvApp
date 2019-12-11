@@ -28,10 +28,6 @@ namespace ROsTorvApp.Include
             this.DataContext = new StoreCollectionVM();
         }
         
-        private void Button_AdminPanel(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel), StoreCollectionVM.TransferSelectedStore);
-        }
 
         private void Button_Logout(object sender, RoutedEventArgs e)
         {
