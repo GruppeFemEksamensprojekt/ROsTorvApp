@@ -46,14 +46,12 @@ namespace ROsTorvApp.ViewModel
                 }
                 else
                 {
-                    var messageDialog = new MessageDialog("Failed login");
-                    messageDialog.ShowAsync();
+                    FailedLogin("Forkert brugernavn eller password", "Failed login");
                 }
             }
             else
             {
-                var messageDialog = new MessageDialog("Failed login");
-                messageDialog.ShowAsync();
+                FailedLogin("Forkert brugernavn eller password","Failed login");
             }
         }
 
@@ -74,6 +72,18 @@ namespace ROsTorvApp.ViewModel
                 }
                 return false;
             }
+        }
+
+        public async void FailedLogin(string message, string title)
+        {
+            ContentDialog failedloginDialog = new ContentDialog
+            {
+                Title = title,
+                Content = message,
+                CloseButtonText = "Ok",
+                DefaultButton = ContentDialogButton.Close
+            };
+            ContentDialogResult result = await failedloginDialog.ShowAsync();
         }
 
     }
