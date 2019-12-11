@@ -23,9 +23,11 @@ namespace ROsTorvApp.View
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        public static PasswordBox PasswordBox { get; set; }
         public LoginPage()
         {
             this.InitializeComponent();
+            PasswordBox = PasswordBoxDerp;
         }
 
         private void Button_Click_Create_User(object sender, RoutedEventArgs e)
