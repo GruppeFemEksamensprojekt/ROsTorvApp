@@ -130,12 +130,32 @@
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center">
-            <GridView
-                ItemTemplate="{StaticResource OfferDataTemplate}"
-                ItemsSource="{Binding OfferCollection}"
-                SelectionMode="None" />
+            <StackPanel>
+                <Border BorderBrush="GhostWhite" BorderThickness="0,0,0,1">
 
+                    <StackPanel Height="60">
+                        <TextBlock
+                            Margin="0,7,0,5"
+                            HorizontalAlignment="Center"
+                            FontFamily="dubai"
+                            FontSize="20"
+                            Foreground="White"
+                            Text="VELKOMMEN TIL RO'S TORVS APP" />
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            HorizontalAlignment="Center"
+                            FontFamily="dubai"
+                            FontSize="15"
+                            Foreground="White"
+                            Text="SPAR OP TIL 60% PÅ DISSE EKSKLUSIVE TILBUD" />
+                    </StackPanel>
+                </Border>
 
+                <GridView
+                    ItemTemplate="{StaticResource OfferDataTemplate}"
+                    ItemsSource="{Binding OfferCollection}"
+                    SelectionMode="None" />
+            </StackPanel>
         </ScrollViewer>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
