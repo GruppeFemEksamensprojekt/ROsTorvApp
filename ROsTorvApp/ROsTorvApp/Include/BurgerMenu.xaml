@@ -30,7 +30,7 @@
                                     Content="Edit Butik" />
                                 <Button
                                     Width="200"
-                                    Margin="0,5"
+                                    Margin="0,5,0,35"
                                     Command="{Binding DeleteCommand}"
                                     Content="Slet Valgte" />
                             </StackPanel>
