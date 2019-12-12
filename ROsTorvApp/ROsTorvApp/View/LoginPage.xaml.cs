@@ -30,11 +30,6 @@ namespace ROsTorvApp.View
             PasswordBox = PasswordBoxDerp;
         }
 
-        private void Button_Click_Create_User(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(OpretBruger));
-        }
-
         private void UIElement_OnKeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.KeyStatus.ScanCode == 28)
