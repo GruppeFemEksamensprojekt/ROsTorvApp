@@ -106,10 +106,10 @@
             </StackPanel>
             <StackPanel
                 Grid.Row="6"
+                Grid.RowSpan="6"
                 Grid.ColumnSpan="2"
                 Width="240"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                HorizontalAlignment="Center">
                 <Border
                     Width="240"
                     BorderBrush="Gainsboro"
@@ -122,43 +122,37 @@
                         FontFamily="dubai"
                         Foreground="White" />
                 </Border>
-            </StackPanel>
-            <StackPanel
-                Grid.Row="7"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Orientation="Horizontal">
                 <Button
-                    Width="100"
-                    Margin="0,0,5,0"
-                    Click="Button_Click_Create_User"
-                    Content="Opret bruger"
-                    FontSize="10" />
-                <Button
-                    Width="100"
-                    Content="Glemt kodeord?"
-                    FontSize="10" />
-            </StackPanel>
-            <StackPanel
-                Grid.Row="7"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Orientation="Horizontal">
-                <Button
-                    Width="115"
-                    Margin="0,0,5,0"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Stretch"
                     Background="DodgerBlue"
-                    Content="Login med Facebook"
-                    FontSize="10" />
-
+                    Content="Log ind med Facebook"
+                    Foreground="White" />
                 <Button
-                    Width="115"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Stretch"
                     Background="White"
-                    Content="Login med Google"
-                    FontSize="10" />
+                    Content="Log ind med Google"
+                    Foreground="Black" />
+                <Button
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Stretch"
+                    Background="#FF3E5A76"
+                    Command="{Binding OpretBrugerCommand}"
+                    Content="Opret Bruger"
+                    Foreground="White" />
+                <Button
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Stretch"
+                    Background="#FF3E5A76"
+                    Content="Glemt kodeord?"
+                    Foreground="White" />
             </StackPanel>
+            <StackPanel
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" />
         </Grid>
     </Grid>
 </Page>
