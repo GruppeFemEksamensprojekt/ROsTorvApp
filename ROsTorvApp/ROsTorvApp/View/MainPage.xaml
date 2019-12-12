@@ -14,24 +14,61 @@
     </Page.DataContext>
     <Page.Resources>
         <DataTemplate x:Key="OfferDataTemplate">
-            <StackPanel Margin="0,15">
+            <StackPanel Margin="0,15,15,0">
                 <Border
                     BorderBrush="Gainsboro"
                     BorderThickness="1"
                     CornerRadius="2 2 2 2">
                     <StackPanel>
+                        <Grid>
+                            <Image
+                                MaxWidth="200"
+                                MaxHeight="200"
+                                HorizontalAlignment="Center"
+                                Source="{Binding OfferImage}" />
+                            <StackPanel
+                                Width="45"
+                                Height="20"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                Background="Red">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    Foreground="White"
+                                    Text="{Binding DiscountPercentage}" />
+                            </StackPanel>
+                        </Grid>
                         <Border BorderBrush="Gainsboro" BorderThickness="0,1,0,0">
                             <StackPanel Background="White">
                                 <Grid Padding="5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
                                         <RowDefinition />
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Description}" />
+                                    <StackPanel>
+                                        <TextBlock
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="2"
+                                            VerticalAlignment="Center"
+                                            FontWeight="Bold"
+                                            Text="{Binding Description}" />
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="2"
+                                            Opacity="0.5"
+                                            Text="{Binding ItemCategory}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock TextDecorations="Strikethrough">
+                                                <Run Text="{Binding Price}" />
+                                                <Run Text="kr." />
+                                            </TextBlock>
+                                            <TextBlock Margin="5,0,0,0" Foreground="Red">
+                                                <Run Text="{Binding PriceAfterDiscount}" />
+                                                <Run Text="kr." />
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
                                 </Grid>
                             </StackPanel>
                         </Border>
@@ -40,7 +77,6 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Images/BackgroundImg.jpg" />
@@ -93,10 +129,11 @@
             Grid.Row="1"
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
-            Margin="20">
-            <StackPanel>
-                <ListView ItemTemplate="{StaticResource OfferDataTemplate}" ItemsSource="{Binding OfferCollection}" />
-            </StackPanel>
+            HorizontalAlignment="Center">
+            <GridView
+                ItemTemplate="{StaticResource OfferDataTemplate}"
+                ItemsSource="{Binding OfferCollection}"
+                SelectionMode="None" />
 
 
         </ScrollViewer>

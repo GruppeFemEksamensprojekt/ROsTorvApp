@@ -11,23 +11,26 @@ namespace ROsTorvApp.Model.Center.Offers
         public int OfferId { get; set; }
         public string Description { get; set; }
         public decimal Discount { get; set; }
-        public decimal PriceBefore { get; set; }
-        public string Location { get; set; }
+        public string ItemCategory { get; set; }
+        public decimal Price{ get; set; }
         public string OfferImage { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
 
-        public Offer(int offerId, string description, decimal discount, decimal priceBefore, string location, DateTime startTime,DateTime endTime, string offerImage)
+        public Offer(int offerId, string description, string itemCategory, decimal discount, decimal price, string offerImage)
         {
             OfferId = offerId;
             Description = description;
+            ItemCategory = itemCategory;
             Discount = discount;
-            PriceBefore = priceBefore;
-            Location = location;
-            StartTime = startTime;
-            EndTime = endTime;
+            Price = price;
             OfferImage = offerImage;
         }
-    
+
+        public decimal PriceAfterDiscount
+        {
+            get { return (100 - Discount) * (Price / 100); }
+        }
+
+        public string DiscountPercentage { get { return $"- {Discount.ToString()}%"; } }
+
     }
 }
