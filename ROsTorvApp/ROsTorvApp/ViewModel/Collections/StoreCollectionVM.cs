@@ -41,9 +41,6 @@ namespace ROsTorvApp.ViewModel.Collections
 
             _showStoreDetailsOnSelection = false;
             _hideStoreListViewOnSelection = false;
-            //_selectedOpeningHours = OpeningAndClosingTime[0];
-            //_selectedClosingHours = OpeningAndClosingTime[15];
-            //_selectedStoreCategories = StoreCategories[0];
 
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
@@ -146,7 +143,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 DateTime timeNow = DateTime.Now;
                 if (timeNow.Hour >= 5 && timeNow.Hour < 9)
                 {
-                    return "God morgen,";
+                    return "Godmorgen,";
                 }
 
                 if (timeNow.Hour >= 9 && timeNow.Hour < 12)
@@ -154,12 +151,12 @@ namespace ROsTorvApp.ViewModel.Collections
                     return "God formiddag,";
                 }
 
-                if (timeNow.Hour >= 12 && timeNow.Hour < 13)
+                if (timeNow.Hour >= 12 && timeNow.Hour < 14)
                 {
                     return "God middag,";
                 }
 
-                if (timeNow.Hour >= 13 && timeNow.Hour < 18)
+                if (timeNow.Hour >= 14 && timeNow.Hour < 18)
                 {
                     return "God eftermiddag,";
                 }
