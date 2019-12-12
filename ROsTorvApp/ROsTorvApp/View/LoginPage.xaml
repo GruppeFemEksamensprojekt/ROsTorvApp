@@ -54,6 +54,24 @@
             </Border>
 
             <StackPanel
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Background="Black">
+                <TextBlock
+                    Margin="5"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Admin login" />
+                <TextBlock
+                    Margin="5"
+                    Foreground="White"
+                    Text="Brugernavn: Admin" />
+                <TextBlock
+                    Margin="5"
+                    Foreground="White"
+                    Text="Password: password" />
+            </StackPanel>
+            <StackPanel
                 Grid.Row="4"
                 Grid.RowSpan="2"
                 Grid.Column="0"
