@@ -49,8 +49,7 @@
                     FontFamily="Dubai"
                     FontSize="25"
                     Foreground="#d7dbff">
-                    <Run Text="Velkommen til Himmelen, Gud!" />
-                    <Run Text="{Binding UsersFullName}" />
+                    <Run Text="Edit Butik" />
                 </TextBlock>
                 <Grid
                     Width="50"
@@ -62,187 +61,191 @@
             </Grid>
         </Border>
         <!--  Page  -->
-        <StackPanel
+        <ScrollViewer
             Grid.Row="1"
             Grid.RowSpan="12"
             Grid.ColumnSpan="2"
             Margin="0,20,0,0"
             HorizontalAlignment="Center"
             Visibility="Visible">
+
             <StackPanel>
-                <TextBlock
-                    Margin="0,5,0,5"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="Navn:" />
-                <TextBox
-                    Width="300"
-                    Margin="0,0,0,5"
-                    MaxLength="20"
-                    Text="{Binding SelectedStore.StoreName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel>
                     <TextBlock
-                        Margin="0,0,0,5"
+                        Margin="0,5,0,5"
                         FontFamily="dubai"
                         Foreground="#d7dbff"
-                        Text="Beskrivelse:" />
-                    <TextBlock
-                        Margin="0,0,0,5"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff"
-                        Opacity="0.5"
-                        Text=" (max 250 karakterer):" />
-                </StackPanel>
-                <TextBox
-                    Height="120"
-                    MaxHeight="120"
-                    MaxLength="250"
-                    Text="{Binding SelectedStore.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    TextWrapping="Wrap" />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock
-                    Margin="0,5,0,0"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="Indsæt logo:" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+                        Text="Navn:" />
                     <TextBox
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Margin="0,5,0,0"
-                        IsReadOnly="True"
-                        Text="{Binding ImageFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button
-                        Grid.Column="2"
-                        Margin="0,5,0,0"
-                        HorizontalAlignment="Right"
-                        Command="{Binding BrowseCommand, Mode=OneWay}"
-                        Content="Gennemse..."
-                        FontFamily="dubai"
-                        Foreground="#d7dbff" />
-                </Grid>
-            </StackPanel>
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Padding="0,0,5,0">
+                        Width="300"
+                        Margin="0,0,0,5"
+                        MaxLength="20"
+                        Text="{Binding SelectedStore.StoreName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock
-                            Margin="0,5,0,5"
-                            FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="Etage nr:" />
-                        <TextBox
                             Margin="0,0,0,5"
-                            MaxLength="1"
-                            Text="{Binding SelectedStore.LocationFloor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Padding="0,0,5,0">
-                        <TextBlock
-                            Margin="0,5,0,5"
                             FontFamily="dubai"
                             Foreground="#d7dbff"
-                            Text="Butik nr:" />
+                            Text="Beskrivelse:" />
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            FontFamily="dubai"
+                            Foreground="#d7dbff"
+                            Opacity="0.5"
+                            Text=" (max 250 karakterer):" />
+                    </StackPanel>
+                    <TextBox
+                        Height="120"
+                        MaxHeight="120"
+                        MaxLength="250"
+                        Text="{Binding SelectedStore.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Text="Indsæt logo:" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
                         <TextBox
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="0,5,0,0"
+                            IsReadOnly="True"
+                            Text="{Binding ImageFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="0,5,0,0"
+                            HorizontalAlignment="Right"
+                            Command="{Binding BrowseCommand, Mode=OneWay}"
+                            Content="Gennemse..."
+                            FontFamily="dubai"
+                            Foreground="#d7dbff" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Padding="0,0,5,0">
+                            <TextBlock
+                                Margin="0,5,0,5"
+                                FontFamily="dubai"
+                                Foreground="#d7dbff"
+                                Text="Etage nr:" />
+                            <TextBox
+                                Margin="0,0,0,5"
+                                MaxLength="1"
+                                Text="{Binding SelectedStore.LocationFloor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Padding="0,0,5,0">
+                            <TextBlock
+                                Margin="0,5,0,5"
+                                FontFamily="dubai"
+                                Foreground="#d7dbff"
+                                Text="Butik nr:" />
+                            <TextBox
+                                Margin="0,0,0,5"
+                                MaxLength="2"
+                                Text="{Binding SelectedStore.LocationNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <TextBlock
+                                Margin="15,5,0,5"
+                                FontFamily="dubai"
+                                Foreground="#d7dbff"
+                                Text="Åbningstid:" />
+                            <ComboBox
+                                Width="140"
+                                HorizontalAlignment="Right"
+                                ItemsSource="{Binding OpeningAndClosingTime}"
+                                SelectedValue="{Binding SelectedStore.OpeningHours, Mode=TwoWay}" />
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <TextBlock
+                                Margin="15,5,0,5"
+                                FontFamily="dubai"
+                                Foreground="#d7dbff"
+                                Text="Lukketid:" />
+                            <ComboBox
+                                Width="140"
+                                HorizontalAlignment="Right"
+                                ItemsSource="{Binding OpeningAndClosingTime}"
+                                SelectedValue="{Binding SelectedStore.ClosingHours, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,5"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Text="Butikkens tlf. nr:" />
+                    <TextBox
+                        Margin="0,0,0,5"
+                        MaxLength="8"
+                        Text="{Binding SelectedStore.PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,5"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Text="Kategori:" />
+                    <ComboBox
+                        Margin="0,0,0,5"
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding StoreCategories}"
+                        SelectedValue="{Binding SelectedStore.StoreCategory, Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,5"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff"
+                        Text="ID:" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="97*" />
+                            <ColumnDefinition Width="96.8" />
+                            <ColumnDefinition Width="106*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
                             Margin="0,0,0,5"
                             MaxLength="2"
-                            Text="{Binding SelectedStore.LocationNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="0" Grid.Column="1">
-                        <TextBlock
-                            Margin="15,5,0,5"
+                            Text="{Binding SelectedStore.StoreId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="0,0,0,5"
+                            HorizontalAlignment="right"
+                            Command="{Binding SaveStoreCommand}"
+                            Content="Gem Ændring"
                             FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="Åbningstid:" />
-                        <ComboBox
-                            Width="140"
-                            HorizontalAlignment="Right"
-                            ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedStore.OpeningHours, Mode=TwoWay}" />
-
-                    </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="1">
-                        <TextBlock
-                            Margin="15,5,0,5"
-                            FontFamily="dubai"
-                            Foreground="#d7dbff"
-                            Text="Lukketid:" />
-                        <ComboBox
-                            Width="140"
-                            HorizontalAlignment="Right"
-                            ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedStore.ClosingHours, Mode=TwoWay}" />
-                    </StackPanel>
-                </Grid>
+                            Foreground="#d7dbff" />
+                    </Grid>
+                </StackPanel>
             </StackPanel>
-            <StackPanel>
-                <TextBlock
-                    Margin="0,5,0,5"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="Butikkens tlf. nr:" />
-                <TextBox
-                    Margin="0,0,0,5"
-                    MaxLength="8"
-                    Text="{Binding SelectedStore.PhoneNo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock
-                    Margin="0,5,0,5"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="Kategori:" />
-                <ComboBox
-                    Margin="0,0,0,5"
-                    HorizontalAlignment="Stretch"
-                    ItemsSource="{Binding StoreCategories}"
-                    SelectedValue="{Binding SelectedStore.StoreCategory, Mode=TwoWay}" />
-            </StackPanel>
-            <StackPanel>
-                <TextBlock
-                    Margin="0,5,0,5"
-                    FontFamily="dubai"
-                    Foreground="#d7dbff"
-                    Text="ID:" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="97*" />
-                        <ColumnDefinition Width="96.8" />
-                        <ColumnDefinition Width="106*" />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Margin="0,0,0,5"
-                        MaxLength="2"
-                        Text="{Binding SelectedStore.StoreId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button
-                        Grid.Column="2"
-                        Margin="0,0,0,5"
-                        HorizontalAlignment="right"
-                        Command="{Binding SaveStoreCommand}"
-                        Content="Gem Ændring"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff" />
-                </Grid>
-            </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
 
 
         <!--  Navigation Bar  -->

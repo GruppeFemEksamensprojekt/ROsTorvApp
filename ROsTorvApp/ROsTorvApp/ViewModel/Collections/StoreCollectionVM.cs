@@ -39,6 +39,7 @@ namespace ROsTorvApp.ViewModel.Collections
             _storeCollection = new ObservableCollection<Store>();
 
             _showStoreDetailsOnSelection = false;
+            _hideStoreListViewOnSelection = false;
             //_selectedOpeningHours = OpeningAndClosingTime[0];
             //_selectedClosingHours = OpeningAndClosingTime[15];
             //_selectedStoreCategories = StoreCategories[0];
@@ -253,7 +254,8 @@ namespace ROsTorvApp.ViewModel.Collections
                 SingletonStores.Instance.StoreList.Remove(SelectedStore);
                 StoreHandler.SaveStoresAsync();
             }
-            BackToStoreListView();
+            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            //BackToStoreListView();
         }
 
         public void RedirectToAddStorePageMethod()
