@@ -24,8 +24,8 @@ namespace ROsTorvApp.ViewModel.Collections
             AddOffer(new Offer(1, "Gamestop+", "Spil", 20, 150, "/Assets/Images/Offers/GameStopTilbud3.jpg"));
             AddOffer(new Offer(1, "Gamestop+", "Spilkonsol", 50, 1499, "/Assets/Images/Offers/GameStopTilbud4.jpg"));
             AddOffer(new Offer(1, "Tøjeksperten", "Jakkesæt", 35, 1500, "/Assets/Images/Offers/ToejEkspertenTilbud1.jpg"));
-            AddOffer(new Offer(1, "Tøjeksperten", "Skjorte", 50, 800, "/Assets/Images/Offers/TøjEkspertenTilbud2.jpg"));
-            AddOffer(new Offer(1, "Tøjeksperten", "Jakke", 50, 2500, "/Assets/Images/Offers/TøjEkspertenTilbud3.jpg"));
+            AddOffer(new Offer(1, "Tøjeksperten", "Skjorte", 50, 800, "/Assets/Images/Offers/ToejEkspertenTilbud2.jpg"));
+            AddOffer(new Offer(1, "Tøjeksperten", "Jakke", 50, 2500, "/Assets/Images/Offers/ToejEkspertenTilbud3.jpg"));
 
 
         }
