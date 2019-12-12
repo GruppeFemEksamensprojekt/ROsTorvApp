@@ -126,7 +126,7 @@ namespace ROsTorvApp.ViewModel.Collections
             }
         }
 
-        public string Time
+        public static string Time
         {
             get
             {

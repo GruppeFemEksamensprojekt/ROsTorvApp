@@ -10,8 +10,36 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
     <Page.DataContext>
-        <ViewModelCollections:StoreCollectionVM />
+        <ViewModelCollections:OfferCollectionVM />
     </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="OfferDataTemplate">
+            <StackPanel Margin="0,15">
+                <Border
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1"
+                    CornerRadius="2 2 2 2">
+                    <StackPanel>
+                        <Border BorderBrush="Gainsboro" BorderThickness="0,1,0,0">
+                            <StackPanel Background="White">
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Description}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid>
         <Grid.Background>
@@ -63,19 +91,14 @@
         <!--  Page  -->
         <ScrollViewer
             Grid.Row="1"
+            Grid.RowSpan="10"
             Grid.ColumnSpan="2"
             Margin="20">
             <StackPanel>
-
-                <StackPanel>
-                    <TextBlock
-                        HorizontalAlignment="Right"
-                        Foreground="#d7dbff"
-                        Opacity="0.5"
-                        Text="Featured Event" />
-                </StackPanel>
-                <StackPanel />
+                <ListView ItemTemplate="{StaticResource OfferDataTemplate}" ItemsSource="{Binding OfferCollection}" />
             </StackPanel>
+
+
         </ScrollViewer>
         <!--  Navigation Bar  -->
         <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
@@ -83,4 +106,5 @@
         </StackPanel>
         <!--  /Navigation Bar  -->
     </Grid>
+
 </Page>
