@@ -43,14 +43,21 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void AddNewCustomer()
         {
-            if (UserHandler.UsernameAvailability(UserName))
+            if (UserName == null || FirstName == null || LastName == null || Email == null || PhoneNo == null || Password == null)
             {
-                UserHandler.contentDialog("Brugernavn findes allerede", "User exists");
+                UserHandler.contentDialog("Mangler info", "Fejl");
             }
             else
             {
-                AddCustomer(new Customer(FirstName, LastName, Age, UserName, Email, Password, PhoneNo));
-                ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+                if (UserHandler.UsernameAvailability(UserName))
+                {
+                    UserHandler.contentDialog("Brugernavn findes allerede", "User exists");
+                }
+                else
+                {
+                    AddCustomer(new Customer(FirstName, LastName, Age, UserName, Email, Password, PhoneNo));
+                    ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+                }
             }
         }
 

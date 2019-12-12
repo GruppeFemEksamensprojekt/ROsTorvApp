@@ -27,7 +27,8 @@ namespace ROsTorvApp.Helpers
         {
             
         }
-        
+
+        //Checks if the username already exists.
         public static bool UsernameAvailability(string Username)
         {
             if (SingletonUsers.Instance.UserList.Any(p => p.UserName == Username))
@@ -38,11 +39,16 @@ namespace ROsTorvApp.Helpers
             return false;
         }
 
+        //Gets PersistenceFacade to save SingletonUsers.Instance.UserList to the Json file.
         public static void SaveUsersAsync()
         {
             PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
-        
+
+
+        //Den checker først om filen findes og så tilføjer den alle brugerne til SingletonUsers.Instance.UserList,
+        //men hvis filen ikke findes så opretter den det og forsætter eller hvis filen er tom så kalder den AdminCollectionVM.AddDefaultAdmin()
+        //og det bliver bliver så tilføjet til SingletonUsers.Instance.UserList og til filen.
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
@@ -50,7 +56,7 @@ namespace ROsTorvApp.Helpers
             SingletonUsers.Instance.UserList.Clear();
             if (users == null)
             {
-                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+                AdminCollectionVM.AddDefaultAdmin();
             }
             else
             {
@@ -61,6 +67,7 @@ namespace ROsTorvApp.Helpers
             }
         }
 
+        //Bruges til at vise fejl meddelser osv.
         public static async void contentDialog(string message, string title)
         {
             ContentDialog contentDialog = new ContentDialog
