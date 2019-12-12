@@ -129,11 +129,12 @@
             Grid.Row="1"
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
-            HorizontalAlignment="Center">
+            HorizontalAlignment="Center"
+            VerticalScrollBarVisibility="Hidden">
             <StackPanel>
                 <Border BorderBrush="GhostWhite" BorderThickness="0,0,0,1">
 
-                    <StackPanel Height="60">
+                    <StackPanel>
                         <TextBlock
                             Margin="0,7,0,5"
                             HorizontalAlignment="Center"

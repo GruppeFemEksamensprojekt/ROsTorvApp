@@ -114,8 +114,12 @@
             Grid.Row="1"
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
-            Padding="35,0">
-            <ListView ItemTemplate="{StaticResource EventDataTemplate}" ItemsSource="{Binding EventCollection}" />
+            Padding="35,0"
+            VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <StackPanel />
+                <ListView ItemTemplate="{StaticResource EventDataTemplate}" ItemsSource="{Binding EventCollection}" />
+            </StackPanel>
         </ScrollViewer>
 
 
