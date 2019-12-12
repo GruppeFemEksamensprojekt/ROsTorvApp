@@ -19,9 +19,13 @@
                     BorderBrush="Gainsboro"
                     BorderThickness="1"
                     CornerRadius="2 2 2 2">
-                    <StackPanel Width="175">
+                    <StackPanel>
                         <Grid>
-                            <Image Source="{Binding OfferImage}" />
+                            <Image
+                                MaxWidth="200"
+                                MaxHeight="200"
+                                HorizontalAlignment="Center"
+                                Source="{Binding OfferImage}" />
                             <StackPanel
                                 Width="45"
                                 Height="20"
@@ -55,7 +59,7 @@
                                             Opacity="0.5"
                                             Text="{Binding ItemCategory}" />
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock>
+                                            <TextBlock TextDecorations="Strikethrough">
                                                 <Run Text="{Binding Price}" />
                                                 <Run Text="kr." />
                                             </TextBlock>
@@ -126,7 +130,10 @@
             Grid.RowSpan="10"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center">
-            <GridView ItemTemplate="{StaticResource OfferDataTemplate}" ItemsSource="{Binding OfferCollection}" />
+            <GridView
+                ItemTemplate="{StaticResource OfferDataTemplate}"
+                ItemsSource="{Binding OfferCollection}"
+                SelectionMode="None" />
 
 
         </ScrollViewer>
