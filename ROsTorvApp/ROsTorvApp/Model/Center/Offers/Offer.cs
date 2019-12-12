@@ -10,7 +10,7 @@ namespace ROsTorvApp.Model.Center.Offers
     {
         public int OfferId { get; set; }
         public string Description { get; set; }
-        public decimal Discount { get; set; } // i %???
+        public decimal Discount { get; set; }
         public decimal PriceBefore { get; set; }
         public string Location { get; set; }
         public string OfferImage { get; set; }
