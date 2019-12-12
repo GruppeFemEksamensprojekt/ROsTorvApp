@@ -228,7 +228,20 @@ namespace ROsTorvApp.ViewModel.Collections
         // shows the store list and hides to store details pane
         public void BackToStoreListView()
         {
-            Shops.StoreListViewElement.SelectedIndex = -1;
+            try
+            {
+                Shops.StoreListViewElement.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+            finally
+            {
+                ShowStoreDetailsOnSelection = false;
+                HideStoreListViewOnSelection = false;
+            }
             ShowStoreDetailsOnSelection = false;
             HideStoreListViewOnSelection = false;
 
@@ -260,7 +273,15 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void RedirectToAddStorePageMethod()
         {
-            Shops.StoreListViewElement.SelectedIndex = -1;
+            try
+            {
+                Shops.StoreListViewElement.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
             ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
         }
         public void RedirectToAdminpanel()
