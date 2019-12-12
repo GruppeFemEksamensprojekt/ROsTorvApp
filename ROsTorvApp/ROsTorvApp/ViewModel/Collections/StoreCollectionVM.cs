@@ -27,6 +27,7 @@ namespace ROsTorvApp.ViewModel.Collections
 
         #region Instance Fields
         private static Store _selectedStore;
+        private static string _selectedStoreImageFileName;
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
@@ -93,6 +94,18 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         public StorageFile ImageFile { get; set; }
+        public string SelectedImageFileName {
+            get
+            {
+                return SelectedStore.ImageStore;
+            }
+            set 
+            {
+                SelectedStore.ImageStore = value;
+                OnPropertyChanged();
+            }
+
+        }
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
 
         #region ICommand
@@ -298,12 +311,13 @@ namespace ROsTorvApp.ViewModel.Collections
             f.FileTypeFilter.Add(".jpg");
             f.FileTypeFilter.Add(".png");
             ImageFile = await f.PickSingleFileAsync();
-            ImageStoreVM = "/Assets/Images/" + ImageFile.Name;
-            ImageFileName = ImageFile.Name;
             try
             {
-                SelectedStore.ImageStore = ImageStoreVM;
-            }
+                ImageStoreVM = "/Assets/Images/" + ImageFile.Name;
+                ImageFileName = ImageFile.Name;
+                //SelectedStore.ImageStore = ImageStoreVM;
+                SelectedImageFileName = ImageFile.Name;
+            }       
             catch (Exception)
             {
                 OnPropertyChanged();
@@ -311,7 +325,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 return;
             }
             OnPropertyChanged();
-            OnPropertyChanged(nameof(ImageFileName));
+            OnPropertyChanged(nameof(ImageFile));
         }
 
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
