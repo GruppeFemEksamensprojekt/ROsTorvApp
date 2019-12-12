@@ -24,9 +24,8 @@ namespace ROsTorvApp.Model.Center
         public string StoreCategory { get; set; }
         public ObservableCollection<Offer> StoreOffers { get; set; }
 
-        public Store(int storeId, string storeName, string openingHours, string closingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory, string phoneNo, ObservableCollection<Offer> storeOffers)
+        public Store(int storeId, string storeName, string openingHours, string closingHours, string description, int locationFloor, int locationNo, string imageStore, string storeCategory, string phoneNo)
         {
-            storeOffers = new ObservableCollection<Offer>();
             //StoreCollectionVM StoreCollection = new StoreCollectionVM();
             //StoreCollection.StoreCollection.Add(new Store(storeId, storeName, openingHours, description, locationFloor, locationNo, imageStore, storeCategory));
             PhoneNo = phoneNo;
@@ -39,7 +38,6 @@ namespace ROsTorvApp.Model.Center
             LocationNo = locationNo;
             ImageStore= imageStore;
             StoreCategory = storeCategory;
-            StoreOffers = storeOffers;
         }
 
         public Store()

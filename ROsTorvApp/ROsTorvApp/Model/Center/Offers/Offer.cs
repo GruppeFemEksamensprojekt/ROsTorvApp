@@ -13,10 +13,11 @@ namespace ROsTorvApp.Model.Center.Offers
         public decimal Discount { get; set; }
         public decimal PriceBefore { get; set; }
         public string Location { get; set; }
+        public string OfferImage { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
-        public Offer(int offerId, string description, decimal discount, decimal priceBefore, string location, DateTime startTime,DateTime endTime)
+        public Offer(int offerId, string description, decimal discount, decimal priceBefore, string location, DateTime startTime,DateTime endTime, string offerImage)
         {
             OfferId = offerId;
             Description = description;
@@ -25,6 +26,7 @@ namespace ROsTorvApp.Model.Center.Offers
             Location = location;
             StartTime = startTime;
             EndTime = endTime;
+            OfferImage = offerImage;
         }
     
     }
