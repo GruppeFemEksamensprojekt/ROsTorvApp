@@ -184,6 +184,7 @@
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\Billede1.jpg" />
     <Content Include="Assets\Images\BMmenu.png" />
+    <Content Include="Assets\Images\BurgerKing.jpg" />
     <Content Include="Assets\Images\CenterOversigt.jpg" />
     <Content Include="Assets\Images\EventImg.png" />
     <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
@@ -197,11 +198,11 @@
     <Content Include="Assets\Images\Events\Events-Workshop.jpg" />
     <Content Include="Assets\Images\Events\Events-Åbningstider.jpg" />
     <Content Include="Assets\Images\Føtex.jpg" />
-    <Content Include="Assets\Images\Gamestop.png" />
+    <Content Include="Assets\Images\Gamestop.jpg" />
     <Content Include="Assets\Images\HomeImg.png" />
     <Content Include="Assets\Images\Information.jpg" />
     <Content Include="Assets\Images\KortOversigt.jpg" />
-    <Content Include="Assets\Images\Matas.png" />
+    <Content Include="Assets\Images\Matas.jpg" />
     <Content Include="Assets\Images\MoreImg.png" />
     <Content Include="Assets\Images\Offers\GameStopTilbud1.jpg" />
     <Content Include="Assets\Images\Offers\GameStopTilbud2.jpg" />
