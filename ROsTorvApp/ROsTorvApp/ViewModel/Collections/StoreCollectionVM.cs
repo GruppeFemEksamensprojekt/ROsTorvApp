@@ -49,6 +49,7 @@ namespace ROsTorvApp.ViewModel.Collections
             RedirectToAdminPanelCommand = new RelayCommand(RedirectToAdminpanel, StoreIsSelected);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
             SaveStoreCommand = new RelayCommand(SaveStoreMethod, StoreIsSelected);
+            RedirectToShopsCommand = new RelayCommand(RedirectToShopsMethod, null);
         }
 
         #endregion
@@ -113,6 +114,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand BackToStoreListViewCommand { get; set; }
         public ICommand SaveStoreCommand { get; set; }
         public ICommand RedirectToAdminPanelCommand { get; set; }
+        public ICommand RedirectToShopsCommand { get; set; }
         #endregion
 
         public ObservableCollection<Store> StoreCollection
@@ -279,6 +281,12 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
             //BackToStoreListView();
+        }
+
+        public void RedirectToShopsMethod()
+        {
+            Shops.StoreListViewElement.SelectedIndex = -1;
+            ((Frame)Window.Current.Content).GoBack();
         }
 
         public void RedirectToAddStorePageMethod()
