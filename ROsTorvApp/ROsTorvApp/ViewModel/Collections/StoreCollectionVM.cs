@@ -214,7 +214,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             get
             {
-                if (UserHandler.CurrentUserAdmin)
+                if (UserHandler.CurrentUserAdmin && IsOnShopPage())
                 {
                     return _showAdminButton = true;
                 }
