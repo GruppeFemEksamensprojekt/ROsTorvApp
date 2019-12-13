@@ -180,12 +180,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\ArnoldBusck.jpg" />
     <Content Include="Assets\Images\BackgroundImg.jpg" />
     <Content Include="Assets\Images\BackImage.png" />
     <Content Include="Assets\Images\Billede1.jpg" />
     <Content Include="Assets\Images\BMmenu.png" />
+    <Content Include="Assets\Images\BR.jpg" />
     <Content Include="Assets\Images\BurgerKing.jpg" />
     <Content Include="Assets\Images\CenterOversigt.jpg" />
+    <Content Include="Assets\Images\Deichmann.jpg" />
     <Content Include="Assets\Images\EventImg.png" />
     <Content Include="Assets\Images\Events\Events-Childticket-Jul.jpg" />
     <Content Include="Assets\Images\Events\Events-Konkurrence.jpg" />
@@ -201,6 +204,7 @@
     <Content Include="Assets\Images\Gamestop.jpg" />
     <Content Include="Assets\Images\HomeImg.png" />
     <Content Include="Assets\Images\Information.jpg" />
+    <Content Include="Assets\Images\Kino.jpg" />
     <Content Include="Assets\Images\KortOversigt.jpg" />
     <Content Include="Assets\Images\Matas.jpg" />
     <Content Include="Assets\Images\MoreImg.png" />
@@ -213,8 +217,12 @@
     <Content Include="Assets\Images\Offers\ToejEkspertenTilbud1.jpg" />
     <Content Include="Assets\Images\Offers\ToejEkspertenTilbud2.jpg" />
     <Content Include="Assets\Images\Offers\ToejEkspertenTilbud3.jpg" />
+    <Content Include="Assets\Images\ProfilOptik.jpg" />
+    <Content Include="Assets\Images\SAMS.jpg" />
     <Content Include="Assets\Images\ShopImg.png" />
+    <Content Include="Assets\Images\SportMaster.jpg" />
     <Content Include="Assets\Images\TøjEksperten.jpg" />
+    <Content Include="Assets\Images\ZhikiSushi.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
