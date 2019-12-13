@@ -103,7 +103,7 @@
                 <TextBlock
                     Margin="5,0,0,0"
                     Foreground="#d7dbff"
-                    Text="Brugernavn:*" />
+                    Text="Brugernavn:" />
                 <TextBlock
                     VerticalAlignment="Center"
                     FontFamily="dubai"
@@ -135,7 +135,7 @@
                 <TextBlock
                     Margin="5,0,0,0"
                     Foreground="#d7dbff"
-                    Text="Kodeord:*" />
+                    Text="Kodeord:" />
                 <TextBlock
                     VerticalAlignment="Center"
                     FontFamily="dubai"

@@ -260,7 +260,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             if (SelectedStore != null)
             {
-               Shops.StoreListViewElement.SelectedIndex = -1;
+                _selectedStore = null;
                 ((Frame)Window.Current.Content).GoBack();
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
@@ -281,7 +281,8 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             try
             {
-                Shops.StoreListViewElement.SelectedIndex = -1;
+                _selectedStore = null;
+                //Shops.StoreListViewElement.SelectedIndex = -1;
             }
             catch (Exception)
             {
@@ -306,7 +307,8 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         public void SaveStoreMethod()
         {
-            Shops.StoreListViewElement.SelectedIndex = -1;
+            _selectedStore = null;
+            //Shops.StoreListViewElement.SelectedIndex = -1;
             ((Frame)Window.Current.Content).GoBack();
             StoreHandler.SaveStoresAsync();
         }
@@ -327,7 +329,8 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             try
             {
-                Shops.StoreListViewElement.SelectedIndex = -1;
+                _selectedStore = null;
+                //Shops.StoreListViewElement.SelectedIndex = -1;
             }
             catch (Exception)
             {
