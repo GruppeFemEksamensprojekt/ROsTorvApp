@@ -94,12 +94,12 @@
                             FontFamily="dubai"
                             Foreground="#d7dbff"
                             Opacity="0.5"
-                            Text=" (max 250 karakterer):" />
+                            Text=" (max 500 karakterer):" />
                     </StackPanel>
                     <TextBox
                         Height="120"
                         MaxHeight="120"
-                        MaxLength="250"
+                        MaxLength="500"
                         Text="{Binding SelectedStore.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         TextWrapping="Wrap" />
                 </StackPanel>
