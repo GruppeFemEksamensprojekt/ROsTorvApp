@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
@@ -50,14 +51,21 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             else
             {
-                if (UserHandler.UsernameAvailability(UserName))
+                if (Regex.IsMatch(PhoneNo, @"^[0-9]+$"))
                 {
-                    UserHandler.contentDialog("Brugernavn findes allerede", "Bruger findes");
+                    if (UserHandler.UsernameAvailability(UserName))
+                    {
+                        UserHandler.contentDialog("Brugernavn findes allerede", "Bruger findes");
+                    }
+                    else
+                    {
+                        AddCustomer(new Customer(FirstName, LastName, Age, UserName, Email, Password, PhoneNo));
+                        ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+                    }
                 }
                 else
                 {
-                    AddCustomer(new Customer(FirstName, LastName, Age, UserName, Email, Password, PhoneNo));
-                    ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+                    UserHandler.contentDialog("Telefon nr må kun indholde tal", "Fejl");
                 }
             }
         }
