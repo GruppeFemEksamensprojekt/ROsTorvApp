@@ -42,6 +42,7 @@ namespace ROsTorvApp.ViewModel.Collections
             _showStoreDetailsOnSelection = false;
             _hideStoreListViewOnSelection = false;
 
+            #region Commands
             LogOutCommand = new RelayCommand(LogOut, null);
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
@@ -53,7 +54,8 @@ namespace ROsTorvApp.ViewModel.Collections
             RedirectToMainpageCommand = new RelayCommand(RedirectToMainPage, null);
             RedirectToShopsCommand = new RelayCommand(RedirectToShopsMethod, null);
             RedirectToEventsCommand = new RelayCommand(RedirectToEventPage, null);
-            RedirectToMoreCommand = new RelayCommand(RedirectToMorePage, null);
+            RedirectToMoreCommand = new RelayCommand(RedirectToMorePage, null); 
+            #endregion
         }
 
         #endregion
@@ -69,8 +71,9 @@ namespace ROsTorvApp.ViewModel.Collections
         public string PhoneNoVM { get; set; }
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
-        public string OpeningAndClosingHoursVM { get; }      
-        public static List<string> OpeningAndClosingTime 
+        public string OpeningAndClosingHoursVM { get; } 
+        
+        public static List<string> OpeningAndClosingTime
         { 
             get 
             { 
@@ -123,7 +126,6 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand RedirectToShopsCommand { get; set; }
         public ICommand RedirectToEventsCommand { get; set; }
         public ICommand RedirectToMoreCommand { get; set; }
-
         #endregion
 
         public ObservableCollection<Store> StoreCollection
@@ -181,6 +183,7 @@ namespace ROsTorvApp.ViewModel.Collections
             }
         }
 
+        #region ShowDetails
         // if true, then SHOW the Store details screen for the selected store
         public bool ShowStoreDetailsOnSelection
         {
@@ -193,11 +196,6 @@ namespace ROsTorvApp.ViewModel.Collections
                 OnPropertyChanged(nameof(ShowStoreDetailsOnSelectionVisibility));
             }
         }
-        public Visibility ShowStoreDetailsOnSelectionVisibility
-        {
-            get { return ShowStoreDetailsOnSelection ? Visibility.Visible : Visibility.Collapsed; }
-        }
-
         // If true, then HIDE the Store Listview on a any selected store
         public bool HideStoreListViewOnSelection
         {
@@ -209,15 +207,10 @@ namespace ROsTorvApp.ViewModel.Collections
                 OnPropertyChanged(nameof(HideStoreListViewOnSelectionVisibility));
             }
         }
-        public Visibility HideStoreListViewOnSelectionVisibility
-        {
-            get { return HideStoreListViewOnSelection ? Visibility.Collapsed : Visibility.Visible; }
-        }
-
         // Shows the "Indstillinger" button on the Shop.xaml page, if the user is logged in as admin
         public bool ShowAdminButton
         {
-            get 
+            get
             {
                 if (UserHandler.CurrentUserAdmin)
                 {
@@ -234,13 +227,26 @@ namespace ROsTorvApp.ViewModel.Collections
         }
         public Visibility ShowAdminButtonVisibility
         {
-            get 
+            get
             {
-                return ShowAdminButton ? Visibility.Visible : Visibility.Collapsed; }
+                return ShowAdminButton ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
+        public Visibility HideStoreListViewOnSelectionVisibility
+        {
+            get { return HideStoreListViewOnSelection ? Visibility.Collapsed : Visibility.Visible; }
+        }
+        // shows the store list and hides to store details pane
+        public Visibility ShowStoreDetailsOnSelectionVisibility
+        {
+            get { return ShowStoreDetailsOnSelection ? Visibility.Visible : Visibility.Collapsed; }
+        } 
+        #endregion
         #endregion
 
         #region Methods
+        #region Redirect Methods
+
         public void RedirectToMainPage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
@@ -257,7 +263,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             if (SelectedStore != null)
             {
-               Shops.StoreListViewElement.SelectedIndex = -1;
+                Shops.StoreListViewElement.SelectedIndex = -1;
                 ((Frame)Window.Current.Content).GoBack();
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
@@ -288,13 +294,6 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
         }
-
-        public bool StoreIsSelected()
-        {
-            return SelectedStore != null;
-        }
-
-        // shows the store list and hides to store details pane
         public void BackToStoreListView()
         {
             try
@@ -314,32 +313,19 @@ namespace ROsTorvApp.ViewModel.Collections
             ShowStoreDetailsOnSelection = false;
             HideStoreListViewOnSelection = false;
 
-        }
+        } 
+        #endregion
 
-        //This method Adds a new store, bound in XAML page.
-        public void AddStore()
-        {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
-                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
-        }
+        #region Saving Method
         public void SaveStoreMethod()
         {
             Shops.StoreListViewElement.SelectedIndex = -1;
             ((Frame)Window.Current.Content).GoBack();
             StoreHandler.SaveStoresAsync();
-        }
-        // This method deletes a selected store, if one is selected.
-        public void DeleteStore()
-        {
-            if (SelectedStore != null)
-            {
-                SingletonStores.Instance.StoreList.Remove(SelectedStore);
-                StoreHandler.SaveStoresAsync();
-            }
-            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
-            //BackToStoreListView();
-        }
+        } 
+        #endregion
 
+        #region Browse Function
         public async void BrowseStores()
         {
             FileOpenPicker f = new FileOpenPicker();
@@ -355,7 +341,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 ImageFileName = ImageFile.Name;
                 //SelectedStore.ImageStore = ImageStoreVM;
                 SelectedImageFileName = ImageFile.Name;
-            }       
+            }
             catch (Exception)
             {
                 OnPropertyChanged();
@@ -364,8 +350,38 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             OnPropertyChanged();
             OnPropertyChanged(nameof(ImageFile));
-        }
+        } 
+        #endregion
 
+        #region Delete & Add Store
+        // This method deletes a selected store, if one is selected.
+        public void DeleteStore()
+        {
+            if (SelectedStore != null)
+            {
+                SingletonStores.Instance.StoreList.Remove(SelectedStore);
+                StoreHandler.SaveStoresAsync();
+            }
+            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            //BackToStoreListView();
+        }
+        //This method Adds a new store, bound in XAML page.
+        public void AddStore()
+        {
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
+                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+        }
+        //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
+        public void AddStoreToList(Store store)
+        {
+            SingletonStores.Instance.StoreList.Add(store);
+            OnPropertyChanged(nameof(SingletonStores.Instance.StoreList));
+            StoreHandler.SaveStoresAsync();
+            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+        }
+        #endregion
+
+        #region Dummy Data
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
         public static void AddStoreDummyData()
         {
@@ -385,14 +401,14 @@ namespace ROsTorvApp.ViewModel.Collections
             SingletonStores.Instance.StoreList.Add(new Store(13, "Kino", OpeningAndClosingTime[2], OpeningAndClosingTime[20], "Hos Kino på RO’s Torv i Roskilde, viser vi altid de nyeste film i både 2D og 3D. Du får et bredt udvalg af film til både voksne og børn, da vi bestræber os på at have noget for enhver smag og alder. Du kan booke dine billetter online eller købe dem i skranken hos os. Kino er en moderne biograf, der siden den åbnede i 2003 er blevet opgraderet flere gange.", 2, 3, "/Assets/Images/Kino.jpg", StoreCategories[11], "46 35 16 66"));
             StoreHandler.SaveStoresAsync();
         }
-        //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
-        public void AddStoreToList(Store store)
+        #endregion
+        #region Store Is Selected
+        //checks if store is selected, if not, returns null.
+        public bool StoreIsSelected()
         {
-            SingletonStores.Instance.StoreList.Add(store);
-            OnPropertyChanged(nameof(SingletonStores.Instance.StoreList));
-            StoreHandler.SaveStoresAsync();
-            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
-        }
+            return SelectedStore != null;
+        } 
+        #endregion
         #endregion
 
         #region INotifyPropertyChanged
