@@ -11,20 +11,26 @@ namespace ROsTorvApp.Helpers
 {
     class StoreHandler
     {
+        #region Constructors
+
         public StoreHandler()
         {
 
         }
 
-        //Får PersistenceFacade til at gemme SingletonStores.Instance.StoreList til Json filen som ligger lokalt.
+        #endregion
+
+        #region Methods
+
+        //Gets PersistenceFacade to save SingletonStores.Instance.StoreList to the Json file.
         public static void SaveStoresAsync()
         {
             PersistenceFacade.SaveStoreToJson(SingletonStores.Instance.StoreList);
         }
 
-        //Den checker først om filen findes og så tilføjer den alle butikkerne til SingletonStores.Instance.StoreList,
-        //men hvis filen ikke findes så opretter den det og forsætter eller hvis filen er tom så kalder den StoreCollectionVM.AddStoreDummyData()
-        //og det bliver bliver så tilføjet til SingletonStores.Instance.StoreList og til filen.
+        //Checks if the Json file exists then adds all stores to SingletonStores.Instance.StoreList
+        //but if the file don't exists then it creates it and continues else if the file is empty then StoreCollectionVM.AddStoreDummyData() gets called
+        //and Store Dummy Data gets added to SingletonStores.Instance.StoreList and get saved to the file.
         public static async void LoadStoresAsync()
         {
             PersistenceFacade.FileCreationStore();
@@ -42,5 +48,6 @@ namespace ROsTorvApp.Helpers
                 }
             }
         }
+        #endregion
     }
 }

@@ -13,20 +13,31 @@ namespace ROsTorvApp.Helpers
 {
     class UserHandler
     {
+        #region Instance Fields
+
         public static bool CurrentUserAdmin { get; set; }
         public static string CurrentUsersUserName { get; set; }
         public static string CurrentUsersFirstName { get; set; }
         public static string CurrentUsersLastName { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public UserHandler()
+        {
+            
+        }
+
+        #endregion
+
+        #region Properties
 
         public static string CurrentUsersFullName
         {
             get { return $"{CurrentUsersFirstName} {CurrentUsersLastName}"; }
         }
 
-        public UserHandler()
-        {
-            
-        }
 
         //Checks if the username already exists.
         public static bool UsernameAvailability(string Username)
@@ -39,6 +50,10 @@ namespace ROsTorvApp.Helpers
             return false;
         }
 
+        #endregion
+
+        #region Methods
+
         //Gets PersistenceFacade to save SingletonUsers.Instance.UserList to the Json file.
         public static void SaveUsersAsync()
         {
@@ -46,9 +61,9 @@ namespace ROsTorvApp.Helpers
         }
 
 
-        //Den checker først om filen findes og så tilføjer den alle brugerne til SingletonUsers.Instance.UserList,
-        //men hvis filen ikke findes så opretter den det og forsætter eller hvis filen er tom så kalder den AdminCollectionVM.AddDefaultAdmin()
-        //og det bliver bliver så tilføjet til SingletonUsers.Instance.UserList og til filen.
+        //Checks if the Json file exists then adds all users to SingletonUsers.Instance.UserList
+        //but if the file don't exists then it creates it and continues else if the file is empty then AdminCollectionVM.AddDefaultAdmin() gets called
+        //and the Default Admin get added to SingletonUsers.Instance.UserList and get saved to the file.
         public static async void LoadUsersAsync()
         {
             PersistenceFacade.FileCreationUser();
@@ -67,7 +82,7 @@ namespace ROsTorvApp.Helpers
             }
         }
 
-        //Bruges til at vise fejl meddelser osv.
+        //Used to show error message box.
         public static async void contentDialog(string message, string title)
         {
             ContentDialog contentDialog = new ContentDialog
@@ -79,5 +94,7 @@ namespace ROsTorvApp.Helpers
             };
             ContentDialogResult result = await contentDialog.ShowAsync();
         }
+
+        #endregion
     }
 }
