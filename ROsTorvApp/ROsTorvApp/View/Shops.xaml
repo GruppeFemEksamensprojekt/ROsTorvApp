@@ -296,7 +296,13 @@
                 <!--  Om Butikken  -->
                 <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
                     <TextBlock
-                        Margin="10,10,0,0"
+                        Margin="10,0,0,0"
+                        FontFamily="dubai"
+                        FontWeight="Bold"
+                        Foreground="#d7dbff"
+                        Text="Beskrivelse:" />
+                    <TextBlock
+                        Margin="10,0,0,0"
                         VerticalAlignment="Top"
                         FontFamily="dubai"
                         Foreground="#d7dbff"

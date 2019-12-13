@@ -103,19 +103,19 @@
                         Grid.Column="1"
                         HorizontalAlignment="Right"
                         Foreground="#FFDBDBFB"
-                        Text="10:00 - 19:00" />
+                        Text="10:00 - 20:00" />
                     <TextBlock
                         Grid.Row="2"
                         Grid.Column="1"
                         HorizontalAlignment="Right"
                         Foreground="#FFDBDBFB"
-                        Text="10:00 - 17:00" />
+                        Text="10:00 - 20:00" />
                     <TextBlock
                         Grid.Row="3"
                         Grid.Column="1"
                         HorizontalAlignment="Right"
                         Foreground="#FFDBDBFB"
-                        Text="10:00 - 17:00" />
+                        Text="10:00 - 20:00" />
                 </Grid>
                 <Border
                     Height="1"
