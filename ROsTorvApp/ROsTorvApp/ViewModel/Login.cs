@@ -23,18 +23,38 @@ namespace ROsTorvApp.ViewModel
 {
     public class Login
     {
-        public string UserName { get; set; }
-        public string Password { private get; set; }
-        public ICommand LoginCommand { get; set; }
-        public ICommand OpretBrugerCommand { get; set; }
 
         public Login()
         {
             LoginCommand = new RelayCommand(LoginAction, null);
             OpretBrugerCommand = new RelayCommand(OpretBruger, null);
+
             if (SingletonUsers.Instance.UserList == null)
             {
                 AdminCollectionVM.AddDefaultAdmin();
+            }
+        }
+        public string UserName { get; set; }
+        public string Password { private get; set; }
+        public ICommand LoginCommand { get; set; }
+        public ICommand OpretBrugerCommand { get; set; }
+
+        private bool CheckLoginCredentials
+        {
+            get
+            {
+                foreach (var User in SingletonUsers.Instance.UserList)
+                {
+                    if (User.UserName == UserName && User.Password == Password)
+                    {
+                        UserHandler.CurrentUserAdmin = User.Admin;
+                        UserHandler.CurrentUsersUserName = User.UserName;
+                        UserHandler.CurrentUsersFirstName = User.FirstName;
+                        UserHandler.CurrentUsersLastName = User.LastName;
+                        return true;
+                    }
+                }
+                return false;
             }
         }
 
@@ -60,25 +80,6 @@ namespace ROsTorvApp.ViewModel
             else
             {
                 UserHandler.contentDialog("Ingen input","Failed login");
-            }
-        }
-
-        private bool CheckLoginCredentials
-        {
-            get
-            {
-                foreach (var User in SingletonUsers.Instance.UserList)
-                {
-                    if (User.UserName == UserName && User.Password == Password)
-                    {
-                        UserHandler.CurrentUserAdmin = User.Admin;
-                        UserHandler.CurrentUsersUserName = User.UserName;
-                        UserHandler.CurrentUsersFirstName = User.FirstName;
-                        UserHandler.CurrentUsersLastName = User.LastName;
-                        return true;
-                    }
-                }
-                return false;
             }
         }
     }

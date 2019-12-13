@@ -27,11 +27,5 @@ namespace ROsTorvApp.Include
             this.InitializeComponent();
             this.DataContext = new StoreCollectionVM();
         }
-        
-
-        private void Button_Logout(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
-        }
     }
 }

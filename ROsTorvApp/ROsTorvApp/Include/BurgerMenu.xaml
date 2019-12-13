@@ -38,7 +38,7 @@
                                 Width="200"
                                 Margin="0,5"
                                 HorizontalAlignment="Center"
-                                Click="Button_Logout"
+                                Command="{Binding LogOutCommand}"
                                 Content="Log ud" />
                         </StackPanel>
                     </StackPanel>

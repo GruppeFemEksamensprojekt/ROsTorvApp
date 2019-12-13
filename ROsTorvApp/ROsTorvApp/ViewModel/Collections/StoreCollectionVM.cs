@@ -42,6 +42,7 @@ namespace ROsTorvApp.ViewModel.Collections
             _showStoreDetailsOnSelection = false;
             _hideStoreListViewOnSelection = false;
 
+            LogOutCommand = new RelayCommand(LogOut, null);
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
@@ -115,6 +116,8 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand SaveStoreCommand { get; set; }
         public ICommand RedirectToAdminPanelCommand { get; set; }
         public ICommand RedirectToShopsCommand { get; set; }
+        public ICommand LogOutCommand { get; set; }
+
         #endregion
 
         public ObservableCollection<Store> StoreCollection
@@ -232,6 +235,12 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         #region Methods
+
+        public void LogOut()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
+        }
+
         public bool StoreIsSelected()
         {
             return SelectedStore != null;
