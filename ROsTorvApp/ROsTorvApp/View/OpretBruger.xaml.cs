@@ -26,12 +26,6 @@ namespace ROsTorvApp.View
         {
             this.InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).GoBack();
-        }
-
         private void PasswordBox_OnPasswordChanged(object sender, RoutedEventArgs e)
         {
             if (this.DataContext != null)

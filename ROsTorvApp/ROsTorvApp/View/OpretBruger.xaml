@@ -54,7 +54,7 @@
             Margin="20,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Click="Button_Click">
+            Command="{Binding GoBackCommand}">
             <Button.Background>
                 <SolidColorBrush Opacity="0" />
             </Button.Background>

@@ -245,17 +245,14 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
         }
-
         public void RedirectToEventPage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(Events));
         }
-
         public void RedirectToMorePage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(More));
         }
-
         public void RedirectToShopsMethod()
         {
             if (SelectedStore != null)
@@ -265,7 +262,28 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
+        public void RedirectToAddStorePageMethod()
+        {
+            try
+            {
+                Shops.StoreListViewElement.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
+            ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
+        }
+        public void RedirectToAdminpanel()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel), _selectedStore);
+        }
+        public static void GoBackMethod()
+        {
+            ((Frame)Window.Current.Content).GoBack();
+
+        }
         public void LogOut()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
@@ -320,25 +338,6 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
             //BackToStoreListView();
-        }
-
-
-        public void RedirectToAddStorePageMethod()
-        {
-            try
-            {
-                Shops.StoreListViewElement.SelectedIndex = -1;
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
-        }
-        public void RedirectToAdminpanel()
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel), _selectedStore);
         }
 
         public async void BrowseStores()

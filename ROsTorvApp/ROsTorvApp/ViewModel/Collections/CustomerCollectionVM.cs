@@ -21,6 +21,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public Customer Customer1;
         private ObservableCollection<Customer> _customerCollection;
         public ICommand AddCustomerCommand { get; set; }
+        public ICommand GoBackCommand { get; set; }
         public ObservableCollection<Customer> CustomerCollection
         {
             get { return _customerCollection;}
@@ -38,6 +39,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             _customerCollection = new ObservableCollection<Customer>();
             AddCustomerCommand = new RelayCommand(AddNewCustomer, null);
+            GoBackCommand = new RelayCommand(StoreCollectionVM.GoBackMethod,null);
             //AddCustomer(new Customer("Customer","Email.com","password","20120100"));
         }
 
