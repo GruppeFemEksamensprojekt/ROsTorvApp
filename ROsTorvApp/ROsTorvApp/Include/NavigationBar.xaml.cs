@@ -1,4 +1,5 @@
 ﻿using ROsTorvApp.View;
+using ROsTorvApp.ViewModel.Collections;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,23 +24,7 @@ namespace ROsTorvApp.Include
         public NavigationBar()
         {
             this.InitializeComponent();
-        }
-        private void ButtonHome_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
-        }
-        private void ButtonShops_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
-        }
-        private void ButtonEvents_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(Events));
-
-        }
-        private void ButtonMore_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(More));
+            this.DataContext = new StoreCollectionVM();
         }
     }
 }
