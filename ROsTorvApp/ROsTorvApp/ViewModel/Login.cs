@@ -31,12 +31,11 @@ namespace ROsTorvApp.ViewModel
         public Login()
         {
             LoginCommand = new RelayCommand(LoginAction, null);
+            OpretBrugerCommand = new RelayCommand(OpretBruger, null);
             if (SingletonUsers.Instance.UserList == null)
             {
-                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+                AdminCollectionVM.AddDefaultAdmin();
             }
-
-            OpretBrugerCommand = new RelayCommand(OpretBruger, null);
         }
 
         public void OpretBruger()

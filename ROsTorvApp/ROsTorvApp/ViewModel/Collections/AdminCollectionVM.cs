@@ -25,17 +25,13 @@ namespace ROsTorvApp.ViewModel.Collections
         public AdminCollectionVM()
         {
             _adminCollection = new ObservableCollection<Admin>();
-            AddAdmin(new Admin("Super","User",69,"Admin", "E-Mail@Email.com", "password", "40404040"));
         }
-        //A method which adds a new Admin to the list of admins.
-        public void AddAdmin(Admin admin)
+        //A method which adds the default admin.
+        public static void AddDefaultAdmin()
         {
-            //AdminCollection.Add(admin);
-            SingletonUsers.Instance.UserList.Add(admin);
+            SingletonUsers.Instance.UserList.Add(new Admin("Super", "User", 69, "Admin", "E-Mail@Email.com", "password", "40404040"));
             UserHandler.SaveUsersAsync();
         }
-
-
 
 
 

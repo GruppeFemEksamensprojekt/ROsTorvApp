@@ -16,11 +16,15 @@ namespace ROsTorvApp.Helpers
 
         }
 
+        //Får PersistenceFacade til at gemme SingletonStores.Instance.StoreList til Json filen som ligger lokalt.
         public static void SaveStoresAsync()
         {
             PersistenceFacade.SaveStoreToJson(SingletonStores.Instance.StoreList);
         }
 
+        //Den checker først om filen findes og så tilføjer den alle butikkerne til SingletonStores.Instance.StoreList,
+        //men hvis filen ikke findes så opretter den det og forsætter eller hvis filen er tom så kalder den StoreCollectionVM.AddStoreDummyData()
+        //og det bliver bliver så tilføjet til SingletonStores.Instance.StoreList og til filen.
         public static async void LoadStoresAsync()
         {
             PersistenceFacade.FileCreationStore();
