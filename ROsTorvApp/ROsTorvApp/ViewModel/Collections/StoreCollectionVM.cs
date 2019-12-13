@@ -298,7 +298,8 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             try
             {
-                _selectedStore = null;
+                Shops.StoreListViewElement.SelectedIndex = -1;
+                //_selectedStore = null;
             }
             catch (Exception)
             {
