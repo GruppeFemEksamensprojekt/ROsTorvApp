@@ -94,7 +94,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public string SelectedImageFileName {
             get
             {
-                return SelectedStore.ImageStore;
+                return SelectedStore.ImageStore.Remove(0,15);
             }
             set 
             {
