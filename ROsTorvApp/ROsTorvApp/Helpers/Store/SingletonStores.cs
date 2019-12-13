@@ -20,9 +20,9 @@ namespace ROsTorvApp.Helpers
 
         #region Constructors
 
-        //StoreList bliver oprettet som en ObservableCollection<Store>,
-        //og så bliver alle de butikker som er gemt i Json file tilføjet til StoreList
-        //ved at kalde StoreHandler.LoadStoresAsync().
+        //StoreList gets created as ObservableCollection<Store>,
+        //and then gets all stores from the Json file get added to StoreList
+        //by calling StoreHandler.LoadStoresAsync().
         private SingletonStores()
         {
             StoreList = new ObservableCollection<Store>();
@@ -33,8 +33,8 @@ namespace ROsTorvApp.Helpers
 
         #region Properties
 
-        //Checker om Instance er null og hvis den er så opretter den en ny,
-        //og det gør også at den kun kan blive oprettet en gang.
+        //Checks if instance is null and if it is then it gets created 
+        //and makes sure that it only can get created one time.
         public static SingletonStores Instance
         {
             get { return instance ?? (instance = new SingletonStores()); }
