@@ -26,10 +26,5 @@ namespace ROsTorvApp.View
         {
             this.InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ((Frame)Window.Current.Content).GoBack();
-        }
     }
 }
