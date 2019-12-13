@@ -221,37 +221,21 @@
                         FontFamily="dubai"
                         Foreground="#d7dbff"
                         Text="ID:" />
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="97*" />
-                            <ColumnDefinition Width="96.8" />
-                            <ColumnDefinition Width="106*" />
-                        </Grid.ColumnDefinitions>
-
-                        <TextBox
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Margin="0,0,0,5"
-                            MaxLength="2"
-                            Text="{Binding SelectedStore.StoreId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        <Button
-                            Grid.Column="2"
-                            Margin="0,0,0,5"
-                            HorizontalAlignment="right"
-                            Command="{Binding SaveStoreCommand}"
-                            Content="Gem Ændring"
-                            FontFamily="dubai"
-                            Foreground="#d7dbff" />
-                    </Grid>
+                    <TextBox
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="0,0,0,10"
+                        MaxLength="2"
+                        Text="{Binding SelectedStore.StoreId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Command="{Binding SaveStoreCommand, Mode=OneWay}"
+                        Content="Gem ændring"
+                        FontFamily="dubai"
+                        Foreground="#d7dbff" />
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-
-
-        <!--  Navigation Bar (navigation panel fjernes ligesom i addstore?)  -->
-        <StackPanel Grid.Row="12" Grid.ColumnSpan="2">
-            <include:NavigationBar />
-        </StackPanel>
-        <!--  /Navigation Bar  -->
     </Grid>
 </Page>

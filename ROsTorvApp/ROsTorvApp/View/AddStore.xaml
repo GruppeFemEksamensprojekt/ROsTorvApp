@@ -237,29 +237,19 @@
                     FontFamily="dubai"
                     Foreground="#d7dbff"
                     Text="ID:" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="59*" />
-                        <ColumnDefinition Width="41*" />
-                        <ColumnDefinition Width="100*" />
-                        <ColumnDefinition Width="100*" />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox
-                        Grid.Column="0"
-                        Grid.ColumnSpan="3"
-                        Margin="0,0,0,5"
-                        MaxLength="2"
-                        Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button
-                        Grid.Column="3"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Command="{Binding AddCommand, Mode=OneWay}"
-                        Content="Tilføj butik"
-                        FontFamily="dubai"
-                        Foreground="#d7dbff" />
-                </Grid>
+                <TextBox
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="0,0,0,10"
+                    MaxLength="2"
+                    Text="{Binding StoreIdVM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Button
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Command="{Binding AddCommand, Mode=OneWay}"
+                    Content="Tilføj butik"
+                    FontFamily="dubai"
+                    Foreground="#d7dbff" />
             </StackPanel>
         </StackPanel>
     </Grid>
