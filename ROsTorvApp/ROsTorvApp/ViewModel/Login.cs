@@ -34,7 +34,7 @@ namespace ROsTorvApp.ViewModel
             OpretBrugerCommand = new RelayCommand(OpretBruger, null);
             if (SingletonUsers.Instance.UserList == null)
             {
-                AdminCollectionVM AdminCollectionVM = new AdminCollectionVM();
+                AdminCollectionVM.AddDefaultAdmin();
             }
         }
 
