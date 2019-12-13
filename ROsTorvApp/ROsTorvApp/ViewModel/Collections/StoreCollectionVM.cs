@@ -12,6 +12,7 @@ using Windows.Devices.Lights.Effects;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ROsTorvApp.Helpers;
@@ -24,6 +25,7 @@ namespace ROsTorvApp.ViewModel.Collections
 {
     public class StoreCollectionVM : INotifyPropertyChanged
     {
+
 
         #region Instance Fields
         private static Store _selectedStore;
@@ -47,7 +49,7 @@ namespace ROsTorvApp.ViewModel.Collections
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
             BrowseCommand = new RelayCommand(BrowseStores, null);
-            RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, null);
+            RedirectToAddStorePage = new RelayCommand(RedirectToAddStorePageMethod, IsOnShopPage);
             RedirectToAdminPanelCommand = new RelayCommand(RedirectToAdminpanel, StoreIsSelected);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
             SaveStoreCommand = new RelayCommand(SaveStoreMethod, StoreIsSelected);
@@ -240,13 +242,21 @@ namespace ROsTorvApp.ViewModel.Collections
         public Visibility ShowStoreDetailsOnSelectionVisibility
         {
             get { return ShowStoreDetailsOnSelection ? Visibility.Visible : Visibility.Collapsed; }
-        } 
+        }
         #endregion
         #endregion
 
         #region Methods
         #region Redirect Methods
-
+        public bool IsOnShopPage()
+        {
+            var currentFrame = Window.Current.Content as Frame;
+            if (currentFrame.SourcePageType == typeof(Shops))
+            {
+                return true;
+            }
+            else return false;
+        }
         public void RedirectToMainPage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
@@ -351,7 +361,7 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             OnPropertyChanged();
             OnPropertyChanged(nameof(ImageFile));
-        } 
+        }
         #endregion
 
         #region Delete & Add Store
@@ -403,6 +413,7 @@ namespace ROsTorvApp.ViewModel.Collections
             StoreHandler.SaveStoresAsync();
         }
         #endregion
+
         #region Store Is Selected
         //checks if store is selected, if not, returns null.
         public bool StoreIsSelected()
