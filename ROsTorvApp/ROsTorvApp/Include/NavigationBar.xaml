@@ -24,7 +24,7 @@
                 Grid.Column="0"
                 Padding="30,5"
                 HorizontalAlignment="Center"
-                Click="ButtonHome_Click">
+                Command="{Binding RedirectToMainpageCommand}">
                 <Button.Background>
                     <SolidColorBrush Opacity="0" />
                 </Button.Background>
@@ -41,7 +41,7 @@
                 Grid.Column="1"
                 Padding="30,5"
                 HorizontalAlignment="Center"
-                Click="ButtonShops_Click">
+                Command="{Binding RedirectToShopsCommand}">
                 <Button.Background>
                     <SolidColorBrush Opacity="0" />
                 </Button.Background>
@@ -58,7 +58,7 @@
                 Grid.Column="2"
                 Padding="30,5"
                 HorizontalAlignment="Center"
-                Click="ButtonEvents_Click">
+                Command="{Binding RedirectToEventsCommand}">
                 <Button.Background>
                     <SolidColorBrush Opacity="0" />
                 </Button.Background>
@@ -75,7 +75,7 @@
                 Grid.Column="3"
                 Padding="30,5"
                 HorizontalAlignment="Right"
-                Click="ButtonMore_Click">
+                Command="{Binding RedirectToMoreCommand}">
                 <Button.Background>
                     <SolidColorBrush Opacity="0" />
                 </Button.Background>

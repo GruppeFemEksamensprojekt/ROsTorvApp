@@ -50,7 +50,10 @@ namespace ROsTorvApp.ViewModel.Collections
             RedirectToAdminPanelCommand = new RelayCommand(RedirectToAdminpanel, StoreIsSelected);
             BackToStoreListViewCommand = new RelayCommand(BackToStoreListView, null);
             SaveStoreCommand = new RelayCommand(SaveStoreMethod, StoreIsSelected);
+            RedirectToMainpageCommand = new RelayCommand(RedirectToMainPage, null);
             RedirectToShopsCommand = new RelayCommand(RedirectToShopsMethod, null);
+            RedirectToEventsCommand = new RelayCommand(RedirectToEventPage, null);
+            RedirectToMoreCommand = new RelayCommand(RedirectToMorePage, null);
         }
 
         #endregion
@@ -115,8 +118,11 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand BackToStoreListViewCommand { get; set; }
         public ICommand SaveStoreCommand { get; set; }
         public ICommand RedirectToAdminPanelCommand { get; set; }
-        public ICommand RedirectToShopsCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
+        public ICommand RedirectToMainpageCommand { get; set; }
+        public ICommand RedirectToShopsCommand { get; set; }
+        public ICommand RedirectToEventsCommand { get; set; }
+        public ICommand RedirectToMoreCommand { get; set; }
 
         #endregion
 
@@ -235,6 +241,30 @@ namespace ROsTorvApp.ViewModel.Collections
         #endregion
 
         #region Methods
+        public void RedirectToMainPage()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+        }
+
+        public void RedirectToEventPage()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(Events));
+        }
+
+        public void RedirectToMorePage()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(More));
+        }
+
+        public void RedirectToShopsMethod()
+        {
+            if (SelectedStore != null)
+            {
+               Shops.StoreListViewElement.SelectedIndex = -1;
+                ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            }
+            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+        }
 
         public void LogOut()
         {
@@ -292,11 +322,6 @@ namespace ROsTorvApp.ViewModel.Collections
             //BackToStoreListView();
         }
 
-        public void RedirectToShopsMethod()
-        {
-            Shops.StoreListViewElement.SelectedIndex = -1;
-            ((Frame)Window.Current.Content).GoBack();
-        }
 
         public void RedirectToAddStorePageMethod()
         {
