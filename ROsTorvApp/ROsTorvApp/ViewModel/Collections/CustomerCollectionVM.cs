@@ -52,7 +52,7 @@ namespace ROsTorvApp.ViewModel.Collections
             {
                 if (UserHandler.UsernameAvailability(UserName))
                 {
-                    UserHandler.contentDialog("Brugernavn findes allerede", "User exists");
+                    UserHandler.contentDialog("Brugernavn findes allerede", "Bruger findes");
                 }
                 else
                 {
