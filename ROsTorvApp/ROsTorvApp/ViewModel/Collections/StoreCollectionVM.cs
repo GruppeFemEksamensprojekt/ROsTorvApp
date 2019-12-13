@@ -261,7 +261,7 @@ namespace ROsTorvApp.ViewModel.Collections
             if (SelectedStore != null)
             {
                Shops.StoreListViewElement.SelectedIndex = -1;
-                ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+                ((Frame)Window.Current.Content).GoBack();
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
