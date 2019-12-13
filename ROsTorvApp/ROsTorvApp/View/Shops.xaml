@@ -140,6 +140,7 @@
             Grid.RowSpan="10"
             Grid.Column="0"
             Grid.ColumnSpan="2"
+            VerticalScrollBarVisibility="Hidden"
             Visibility="{Binding ShowStoreDetailsOnSelectionVisibility}">
             <Grid>
                 <Grid.ColumnDefinitions>
