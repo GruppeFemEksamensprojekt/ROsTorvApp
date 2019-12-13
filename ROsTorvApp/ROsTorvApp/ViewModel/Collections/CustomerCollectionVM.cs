@@ -43,7 +43,8 @@ namespace ROsTorvApp.ViewModel.Collections
 
         public void AddNewCustomer()
         {
-            if (UserName == null || FirstName == null || LastName == null || Email == null || PhoneNo == null || Password == null)
+            List<string> infoCheckList = new List<string> { UserName, FirstName, LastName, Email, PhoneNo, Password };
+            if (infoCheckList.Any(p => p == null || p == ""))
             {
                 UserHandler.contentDialog("Mangler info", "Fejl");
             }
@@ -51,7 +52,7 @@ namespace ROsTorvApp.ViewModel.Collections
             {
                 if (UserHandler.UsernameAvailability(UserName))
                 {
-                    UserHandler.contentDialog("Brugernavn findes allerede", "User exists");
+                    UserHandler.contentDialog("Brugernavn findes allerede", "Bruger findes");
                 }
                 else
                 {

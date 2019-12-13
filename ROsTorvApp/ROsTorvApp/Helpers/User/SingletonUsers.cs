@@ -19,9 +19,9 @@ namespace ROsTorvApp.Helpers
 
         #region Constructors
 
-        //UserList bliver oprettet som en ObservableCollection<UserAccount>,
-        //og så bliver alle de brugere som er gemt i Json file tilføjet til UserList
-        //ved at kalde UserHandler.LoadUsersAsync().
+        //UserList gets created as ObservableCollection<UserAccount>,
+        //and then gets all users from the Json file get added to UserList
+        //by calling UserHandler.LoadUsersAsync().
         private SingletonUsers()
         {
             UserList = new ObservableCollection<UserAccount>();
@@ -32,8 +32,8 @@ namespace ROsTorvApp.Helpers
 
         #region Properties
 
-        //Checker om Instance er null og hvis den er så opretter den en ny,
-        //og det gør også at den kun kan blive oprettet en gang.
+        //Checks if instance is null and if it is then it gets created 
+        //and makes sure that it only can get created one time.
         public static SingletonUsers Instance
         {
             get { return instance ?? (instance = new SingletonUsers());}
