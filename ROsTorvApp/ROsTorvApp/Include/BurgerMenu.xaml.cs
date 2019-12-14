@@ -25,7 +25,6 @@ namespace ROsTorvApp.Include
         public BurgerMenu()
         {
             this.InitializeComponent();
-            this.DataContext = new StoreCollectionVM();
         }
     }
 }
