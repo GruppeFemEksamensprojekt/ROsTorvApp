@@ -426,7 +426,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 }
                 else
                 {
-                    UserHandler.contentDialog("Openingstider må ikke være højere  \neller det samme som lukketider", "Fejl");
+                    UserHandler.contentDialog("Åbningstider må ikke være højere  \neller det samme som lukketider", "Fejl");
                 }
             }
         }
