@@ -70,6 +70,7 @@ namespace ROsTorvApp.ViewModel.Collections
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
         public string OpeningHoursVM { get; set; }
+
         public string ClosingHoursVM { get; set; }
 
         public static List<string> OpeningAndClosingTime
@@ -415,8 +416,18 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             else
             {
-                AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM,
-                    LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+                int TempOpeningHours = Convert.ToInt32(OpeningHoursVM.Replace(":", ""));
+                int TempClosingHours = Convert.ToInt32(ClosingHoursVM.Replace(":", ""));
+
+                if (TempClosingHours > TempOpeningHours && TempClosingHours != TempOpeningHours)
+                {
+                    AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM,
+                        LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+                }
+                else
+                {
+                    UserHandler.contentDialog("Openingstider må ikke være højere  \neller det samme som lukketider", "Fejl");
+                }
             }
         }
 
