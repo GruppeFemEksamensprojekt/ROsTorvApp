@@ -68,7 +68,8 @@ namespace ROsTorvApp.ViewModel.Collections
         public string PhoneNoVM { get; set; }
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
-        public string OpeningAndClosingHoursVM { get; }
+        public string OpeningHoursVM { get; set; }
+        public string ClosingHoursVM { get; set; }
 
         public static List<string> OpeningAndClosingTime
         {
@@ -407,7 +408,7 @@ namespace ROsTorvApp.ViewModel.Collections
         //This method Adds a new store, bound in XAML page.
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
+            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM,
                 LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
         }
 
