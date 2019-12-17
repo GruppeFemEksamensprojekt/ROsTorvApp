@@ -220,6 +220,7 @@
     <Content Include="Assets\Images\ProfilOptik.jpg" />
     <Content Include="Assets\Images\SAMS.jpg" />
     <Content Include="Assets\Images\ShopImg.png" />
+    <Content Include="Assets\Images\SplashPng.png" />
     <Content Include="Assets\Images\SportMaster.jpg" />
     <Content Include="Assets\Images\TøjEksperten.jpg" />
     <Content Include="Assets\Images\ZhikiSushi.jpg" />
