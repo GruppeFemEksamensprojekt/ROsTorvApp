@@ -386,7 +386,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 return;
             }
             OnPropertyChanged();
-            OnPropertyChanged(nameof(ImageFile));
+            OnPropertyChanged(nameof(SelectedImageFileName));
         }
 
         #endregion Browse Function
