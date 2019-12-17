@@ -377,8 +377,8 @@ namespace ROsTorvApp.ViewModel.Collections
             {
                 ImageStoreVM = "/Assets/Images/" + ImageFile.Name;
                 ImageFileName = ImageFile.Name;
-                //SelectedStore.ImageStore = ImageStoreVM;
-                SelectedImageFileName = ImageFile.Name;
+                SelectedStore.ImageStore = ImageStoreVM;
+               // SelectedImageFileName = ImageFile.Name;
             }
             catch (Exception)
             {
