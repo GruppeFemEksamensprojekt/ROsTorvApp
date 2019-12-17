@@ -190,7 +190,7 @@
                             Width="140"
                             HorizontalAlignment="Right"
                             ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedOpeningHours, Mode=TwoWay}" />
+                            SelectedValue="{Binding OpeningHoursVM, Mode=TwoWay}" />
 
                     </StackPanel>
                     <StackPanel Grid.Row="1" Grid.Column="1">
@@ -203,7 +203,7 @@
                             Width="140"
                             HorizontalAlignment="Right"
                             ItemsSource="{Binding OpeningAndClosingTime}"
-                            SelectedValue="{Binding SelectedClosingHours, Mode=TwoWay}" />
+                            SelectedValue="{Binding ClosingHoursVM, Mode=TwoWay}" />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -227,7 +227,8 @@
                 <ComboBox
                     Width="200"
                     Margin="0,0,0,5"
-                    ItemsSource="{Binding StoreCategories}" />
+                    ItemsSource="{Binding StoreCategories}"
+                    SelectedValue="{Binding StoreCategoryVM, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel>
                 <TextBlock

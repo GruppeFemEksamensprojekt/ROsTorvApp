@@ -30,7 +30,7 @@
                                     Margin="0,5"
                                     HorizontalAlignment="Center"
                                     Command="{Binding RedirectToAdminPanelCommand}"
-                                    Content="Edit Butik" />
+                                    Content="Rediger Butik" />
                                 <Button
                                     Width="200"
                                     Margin="0,5,0,35"
