@@ -269,7 +269,7 @@ namespace ROsTorvApp.ViewModel.Collections
             {
                 return true;
             }
-            else return false;
+            return false;
         }
 
         public void RedirectToMainPage()
@@ -399,7 +399,8 @@ namespace ROsTorvApp.ViewModel.Collections
                 SingletonStores.Instance.StoreList.Remove(SelectedStore);
                 StoreHandler.SaveStoresAsync();
             }
-            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            RedirectToShopsMethod();
+            //((Frame)Window.Current.Content).Navigate(typeof(Shops));
             //BackToStoreListView();
         }
 
@@ -416,7 +417,8 @@ namespace ROsTorvApp.ViewModel.Collections
             SingletonStores.Instance.StoreList.Add(store);
             OnPropertyChanged(nameof(SingletonStores.Instance.StoreList));
             StoreHandler.SaveStoresAsync();
-            ((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            RedirectToShopsMethod();
+            //((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
 
         #endregion Delete & Add Store
