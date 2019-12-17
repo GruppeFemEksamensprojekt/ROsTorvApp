@@ -22,7 +22,7 @@ namespace ROsTorvApp.ViewModel.Collections
         //A method which adds the default admin.
         public static void AddDefaultAdmin()
         {
-            SingletonUsers.Instance.UserList.Add(new Admin("Super", "User", 69, "Admin", "E-Mail@Email.com", "password", "40404040"));
+            SingletonUsers.Instance.UserList.Add(new Admin("Meme", "Lord", 1337, "Admin", "FakeMail@Email.com", "password", "69696969"));
             UserHandler.SaveUsersAsync();
         }
     }
