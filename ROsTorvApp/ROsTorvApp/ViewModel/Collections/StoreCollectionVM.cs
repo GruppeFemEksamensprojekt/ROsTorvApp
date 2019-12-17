@@ -354,7 +354,8 @@ namespace ROsTorvApp.ViewModel.Collections
         public void SaveStoreMethod()
         {
             _selectedStore = null;
-            ((Frame)Window.Current.Content).GoBack();
+            GoBackMethod();
+            //((Frame)Window.Current.Content).GoBack();
             StoreHandler.SaveStoresAsync();
         }
 
