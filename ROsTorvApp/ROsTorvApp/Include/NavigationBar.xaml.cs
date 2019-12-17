@@ -24,7 +24,6 @@ namespace ROsTorvApp.Include
         public NavigationBar()
         {
             this.InitializeComponent();
-            this.DataContext = new StoreCollectionVM();
         }
     }
 }
