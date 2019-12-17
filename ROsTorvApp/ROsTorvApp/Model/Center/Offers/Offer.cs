@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ROsTorvApp.Model.Center.Offers
+﻿namespace ROsTorvApp.Model.Center.Offers
 {
     public class Offer
     {
@@ -12,7 +6,7 @@ namespace ROsTorvApp.Model.Center.Offers
         public string Description { get; set; }
         public decimal Discount { get; set; }
         public string ItemCategory { get; set; }
-        public decimal Price{ get; set; }
+        public decimal Price { get; set; }
         public string OfferImage { get; set; }
 
         public Offer(int offerId, string description, string itemCategory, decimal discount, decimal price, string offerImage)
@@ -31,6 +25,5 @@ namespace ROsTorvApp.Model.Center.Offers
         }
 
         public string DiscountPercentage { get { return $"- {Discount.ToString()}%"; } }
-
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Center.Offers
 {
-    class Event
+    internal class Event
     {
         public string EventName { get; set; }
         public string EventImage { get; set; }
@@ -14,8 +10,7 @@ namespace ROsTorvApp.Model.Center.Offers
         public DateTime EndDate { get; set; }
         public string Description { get; set; }
 
-        
-        public Event(string eventName,string eventImg, DateTime startDate, DateTime endDate, string description)
+        public Event(string eventName, string eventImg, DateTime startDate, DateTime endDate, string description)
         {
             EventName = eventName;
             EventImage = eventImg;
@@ -23,6 +18,7 @@ namespace ROsTorvApp.Model.Center.Offers
             EndDate = endDate;
             Description = description;
         }
+
         public string DurationDateText
         {
             get { return $"Fra {StartDate.ToString("dd/MM")} - {EndDate.ToString("dd/MM")} - {DateTime.Now.ToString("yyyy")}"; }

@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ROsTorvApp.Model.Center;
+﻿using ROsTorvApp.Model.Center;
 using ROsTorvApp.ViewModel.Collections;
+using System.Collections.ObjectModel;
 
 namespace ROsTorvApp.Helpers
 {
-    class StoreHandler
+    internal class StoreHandler
     {
         #region Constructors
 
         public StoreHandler()
         {
-
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -48,6 +42,7 @@ namespace ROsTorvApp.Helpers
                 }
             }
         }
-        #endregion
+
+        #endregion Methods
     }
 }

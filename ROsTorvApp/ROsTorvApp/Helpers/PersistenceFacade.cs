@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using ROsTorvApp.Model.Center;
+using ROsTorvApp.Model.Users;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.System;
-using ROsTorvApp.Model.Users;
-using ROsTorvApp.ViewModel.Collections;
-using Newtonsoft.Json;
-using ROsTorvApp.Model.Center;
 
 namespace ROsTorvApp.Helpers
 {
-    class PersistenceFacade
+    internal class PersistenceFacade
     {
         #region UserList
+
         private static string jsonFileNameUser = "UsersAsJson.dat";
 
         public static async void FileCreationUser()
@@ -25,8 +21,8 @@ namespace ROsTorvApp.Helpers
             {
                 StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileNameUser);
             }
-
         }
+
         public static void SaveUserToJson(ObservableCollection<UserAccount> users)
         {
             string usersJsonString = JsonConvert.SerializeObject(users);
@@ -50,9 +46,11 @@ namespace ROsTorvApp.Helpers
             StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
             return await FileIO.ReadTextAsync(localFile);
         }
-        #endregion
+
+        #endregion UserList
 
         #region Stores
+
         private static string jsonFileNameStore = "StoresAsJson.dat";
 
         public static async void FileCreationStore()
@@ -62,7 +60,6 @@ namespace ROsTorvApp.Helpers
             {
                 StorageFile localFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(jsonFileNameStore);
             }
-
         }
 
         public static void SaveStoreToJson(ObservableCollection<Store> stores)
@@ -87,7 +84,8 @@ namespace ROsTorvApp.Helpers
         {
             StorageFile localFile = await ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
             return await FileIO.ReadTextAsync(localFile);
-        } 
-        #endregion
+        }
+
+        #endregion Stores
     }
 }

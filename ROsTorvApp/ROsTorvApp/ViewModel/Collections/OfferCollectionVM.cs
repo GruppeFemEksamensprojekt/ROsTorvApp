@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ROsTorvApp.Helpers;
+﻿using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Center.Offers;
+using System.Collections.ObjectModel;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
-    class OfferCollectionVM
+    internal class OfferCollectionVM
     {
-        public Offer Offer1;
         public ObservableCollection<Offer> OfferCollection { get; set; }
 
         public OfferCollectionVM()
@@ -27,13 +21,14 @@ namespace ROsTorvApp.ViewModel.Collections
             AddOffer(new Offer(1, "Tøjeksperten", "Skjorte", 50, 800, "/Assets/Images/Offers/ToejEkspertenTilbud2.jpg"));
             AddOffer(new Offer(1, "Tøjeksperten", "Jakke", 50, 2500, "/Assets/Images/Offers/ToejEkspertenTilbud3.jpg"));
         }
+
         //A method which adds a new Offer to the list of offers.
         public void AddOffer(Offer offer)
         {
             OfferCollection.Add(offer);
         }
 
-        public string Time{ get { return StoreCollectionVM.Time; } }
+        public string Time { get { return StoreCollectionVM.Time; } }
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
     }
 }

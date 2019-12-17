@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ROsTorvApp.Model.Users;
+using ROsTorvApp.ViewModel.Collections;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
-using ROsTorvApp.Model.Center;
-using ROsTorvApp.Model.Users;
-using ROsTorvApp.ViewModel.Collections;
 
 namespace ROsTorvApp.Helpers
 {
-    class UserHandler
+    internal class UserHandler
     {
         #region Instance Fields
 
@@ -20,16 +16,15 @@ namespace ROsTorvApp.Helpers
         public static string CurrentUsersFirstName { get; set; }
         public static string CurrentUsersLastName { get; set; }
 
-        #endregion
+        #endregion Instance Fields
 
         #region Constructors
 
         public UserHandler()
         {
-            
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
@@ -37,7 +32,6 @@ namespace ROsTorvApp.Helpers
         {
             get { return $"{CurrentUsersFirstName} {CurrentUsersLastName}"; }
         }
-
 
         //Checks if the username already exists.
         public static bool UsernameAvailability(string Username)
@@ -50,7 +44,7 @@ namespace ROsTorvApp.Helpers
             return false;
         }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -59,7 +53,6 @@ namespace ROsTorvApp.Helpers
         {
             PersistenceFacade.SaveUserToJson(SingletonUsers.Instance.UserList);
         }
-
 
         //Checks if the Json file exists then adds all users to SingletonUsers.Instance.UserList
         //but if the file don't exists then it creates it and continues else if the file is empty then AdminCollectionVM.AddDefaultAdmin() gets called
@@ -95,6 +88,6 @@ namespace ROsTorvApp.Helpers
             ContentDialogResult result = await contentDialog.ShowAsync();
         }
 
-        #endregion
+        #endregion Methods
     }
 }

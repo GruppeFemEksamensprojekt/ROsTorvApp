@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ROsTorvApp.Helpers
 {
-    class RelayCommand : ICommand
+    internal class RelayCommand : ICommand
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;

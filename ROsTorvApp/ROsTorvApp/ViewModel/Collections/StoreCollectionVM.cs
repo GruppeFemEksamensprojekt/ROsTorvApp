@@ -1,42 +1,34 @@
-﻿using System;
+﻿using ROsTorvApp.Helpers;
+using ROsTorvApp.Model.Center;
+using ROsTorvApp.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.Devices.Lights.Effects;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.System;
-using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ROsTorvApp.Helpers;
-using ROsTorvApp.Model.Center;
-using ROsTorvApp.View;
-using Microsoft.Win32;
-using ROsTorvApp.Model.Center.Offers;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
     public class StoreCollectionVM : INotifyPropertyChanged
     {
-
-
         #region Instance Fields
+
         private static Store _selectedStore;
         private static string _selectedStoreImageFileName;
         private bool _showStoreDetailsOnSelection;
         private bool _hideStoreListViewOnSelection;
         private bool _showAdminButton;
         private ObservableCollection<Store> _storeCollection;
-        #endregion
+
+        #endregion Instance Fields
 
         #region Constructors
+
         public StoreCollectionVM()
         {
             _storeCollection = new ObservableCollection<Store>();
@@ -45,6 +37,7 @@ namespace ROsTorvApp.ViewModel.Collections
             _hideStoreListViewOnSelection = false;
 
             #region Commands
+
             LogOutCommand = new RelayCommand(LogOut, null);
             AddCommand = new RelayCommand(AddStore, null);
             DeleteCommand = new RelayCommand(DeleteStore, StoreIsSelected);
@@ -56,15 +49,17 @@ namespace ROsTorvApp.ViewModel.Collections
             RedirectToMainpageCommand = new RelayCommand(RedirectToMainPage, null);
             RedirectToShopsCommand = new RelayCommand(RedirectToShopsMethod, null);
             RedirectToEventsCommand = new RelayCommand(RedirectToEventPage, null);
-            RedirectToMoreCommand = new RelayCommand(RedirectToMorePage, null); 
-            #endregion
+            RedirectToMoreCommand = new RelayCommand(RedirectToMorePage, null);
+
+            #endregion Commands
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
         #region StoreDetails
+
         public int StoreIdVM { get; set; }
         public string StoreNameVM { get; set; }
         public string DescriptionVM { get; set; }
@@ -73,49 +68,55 @@ namespace ROsTorvApp.ViewModel.Collections
         public string PhoneNoVM { get; set; }
         public string ImageStoreVM { get; set; }
         public string StoreCategoryVM { get; set; }
-        public string OpeningAndClosingHoursVM { get; } 
-        
+        public string OpeningAndClosingHoursVM { get; }
+
         public static List<string> OpeningAndClosingTime
-        { 
-            get 
-            { 
-                return new List<string> 
+        {
+            get
+            {
+                return new List<string>
                 {
                     "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
                 "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"
                 };
-            } 
+            }
         }
+
         public static List<string> StoreCategories
         {
             get
             {
                 return new List<string>
                 {
-                    "Bolig & livsstil", "Børn & fritid", "Dagligvarer & specialiteter", "Damemode", "Herremode", "Elektronik", 
+                    "Bolig & livsstil", "Børn & fritid", "Dagligvarer & specialiteter", "Damemode", "Herremode", "Elektronik",
                     "Erhverv, kontorer & service", "Modetilbehør", "Sko", "Skønhed & sundhed", "Restauranter", "Underholdning", "Sport"
                 };
             }
         }
+
         public string ImageFileName { get; set; }
-        #endregion
+
+        #endregion StoreDetails
 
         public StorageFile ImageFile { get; set; }
-        public string SelectedImageFileName {
+
+        public string SelectedImageFileName
+        {
             get
             {
-                return SelectedStore.ImageStore.Remove(0,15);
+                return SelectedStore.ImageStore.Remove(0, 15);
             }
-            set 
+            set
             {
                 SelectedStore.ImageStore = value;
                 OnPropertyChanged();
             }
-
         }
+
         public string UsersFullName { get { return UserHandler.CurrentUsersFullName; } }
 
         #region ICommand
+
         public ICommand RedirectToAddStorePage { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -128,14 +129,17 @@ namespace ROsTorvApp.ViewModel.Collections
         public ICommand RedirectToShopsCommand { get; set; }
         public ICommand RedirectToEventsCommand { get; set; }
         public ICommand RedirectToMoreCommand { get; set; }
-        #endregion
+
+        #endregion ICommand
 
         public ObservableCollection<Store> StoreCollection
         {
             get { return SingletonStores.Instance.StoreList; }
             set { _storeCollection = value; }
         }
-        public static Store TransferSelectedStore{ get { return _selectedStore; } }
+
+        public static Store TransferSelectedStore { get { return _selectedStore; } }
+
         // A property for binding the store you select in the view.
         public Store SelectedStore
         {
@@ -186,6 +190,7 @@ namespace ROsTorvApp.ViewModel.Collections
         }
 
         #region ShowDetails
+
         // if true, then SHOW the Store details screen for the selected store
         public bool ShowStoreDetailsOnSelection
         {
@@ -198,6 +203,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 OnPropertyChanged(nameof(ShowStoreDetailsOnSelectionVisibility));
             }
         }
+
         // If true, then HIDE the Store Listview on a any selected store
         public bool HideStoreListViewOnSelection
         {
@@ -209,6 +215,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 OnPropertyChanged(nameof(HideStoreListViewOnSelectionVisibility));
             }
         }
+
         // Shows the "Indstillinger" button on the Shop.xaml page, if the user is logged in as admin
         public bool ShowAdminButton
         {
@@ -227,6 +234,7 @@ namespace ROsTorvApp.ViewModel.Collections
                 OnPropertyChanged(nameof(ShowAdminButtonVisibility));
             }
         }
+
         public Visibility ShowAdminButtonVisibility
         {
             get
@@ -234,20 +242,26 @@ namespace ROsTorvApp.ViewModel.Collections
                 return ShowAdminButton ? Visibility.Visible : Visibility.Collapsed;
             }
         }
+
         public Visibility HideStoreListViewOnSelectionVisibility
         {
             get { return HideStoreListViewOnSelection ? Visibility.Collapsed : Visibility.Visible; }
         }
+
         // shows the store list and hides to store details pane
         public Visibility ShowStoreDetailsOnSelectionVisibility
         {
             get { return ShowStoreDetailsOnSelection ? Visibility.Visible : Visibility.Collapsed; }
         }
-        #endregion
-        #endregion
+
+        #endregion ShowDetails
+
+        #endregion Properties
 
         #region Methods
+
         #region Redirect Methods
+
         public bool IsOnShopPage()
         {
             var currentFrame = Window.Current.Content as Frame;
@@ -257,18 +271,22 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             else return false;
         }
+
         public void RedirectToMainPage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
         }
+
         public void RedirectToEventPage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(Events));
         }
+
         public void RedirectToMorePage()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(More));
         }
+
         public void RedirectToShopsMethod()
         {
             if (SelectedStore != null)
@@ -278,6 +296,7 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
+
         public void RedirectToAddStorePageMethod()
         {
             try
@@ -291,19 +310,22 @@ namespace ROsTorvApp.ViewModel.Collections
 
             ((Frame)Window.Current.Content).Navigate(typeof(AddStore));
         }
+
         public void RedirectToAdminpanel()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(AdminPanel), _selectedStore);
         }
+
         public static void GoBackMethod()
         {
             ((Frame)Window.Current.Content).GoBack();
-
         }
+
         public void LogOut()
         {
             ((Frame)Window.Current.Content).Navigate(typeof(LoginPage));
         }
+
         public void BackToStoreListView()
         {
             try
@@ -313,7 +335,6 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             catch (Exception)
             {
-
                 return;
             }
             finally
@@ -323,20 +344,23 @@ namespace ROsTorvApp.ViewModel.Collections
             }
             ShowStoreDetailsOnSelection = false;
             HideStoreListViewOnSelection = false;
+        }
 
-        } 
-        #endregion
+        #endregion Redirect Methods
 
         #region Saving Method
+
         public void SaveStoreMethod()
         {
             _selectedStore = null;
             ((Frame)Window.Current.Content).GoBack();
             StoreHandler.SaveStoresAsync();
-        } 
-        #endregion
+        }
+
+        #endregion Saving Method
 
         #region Browse Function
+
         public async void BrowseStores()
         {
             FileOpenPicker f = new FileOpenPicker();
@@ -362,9 +386,11 @@ namespace ROsTorvApp.ViewModel.Collections
             OnPropertyChanged();
             OnPropertyChanged(nameof(ImageFile));
         }
-        #endregion
+
+        #endregion Browse Function
 
         #region Delete & Add Store
+
         // This method deletes a selected store, if one is selected.
         public void DeleteStore()
         {
@@ -376,12 +402,14 @@ namespace ROsTorvApp.ViewModel.Collections
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
             //BackToStoreListView();
         }
+
         //This method Adds a new store, bound in XAML page.
         public void AddStore()
         {
             AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningAndClosingHoursVM, OpeningAndClosingHoursVM, DescriptionVM,
                 LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
         }
+
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
         public void AddStoreToList(Store store)
         {
@@ -390,9 +418,11 @@ namespace ROsTorvApp.ViewModel.Collections
             StoreHandler.SaveStoresAsync();
             ((Frame)Window.Current.Content).Navigate(typeof(Shops));
         }
-        #endregion
+
+        #endregion Delete & Add Store
 
         #region Dummy Data
+
         //Adds dummy data to the StoreCollection list, and saves them in Json (Localstorage)
         public static void AddStoreDummyData()
         {
@@ -412,18 +442,23 @@ namespace ROsTorvApp.ViewModel.Collections
             SingletonStores.Instance.StoreList.Add(new Store(13, "Kino", OpeningAndClosingTime[2], OpeningAndClosingTime[20], "Hos Kino på RO’s Torv i Roskilde, viser vi altid de nyeste film i både 2D og 3D. Du får et bredt udvalg af film til både voksne og børn, da vi bestræber os på at have noget for enhver smag og alder. Du kan booke dine billetter online eller købe dem i skranken hos os. Kino er en moderne biograf, der siden den åbnede i 2003 er blevet opgraderet flere gange.", 2, 3, "/Assets/Images/Kino.jpg", StoreCategories[11], "46 35 16 66"));
             StoreHandler.SaveStoresAsync();
         }
-        #endregion
+
+        #endregion Dummy Data
 
         #region Store Is Selected
+
         //checks if store is selected, if not, returns null.
         public bool StoreIsSelected()
         {
             return SelectedStore != null;
-        } 
-        #endregion
-        #endregion
+        }
+
+        #endregion Store Is Selected
+
+        #endregion Methods
 
         #region INotifyPropertyChanged
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -431,6 +466,6 @@ namespace ROsTorvApp.ViewModel.Collections
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion
+        #endregion INotifyPropertyChanged
     }
 }

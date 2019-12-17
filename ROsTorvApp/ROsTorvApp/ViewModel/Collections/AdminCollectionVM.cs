@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using ROsTorvApp.Annotations;
-using ROsTorvApp.Helpers;
+﻿using ROsTorvApp.Helpers;
 using ROsTorvApp.Model.Users;
+using System.Collections.ObjectModel;
 
 namespace ROsTorvApp.ViewModel.Collections
 {
@@ -26,6 +18,7 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             _adminCollection = new ObservableCollection<Admin>();
         }
+
         //A method which adds the default admin.
         public static void AddDefaultAdmin()
         {

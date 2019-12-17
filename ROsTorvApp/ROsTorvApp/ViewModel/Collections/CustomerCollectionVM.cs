@@ -1,30 +1,25 @@
-﻿using System;
+﻿using ROsTorvApp.Helpers;
+using ROsTorvApp.Model.Users;
+using ROsTorvApp.View;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using ROsTorvApp.Helpers;
-using ROsTorvApp.Model.Users;
-using ROsTorvApp.View;
-
 
 namespace ROsTorvApp.ViewModel.Collections
 {
     public class CustomerCollectionVM
     {
-        
         public Customer Customer1;
         private ObservableCollection<Customer> _customerCollection;
         public ICommand AddCustomerCommand { get; set; }
+
         public ObservableCollection<Customer> CustomerCollection
         {
-            get { return _customerCollection;}
+            get { return _customerCollection; }
         }
 
         public string UserName { get; set; }

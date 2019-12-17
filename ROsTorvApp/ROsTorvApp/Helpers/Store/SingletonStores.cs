@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ROsTorvApp.Model.Center;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ROsTorvApp.Model.Center;
-using ROsTorvApp.Model.Users;
 
 namespace ROsTorvApp.Helpers
 {
@@ -16,7 +10,7 @@ namespace ROsTorvApp.Helpers
         private static SingletonStores instance = null;
         public ObservableCollection<Store> StoreList { get; }
 
-        #endregion
+        #endregion Instance Fields
 
         #region Constructors
 
@@ -29,17 +23,17 @@ namespace ROsTorvApp.Helpers
             StoreHandler.LoadStoresAsync();
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
-        //Checks if instance is null and if it is then it gets created 
+        //Checks if instance is null and if it is then it gets created
         //and makes sure that it only can get created one time.
         public static SingletonStores Instance
         {
             get { return instance ?? (instance = new SingletonStores()); }
         }
 
-        #endregion
+        #endregion Properties
     }
 }

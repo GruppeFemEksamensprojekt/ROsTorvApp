@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ROsTorvApp.Model.Center
+﻿namespace ROsTorvApp.Model.Center
 {
-    class Center
+    internal class Center
     {
         public string CenterName { get; set; }
         public string OpeningHoursStart { get; set; }

@@ -1,12 +1,5 @@
 ﻿using ROsTorvApp.Model.Center.Offers;
-using ROsTorvApp.ViewModel.Collections;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ROsTorvApp.Model.Center
 {
@@ -36,13 +29,12 @@ namespace ROsTorvApp.Model.Center
             Description = description;
             LocationFloor = locationFloor;
             LocationNo = locationNo;
-            ImageStore= imageStore;
+            ImageStore = imageStore;
             StoreCategory = storeCategory;
         }
 
         public Store()
         {
-
         }
     }
 }

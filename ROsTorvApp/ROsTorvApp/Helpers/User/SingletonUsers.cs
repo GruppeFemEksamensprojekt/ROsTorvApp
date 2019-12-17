@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ROsTorvApp.Model.Users;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ROsTorvApp.Model.Users;
 
 namespace ROsTorvApp.Helpers
 {
@@ -15,7 +10,7 @@ namespace ROsTorvApp.Helpers
         private static SingletonUsers instance = null;
         public ObservableCollection<UserAccount> UserList { get; }
 
-        #endregion
+        #endregion Instance Fields
 
         #region Constructors
 
@@ -28,17 +23,17 @@ namespace ROsTorvApp.Helpers
             UserHandler.LoadUsersAsync();
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
-        //Checks if instance is null and if it is then it gets created 
+        //Checks if instance is null and if it is then it gets created
         //and makes sure that it only can get created one time.
         public static SingletonUsers Instance
         {
-            get { return instance ?? (instance = new SingletonUsers());}
+            get { return instance ?? (instance = new SingletonUsers()); }
         }
 
-        #endregion
+        #endregion Properties
     }
 }
