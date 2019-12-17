@@ -29,9 +29,5 @@ namespace ROsTorvApp.ViewModel.Collections
         {
             EventCollection.Add(eventevent);
         }
-
-
-
-
     }
 }

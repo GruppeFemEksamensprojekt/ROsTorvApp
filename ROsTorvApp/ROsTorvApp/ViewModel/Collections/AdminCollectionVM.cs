@@ -32,8 +32,5 @@ namespace ROsTorvApp.ViewModel.Collections
             SingletonUsers.Instance.UserList.Add(new Admin("Super", "User", 69, "Admin", "E-Mail@Email.com", "password", "40404040"));
             UserHandler.SaveUsersAsync();
         }
-
-
-
     }
 }

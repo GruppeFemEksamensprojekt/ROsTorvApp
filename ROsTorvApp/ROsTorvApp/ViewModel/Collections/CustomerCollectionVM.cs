@@ -78,5 +78,4 @@ namespace ROsTorvApp.ViewModel.Collections
             UserHandler.SaveUsersAsync();
         }
     }
-
 }

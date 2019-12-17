@@ -16,9 +16,5 @@ namespace ROsTorvApp.Model.Users
             : base(firstName,lastName,age, userName,email,password,phoneNo,false)
         {
         }
-        
-
-
-
     }
 }
