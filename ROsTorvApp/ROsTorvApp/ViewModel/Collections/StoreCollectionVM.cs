@@ -396,14 +396,13 @@ namespace ROsTorvApp.ViewModel.Collections
         // This method deletes a selected store, if one is selected.
         public void DeleteStore()
         {
-            if (SelectedStore != null)
+            if (SelectedStore != null) //  If SelectedStore is not null, run the code inside the If statement
             {
-                SingletonStores.Instance.StoreList.Remove(SelectedStore);
-                StoreHandler.SaveStoresAsync();
+                SingletonStores.Instance.StoreList.Remove(SelectedStore); // Removes the SelectedStore Object from the StoreList
+                StoreHandler.SaveStoresAsync(); // Saves the current StoreList in Json
             }
-            RedirectToShopsMethod();
-            //((Frame)Window.Current.Content).Navigate(typeof(Shops));
-            //BackToStoreListView();
+            RedirectToShopsMethod(); // Navigates back to Shops when a store is removed
+
         }
 
         //This method Adds a new store, bound in XAML page.
@@ -416,11 +415,10 @@ namespace ROsTorvApp.ViewModel.Collections
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
         public void AddStoreToList(Store store)
         {
-            SingletonStores.Instance.StoreList.Add(store);
-            OnPropertyChanged(nameof(SingletonStores.Instance.StoreList));
-            StoreHandler.SaveStoresAsync();
-            RedirectToShopsMethod();
-            //((Frame)Window.Current.Content).Navigate(typeof(Shops));
+            SingletonStores.Instance.StoreList.Add(store); // Adds a single store Object to StoreList
+            OnPropertyChanged(nameof(SingletonStores.Instance.StoreList)); // Updates the StoreList
+            StoreHandler.SaveStoresAsync(); // Saves the store in Json
+            RedirectToShopsMethod(); // Navigates back to Shops page when a store is added
         }
 
         #endregion Delete & Add Store
