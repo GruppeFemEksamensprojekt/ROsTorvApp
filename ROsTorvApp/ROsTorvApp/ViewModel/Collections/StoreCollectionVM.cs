@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Windows.Storage;
@@ -407,8 +408,16 @@ namespace ROsTorvApp.ViewModel.Collections
         //This method Adds a new store, bound in XAML page.
         public void AddStore()
         {
-            AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM,
-                LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+            List<string> infoCheckList = new List<string> { StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM };
+            if (infoCheckList.Any(p => p == null || p == ""))
+            {
+                UserHandler.contentDialog("Mangler info", "Fejl");
+            }
+            else
+            {
+                AddStoreToList(new Store(StoreIdVM, StoreNameVM, OpeningHoursVM, ClosingHoursVM, DescriptionVM,
+                    LocationFloorVM, LocationNoVM, ImageStoreVM, StoreCategoryVM, PhoneNoVM));
+            }
         }
 
         //A method which adds a new Store to the list of stores, and saves them in Json in localstorage
