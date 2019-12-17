@@ -51,21 +51,21 @@ namespace ROsTorvApp.ViewModel
 
         public void LoginAction()
         {
-            if (UserName != null && Password != null)
+            if (UserName != null && Password != null) // Checks if UserName and Password is not null, if true, run the If statement
             {
-                if (CheckLoginCredentials)
+                if (CheckLoginCredentials) // Checks if credentials exist in the UserList
                 {
-                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
+                    ((Frame)Window.Current.Content).Navigate(typeof(MainPage)); //  redirects to mainpage (Logs in) if the user exists
                 }
                 else
                 {
-                    LoginPage.PasswordBox.Password = "";
-                    UserHandler.contentDialog("Forkert brugernavn eller password", "Failed login");
+                    LoginPage.PasswordBox.Password = ""; // Clears the password box if login credentials is wrong
+                    UserHandler.contentDialog("Forkert brugernavn eller password", "Failed login"); // Error MessageBox
                 }
             }
             else
             {
-                UserHandler.contentDialog("Ingen input", "Failed login");
+                UserHandler.contentDialog("Ingen input", "Failed login"); // Error MessageBox
             }
         }
     }
